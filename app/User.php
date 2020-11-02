@@ -8,6 +8,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    protected $dates = ['nacimiento'];
+
     use Notifiable;
 
     /**
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nombre', 'username', 'email', 'password', 'edad',
     ];
 
     /**
@@ -36,4 +38,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relación hacia muchas participaciones
+     * @return type
+     */
+    public function participacion()
+    {
+        return $this->hasMany('App\Participacion');
+    }
 }
