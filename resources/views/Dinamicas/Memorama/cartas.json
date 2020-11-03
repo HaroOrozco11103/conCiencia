@@ -1,0 +1,27 @@
+{   "fisica":[
+    {"imagen":"img/ciencia/atomo.gif", "value":"atomo"},
+    {"imagen":"img/ciencia/energiaLuminica.gif", "value":"energiaLuminica"},
+    {"imagen":"img/ciencia/energiaSonora.gif", "value":"energiaSonora"}, 
+    {"imagen":"img/ciencia/galaxia.gif", "value":"galaxia"},
+    {"imagen":"img/ciencia/reflexion.png", "value":"relfexion"},
+    {"imagen":"img/ciencia/adn.gif", "value":"adn"}],
+    
+    
+    "artes":[
+    {"imagen":"img/artes/abstracto.jpg", "value":"abstracto"},
+    {"imagen":"img/artes/david.jpg", "value":"david"},
+    {"imagen":"img/artes/giganteTula.jpg", "value":"giganteTula"}, 
+    {"imagen":"img/artes/grito.png", "value":"grito"},
+    {"imagen":"img/artes/neoClasico.jpg", "value":"neoClasico"},
+    {"imagen":"img/artes/nocheEstrellada.jpg", "value":"nocheEstrellada"}
+    ],
+
+    "geografia":[
+    {"imagen":"img/geografia/lago.jpg", "value":"lago"},
+    {"imagen":"img/geografia/mapaMundial.jpg", "value":"mapa mundial"},
+    {"imagen":"img/geografia/redHidrografica.png", "value":"red hidrografica"},
+    {"imagen":"img/geografia/relieve.jpg", "value":"relieve"},
+    {"imagen":"img/geografia/brujula.jpg", "value":"brujula"},
+    {"imagen":"img/geografia/volcan.jpg", "value":"volcan"}
+    ]
+}

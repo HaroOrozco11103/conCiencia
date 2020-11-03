@@ -1,0 +1,86 @@
+
+.contenedor{
+    max-width: 75%;
+    width: 100%;
+    min-height: 300px;
+    border: dashed 1px #808080;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carta{
+    width: 90px;
+    height: 120px;
+    border: solid .5px #000;
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+
+    transition: all 1s ease;
+    transform: perspective(600px);
+    transform-origin: 100% 50%;
+    transform-style: preserve-3d;
+}
+
+
+.rotar{
+    transform: perspective(600px) rotateY(-180deg) translateX(100%) !important;
+}
+
+
+.carta .cara,
+.carta .tapa{
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+
+.carta .cara{
+    transform: rotateY(-180deg);
+}
+
+.cara, .tapa{ 
+    padding: 5%;
+    width: 80px;
+    height: 110px;
+    display: block;
+}
+
+
+.titulo{
+    text-align: center;
+}
+
+.score{
+    float: left;
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold ;
+    margin: 5px;
+    margin-top: -20px;
+    padding-left: 12%;
+}
+
+.contadorTiempo{ 
+    float: left;
+    text-align: right;
+    width: 87%;
+    margin: 5px;
+    margin-top: -20px;
+}
+
+.materias{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.clear{
+    clear: both;
+}
+
+

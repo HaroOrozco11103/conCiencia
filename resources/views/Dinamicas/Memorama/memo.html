@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Memorama</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="estiloMemo.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+       
+
+    </head>
+    <body>
+
+        <header class="cabecera"><h1 class="titulo">ConCienciaSoft <br> MEMO</h1></header>
+        
+        <div class="materias">
+            <select id="asignatura">
+                <option value="fisica" selected>Fisica</option>
+                <option value="artes">Artes</option>
+                <option value="geografia">Geografia</option>
+            </select>
+            <input type="button" value="Iniciar Juego" id="btnCorrer" >
+        </div>
+
+        <br><br>
+
+        <div class="score">0.0</div>
+
+        <div class="contadorTiempo">
+            <span class="Hora">00:</span>
+            <span class="Minuto">00:</span>
+            <span class="Segundo">00</span>
+        </div>
+
+        <div class="clear"></div>
+        
+        <div class="contenedor">
+            <!-- Aqui van las cartas, traido de JS-->
+        </div>
+
+        <script src="efectos.js" type="text/javascript"></script>
+        
+    </body>
+</html>
