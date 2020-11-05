@@ -1,0 +1,25 @@
+body{
+    background-color:teal;  
+}
+.palabras{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color:yellow;
+}
+.ahorcado{
+    text-align: center;
+}
+.letra{
+    display: inline;
+    margin: 5px;
+}
+
+.alfabeto{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.botones{
+    margin: 2px;
+}
