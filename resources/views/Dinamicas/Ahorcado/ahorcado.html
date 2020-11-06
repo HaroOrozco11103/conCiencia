@@ -63,8 +63,19 @@ function handleComplete(evt,comp) {
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
+
+		<div class="materias">
+            <select id="asignatura">
+                <option value="fisica" selected>Fisica</option>
+                <option value="artes">Artes</option>
+                <option value="geografia">Geografia</option>
+			</select>
+			
+            <input type="button" value="Iniciar Juego" id="btnCorrer" >
+        </div>
+	
 	<div id="animation_container" style=" width:254px; height:223px">
-		<canvas id="canvas" width="254" height="223" style="position: absolute; display: block;"></canvas>
+		<canvas id="canvas"  style="position: absolute; display: block;"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:254px; height:223px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
 	</div>

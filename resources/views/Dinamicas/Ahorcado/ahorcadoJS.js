@@ -6,14 +6,8 @@ var palabraCompleta;
 var vidas;
 
 function inicializar(){
-    indexP = 0;
-    palabraCompleta = false;
-    vidas=6;
-
-    leerJson();
-
-    crearEspacios();
     imprimirBotones();
+    $(".botones").attr("disabled", true);
 }
 
 function reiniciar(){
@@ -63,7 +57,7 @@ function leerJson(){
             dataType: "json",
             async: false,
             success: function (json) {
-                listaPalabras = json["fisica"];
+                listaPalabras = json[$("#asignatura").val()];
             }
         });    
 
@@ -120,4 +114,8 @@ $(".botones").on("click", function () {
     this.setAttribute('disabled', true);
     verificar(this);
     
+});
+
+$("#btnCorrer").on("click",function (e) { 
+    reiniciar();
 });
