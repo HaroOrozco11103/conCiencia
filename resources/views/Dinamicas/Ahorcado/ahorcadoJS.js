@@ -3,16 +3,34 @@ $(document).ready(inicializar());
 var listaPalabras;
 var indexP;
 var palabraCompleta;
+var vidas;
 
 function inicializar(){
     indexP = 0;
-    listaPalabras = [];
     palabraCompleta = false;
+    vidas=6;
 
     leerJson();
 
     crearEspacios();
     imprimirBotones();
+}
+
+function reiniciar(){
+    limpiar();
+    leerJson();
+    crearEspacios();
+    
+}
+
+function limpiar(){
+    listaPalabras = [];
+    indexP = 0;
+    palabraCompleta = false;
+    vidas=6;
+    $(".botones").attr("disabled", false);
+    $(".letra").remove();
+    ocultarPiezas();
 }
 
 
@@ -58,6 +76,7 @@ function verificar(letra){
     var value = letra.value.toLowerCase();
     var palabra = listaPalabras[indexP];
 
+    var letraEncontrada = false;
     //alert(palabra + "\n"+ value);
 
     palabraCompleta = true;
@@ -65,15 +84,31 @@ function verificar(letra){
     var campos = $('.palabras').find(".letra");
 
     for (let i = 0; i < palabra.length; i++) {     
-        if(value == palabra.charAt(i))
+        if(value == palabra.charAt(i)){
             campos[i].innerHTML = value;
+            letraEncontrada = true;
+        }
             
         if(campos[i].innerHTML == '_')
             palabraCompleta = false;
     }
     
-    if(palabraCompleta)
-        alert("GANASTE!");
+    if(!letraEncontrada){
+        vidas--;
+        mostrarPieza(vidas);
+
+        if(vidas == 0){
+            setTimeout(function(){
+                alert("¡PERDISTE!");
+                reiniciar();
+            },100);
+        }
+    }
+
+    if(palabraCompleta){
+        alert("¡GANASTE!");
+        reiniciar();
+    }
 }
 
 
@@ -86,5 +121,3 @@ $(".botones").on("click", function () {
     verificar(this);
     
 });
-
-
