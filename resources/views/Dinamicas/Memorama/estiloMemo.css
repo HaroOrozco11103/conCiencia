@@ -1,22 +1,29 @@
+body{
+    background-color: beige;
+}
 
 .contenedor{
-    max-width: 75%;
-    width: 100%;
+    max-width: 800px;
+    min-width: 200px;
     min-height: 300px;
+    max-height: 700px;
     border: dashed 1px #808080;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 10px;
 }
+
 
 .carta{
     width: 90px;
-    height: 120px;
+    min-height: 120px;
     border: solid .5px #000;
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
     position: relative;
 
+    text-align: center;
     transition: all 1s ease;
     transform: perspective(600px);
     transform-origin: 100% 50%;
@@ -28,6 +35,12 @@
     transform: perspective(600px) rotateY(-180deg) translateX(100%) !important;
 }
 
+.cara:hover, .tapa:hover {
+    width: 90px;
+    height: 120px;
+    margin: 0px;
+    transition-duration: 20ms;
+}
 
 .carta .cara,
 .carta .tapa{
@@ -41,14 +54,15 @@
 }
 
 .cara, .tapa{ 
-    padding: 5%;
+    margin: 5%;
     width: 80px;
     height: 110px;
     display: block;
 }
 
 
-.titulo{
+.cabecera .titulo{
+    font-size: 4vw;
     text-align: center;
 }
 
@@ -57,7 +71,7 @@
     width: 50%;
     font-size: 20px;
     font-weight: bold ;
-    margin: 5px;
+    margin-left: 8%;
     margin-top: -20px;
     padding-left: 12%;
 }
@@ -66,7 +80,7 @@
     float: left;
     text-align: right;
     width: 87%;
-    margin: 5px;
+    margin-left: -8%;
     margin-top: -20px;
 }
 
