@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>trivial</title>
     
-    <script	src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-
     <link rel="stylesheet" href="estiloTrivial.css">
+
+    <!--JQuery-->
+    <script	src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 </head>
 <body>
+
     
+    <div class="tipoJuego">
+        <select id="Asignatura" style="width: 100px;">
+            <option value="fisica">Física</option>
+            <option value="arte">Artes</option>
+        </select>
+
+        <input id="btnCorrer" type="button" value="¡  Iniciar Juego !" > 
+    </div>
+
     <div class="marcador">
         <div class="puntaje">
             <p class="score"></p>
@@ -25,20 +37,7 @@
             <span  class="tiempo" id="segundos"> 00</span>
         </div>
     </div>
-
-    <div class="tipoJuego">
-        <select id="Asignatura" style="width: 100px;">
-            <option value="fisica">Física</option>
-            <option value="arte">Artes</option>
-        </select>
-
-        <input id="btnPregunta" type="button" value="¡  Iniciar Juego !" > 
-    </div>
     
-    <br>
-    <br>
-    <br>
-    <br>
 
     <div class="preguntas">
         <p id="txtPregunta"></p>
@@ -59,7 +58,7 @@
     <div></div>
     
     
-    <script type='text/javascript' src="fisica.js"></script>    
+    <script type='text/javascript' src="trivialJS.js"></script>    
     
 </body>
 </html>

@@ -78,7 +78,6 @@ function inicializar_tiempo(){
                 $('.score').html("score: 0");
                 spans[1].innerHTML = "00 : ";
                 spans[2].innerHTML = "00";
-                
             }
             
         }else{
@@ -237,6 +236,11 @@ function rotar(carta){
         $("#"+carta.id).addClass("rotar");    
     }    
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /* Eventos*/
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //cuando das click al boton de iniciar juego
 $("#btnCorrer").click(function (e) { 

@@ -5,6 +5,7 @@ var preguntaIndex = 0;
 
 var respondido = false;
 var finDelJuego = true;
+var reiniciar = false;
 
 var listaPreguntas = [];
 var listaRespuestas = [];
@@ -28,6 +29,10 @@ function inicializar(){
 function limpiar(){
     score = 0;
     respondido = false;
+    finDelJuego = true;
+    segundos = 0;
+    minutos = 0;
+
     $(".score").val(score);
     $(".score").html("Score: "+ score);
     $("#txtPregunta").html("");
@@ -36,15 +41,22 @@ function limpiar(){
     $(".boton").val("")
     $(".boton").css("background-color","#333");
     
+    var spans = $(".cronometro").find("span");
+    spans[0] = "00:";
+    spans[1] = "00:";
+    spans[2] = "00";
+    
 }
 
 
 function Correr(){
-    segundos = 10;
+
+    segundos = 30;
     minutos = 0;
     finDelJuego = false;
+    reiniciar = false;
+    
     $("#Asignatura").prop('disabled', true);   
-    inicializar();
     leerJson();
     cargarPregunta();
     inicializar_tiempo();
@@ -53,16 +65,16 @@ function Correr(){
 //Inicializamos el cronometro y evaluamos
 function inicializar_tiempo(){
     try{
-        var spans = $(".cronometro").find("span");
         
         if((segundos == 0 && minutos == 0 || finDelJuego)){
+
+            if(!reiniciar){
                 alert("FIN DEL JUEGO! \n   PUNTAJE:" + score);
-            
-                $('.score').html("score: 0");
-                spans[1].innerHTML = "00 : ";
-                spans[2].innerHTML = "00";
+             
                 limpiar();
-                finDelJuego = true;
+            }
+            
+                
              
         }else{
 
@@ -208,8 +220,10 @@ function ajustarTexto(e){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Evento cuando se le de clic al boton de iniciar
-$("#btnPregunta").on("click", function(){
-    Correr();
+$("#btnCorrer").on("click", function(){
+    finDelJuego = true;
+    reiniciar = true;
+    setTimeout(Correr, 1000);
 });
 
 //Cuando se les da click a los botonoes

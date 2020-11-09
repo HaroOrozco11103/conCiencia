@@ -32,7 +32,7 @@ function crearEspacios(){
     indexP = Math.floor(Math.random() * listaPalabras.length);
 
     for (let i = 0; i < listaPalabras[indexP].length; i++) {
-        $(".palabras").append('<h2 class="letra">_</h2>');
+        $(".palabras").append('<font class="letra">_</font>');
     }
 
 }
