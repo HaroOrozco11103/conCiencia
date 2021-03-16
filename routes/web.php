@@ -13,19 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.index');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/inicio', function ()
+Route::get('/', function ()
 {
-    return view('layouts.index');
+    return view('inicio');
 })->name('inicio');
 
+Auth::routes();
 
 //--------------------------------------------------------USERS--------------------------------------------------------
 Route::resource('users', 'UserController');
@@ -39,6 +32,11 @@ Route::resource('asignaturas', 'AsignaturaController');
 
 //------------------------------------------------------DINAMICAS-------------------------------------------------------
 Route::resource('dinamicas', 'DinamicaController');
+
+//------------------------------------------------------GRUPOS-------------------------------------------------------
+Route::resource('grupos', 'GrupoController');
+Route::get('entrar', 'GrupoController@entrar')->name('grupos.entrar');
+Route::PATCH('entrar/autenticando', 'GrupoController@autenticar')->name('grupos.autenticar');
 
 //------------------------------------------------------PARTICIPACIONES-------------------------------------------------------
 Route::resource('participaciones', 'ParticipacionController');

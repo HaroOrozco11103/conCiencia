@@ -10,9 +10,9 @@ class Participacion extends Model
      * Establece relación hacia un usuario
      * @return type
      */
-    public function user()
+    public function alumno()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Alumno::class);
     }
 
     /**
