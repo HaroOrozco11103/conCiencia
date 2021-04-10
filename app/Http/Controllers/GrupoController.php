@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Grupo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GrupoController extends Controller
 {
@@ -32,11 +33,26 @@ class GrupoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function autenticar()
+    public function autenticar(Request $request)
     {
-      //Recibir valores (parametros)
-      //Comparar valores
-      //Enviar a ruta de grupo para alumno
+      $grupo = DB::table('grupos')->where('codigo', $request->codigo)->get();
+      $alumno = DB::table('alumnos')->where('username', $request->nombre)->get();
+
+      if($alumno[0]->grupo_id == $grupo[0]->id)
+      {
+        dd("SUCCESS");
+        //Enviar a ruta de grupo para alumno
+        return redirect()->route('grupos.entrar');
+      }
+      else
+      {
+        dd("ERROR");
+        return redirect()->route('grupos.entrar')
+        ->with([
+            'mensaje' => 'El código del grupo o el nombre del alumno no se han ingresado correctamente',
+            'alert-class' => 'alert-warning'
+        ]);
+      }
     }
 
     /**

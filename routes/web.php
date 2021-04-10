@@ -36,7 +36,7 @@ Route::resource('dinamicas', 'DinamicaController');
 //------------------------------------------------------GRUPOS-------------------------------------------------------
 Route::resource('grupos', 'GrupoController');
 Route::get('entrar', 'GrupoController@entrar')->name('grupos.entrar');
-Route::PATCH('entrar/autenticando', 'GrupoController@autenticar')->name('grupos.autenticar');
+Route::POST('entrar/autenticando', 'GrupoController@autenticar')->name('grupos.autenticar');
 
 //------------------------------------------------------PARTICIPACIONES-------------------------------------------------------
 Route::resource('participaciones', 'ParticipacionController');

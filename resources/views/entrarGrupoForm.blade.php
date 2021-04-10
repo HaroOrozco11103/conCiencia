@@ -10,14 +10,14 @@
             <div class="form-group row">
                 <label class="col-md-4 col-form-label text-md-right">Nombre</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="name" required>
+                    <input type="text" class="form-control" name="nombre" required>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-md-4 col-form-label text-md-right">Código de grupo</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="name" required>
+                    <input type="text" class="form-control" name="codigo" required>
                 </div>
             </div>
 
