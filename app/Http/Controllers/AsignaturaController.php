@@ -14,7 +14,8 @@ class AsignaturaController extends Controller
      */
     public function index()
     {
-        //
+        $asignaturas = Asignatura::all(); //Todas las asignaturas
+        return view('asignaturasIndex', compact('asignaturas'));
     }
 
     /**
@@ -46,7 +47,7 @@ class AsignaturaController extends Controller
      */
     public function show(Asignatura $asignatura)
     {
-        //
+        dd($asignatura->nombre);
     }
 
     /**

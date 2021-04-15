@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Grupo;
+use App\Asignatura;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,9 +41,9 @@ class GrupoController extends Controller
 
       if($alumno[0]->grupo_id == $grupo[0]->id)
       {
-        dd("SUCCESS");
+        //dd("SUCCESS");
         //Enviar a ruta de grupo para alumno
-        return redirect()->route('grupos.entrar');
+        return redirect()->route('asignaturas.index');
       }
       else
       {
