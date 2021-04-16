@@ -30,6 +30,12 @@
                 </div>
             </div>
 
+            @if (session('mensaje'))
+                <div class="alert alert-danger">
+                    {{ session('mensaje') }}
+                </div>
+            @endif
+
         </form>
     </div>
 </div>

@@ -36,24 +36,24 @@ class GrupoController extends Controller
      */
     public function autenticar(Request $request)
     {
-      $grupo = DB::table('grupos')->where('codigo', $request->codigo)->get();
-      $alumno = DB::table('alumnos')->where('username', $request->nombre)->get();
+        try {
 
-      if($alumno[0]->grupo_id == $grupo[0]->id)
-      {
-        //dd("SUCCESS");
-        //Enviar a ruta de grupo para alumno
-        return redirect()->route('asignaturas.index');
-      }
-      else
-      {
-        dd("ERROR");
-        return redirect()->route('grupos.entrar')
-        ->with([
-            'mensaje' => 'El código del grupo o el nombre del alumno no se han ingresado correctamente',
-            'alert-class' => 'alert-warning'
-        ]);
-      }
+            $grupo = DB::table('grupos')->join('alumnos', 'grupos.id','=','alumnos.grupo_id')
+            ->where('grupos.codigo', $request->codigo)->where('alumnos.username', $request->nombre)->get();
+
+            if(sizeof($grupo) > 0){
+                return redirect()->route('asignaturas.index');
+            }else{
+                return redirect()->route('grupos.entrar')
+                ->with([
+                    'mensaje' => 'El código del grupo o el nombre del alumno no se han ingresado correctamente',
+                    'alert-class' => 'alert-warning'
+                ]);
+            }
+
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**
