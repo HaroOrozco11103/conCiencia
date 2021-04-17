@@ -1,0 +1,13 @@
+{
+    "fisica":[
+        ["Newton", "Einstein", "Galileo","Arquimedes"],
+        ["Tesla", "Newton", "Edison","Hawking"],
+        ["Einstein", "Schrodinger", "Edison", "Hawking"]
+    ],
+
+    "arte":[
+        ["Miguel Angel",
+        "Leonardo Da Vinci",
+        "Rafael Sanzio","Donatello"]
+    ]
+}  

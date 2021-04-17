@@ -1,0 +1,130 @@
+
+.cuerpo{
+    background-color:teal;  
+    height: 100%;
+}
+
+.materias{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.materias #asignatura{
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.materias #btnCorrer{
+    margin-left: 10px;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    background-color: red;
+    color: white;
+}
+
+.materias #btnCorrer:hover{
+    background-color: white;
+    color: #006600;
+}
+
+
+.palabras{
+    margin-left: 10px;
+    margin-bottom: 60px;
+    text-align: center;
+    color:yellow;
+}
+
+.palabras .letra{
+    display: inline;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 5px;
+}
+
+.alfabeto{  
+    padding: 25%;
+    text-align: center;    
+}
+
+.alfabeto .botones{
+    margin: 5px;
+    height: 50px;
+    font-size: 20px;
+    width: 50px;
+    background:linear-gradient(to bottom right, #000099 0%, #666699 100%);
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+.alfabeto .botones:hover{
+    background: linear-gradient(to top left, #66ff33 0%, #006600 100%);
+    color: white;
+}
+
+.alfabeto .botones:disabled{
+    opacity: .2;
+}
+
+#animation_container {
+    
+	position: relative;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;    
+    width:70%;
+    height: 60vh;
+}
+
+canvas{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+@media only screen and (min-device-width:100px) and (max-device-width:1000px){
+    
+    .materias #asignatura{
+        width: 110px;
+        height: 40px;
+    }
+    
+    .materias #btnCorrer{
+        width: 110px;
+        height: 40px;   
+    }
+
+    .alfabeto{  
+        padding: 5%;
+        text-align: center;    
+    }
+
+    .alfabeto .botones{
+        margin: 2px;
+        height: 30px;
+        font-size: 10px;
+        width: 30px;
+    }
+
+    #animation_container {
+        width:50%;
+        height: 30vh;
+    }
+
+    .palabras{
+        margin-bottom: 20px;
+    }
+    .palabras .letra{
+        font-size: 25px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 5px;
+    }    
+    
+}

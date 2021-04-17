@@ -1,0 +1,27 @@
+{   "fisica":[
+    {"imagen":"../../images/cartas/ciencia/atomo.gif", "value":"atomo"},
+    {"imagen":"../../images/cartas/ciencia/energiaLuminica.gif", "value":"energiaLuminica"},
+    {"imagen":"../../images/cartas/ciencia/energiaSonora.gif", "value":"energiaSonora"}, 
+    {"imagen":"../../images/cartas/ciencia/galaxia.gif", "value":"galaxia"},
+    {"imagen":"../../images/cartas/ciencia/reflexion.png", "value":"relfexion"},
+    {"imagen":"../../images/cartas/ciencia/adn.gif", "value":"adn"}],
+    
+    
+    "artes":[
+    {"imagen":"../../images/cartas/artes/abstracto.jpg", "value":"abstracto"},
+    {"imagen":"../../images/cartas/artes/david.jpg", "value":"david"},
+    {"imagen":"../../images/cartas/artes/giganteTula.jpg", "value":"giganteTula"}, 
+    {"imagen":"../../images/cartas/artes/grito.png", "value":"grito"},
+    {"imagen":"../../images/cartas/artes/neoClasico.jpg", "value":"neoClasico"},
+    {"imagen":"../../images/cartas/artes/nocheEstrellada.jpg", "value":"nocheEstrellada"}
+    ],
+
+    "geografia":[
+    {"imagen":"../../images/cartas/geografia/lago.jpg", "value":"lago"},
+    {"imagen":"../../images/cartas/geografia/mapaMundial.jpg", "value":"mapa mundial"},
+    {"imagen":"../../images/cartas/geografia/redHidrografica.png", "value":"red hidrografica"},
+    {"imagen":"../../images/cartas/geografia/relieve.jpg", "value":"relieve"},
+    {"imagen":"../../images/cartas/geografia/brujula.jpg", "value":"brujula"},
+    {"imagen":"../../images/cartas/geografia/volcan.jpg", "value":"volcan"}
+    ]
+}
