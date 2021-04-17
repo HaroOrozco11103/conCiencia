@@ -38,13 +38,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * Relación hacia muchas participaciones
-     * @return type
-     */
-    public function participacion()
-    {
-        return $this->hasMany('App\Participacion');
-    }
 }

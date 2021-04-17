@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Asignatura;
+use App\Alumno;
 use Illuminate\Http\Request;
 
-class AsignaturaController extends Controller
+class AlumnoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class AsignaturaController extends Controller
      */
     public function index()
     {
-        $asignaturas = Asignatura::all(); //Todas las asignaturas
-        return view('asignaturasIndex', compact('asignaturas'));
+        //
     }
 
     /**
@@ -42,21 +41,21 @@ class AsignaturaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Asignatura  $asignatura
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function show(Asignatura $asignatura)
+    public function show(Alumno $alumno)
     {
-        dd($asignatura->nombre);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Asignatura  $asignatura
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asignatura $asignatura)
+    public function edit(Alumno $alumno)
     {
         //
     }
@@ -65,10 +64,10 @@ class AsignaturaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Asignatura  $asignatura
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asignatura $asignatura)
+    public function update(Request $request, Alumno $alumno)
     {
         //
     }
@@ -76,10 +75,10 @@ class AsignaturaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Asignatura  $asignatura
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asignatura $asignatura)
+    public function destroy(Alumno $alumno)
     {
         //
     }

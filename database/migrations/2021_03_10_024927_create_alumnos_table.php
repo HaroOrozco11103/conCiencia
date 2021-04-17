@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateAlumnosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('alumnos', function (Blueprint $table) {
             //$table->id();
             $table->increments('id');
             $table->string('nombre');
-            $table->string('email')->unique();
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('username');
+            //Foreign - A qué grupo pertenece. Un grupo tiene muchos alumnos. Un alumno pertenece a un solo grupo.
+            $table->unsignedInteger('grupo_id')->nullable();
+            $table->foreign('grupo_id')->references('id')->on('grupos');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('alumnos');
     }
 }
