@@ -1,8 +1,6 @@
 $("document").ready(run());
 
 var cartas = [];
-var segundos;
-var minutos;
 
 var score;
 var aciertosContinuos;
@@ -28,7 +26,17 @@ function run(){
     }
 }
 
+function limpiar(){
+    
+    $('.score').html("score: 0");
+    spans[1].innerHTML = "00: ";
+    spans[2].innerHTML = "00";
+}
+
 function inicializar_juego(){
+    
+    $('.carta').remove();
+
     minutos = 2;
     segundos = 10;
     score = 0;
@@ -62,52 +70,6 @@ function getTapa(){
         case 2: 
             tapa = `${image}/cartas/arqueologa.jpg`;
             break;
-    }
-}
-
-//metodo para correr la hora actual
-function inicializar_tiempo(){
-    try{
-        var spans = $(".cronometro").find("span");
-        
-        if((segundos == 0 && minutos == 0) || finDelJuego == true){
-            
-            if(reiniciar == false){
-                alert("FIN DEL JUEGO! \n   PUNTAJE:" + score);
-                $('.carta').remove();
-                $('.score').html("score: 0");
-                spans[1].innerHTML = "00 : ";
-                spans[2].innerHTML = "00";
-            }
-            
-        }else{
-
-            if(segundos == 0){
-                segundos = 59;
-                minutos--;
-            }
-            
-            
-            segundos--;
-                
-            //var spans = document.querySelector(".cronometro").querySelectorAll("span");
-            
-            if(minutos < 10){
-                spans[1].innerHTML = "0" + minutos + " : ";
-            }else{
-                spans[1].innerHTML = minutos + " : ";
-            }
-
-            if(segundos<10){
-                spans[2].innerHTML = "0" + segundos;
-            }else{
-                spans[2].innerHTML = segundos;
-            }
-
-            setTimeout(inicializar_tiempo, 1000);
-        }
-            }catch(error){
-        console.log(error);
     }
 }
 

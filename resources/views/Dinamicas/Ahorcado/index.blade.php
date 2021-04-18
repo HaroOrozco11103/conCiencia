@@ -4,13 +4,56 @@
 
 <link rel="stylesheet" href="{{asset('css/Dinamicas/ahorcado.css')}}">  
 
-<!-- write your code here -->
-<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-
 <!--Bootstrap-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<script type='text/javascript' src="{{ asset('js/Dinamicas/Ahorcado/munecoJS.js')}}"></script>
+	<div class="row">
+		<div class="col-md-12">
+			
+			<div class="row">
+				<div class="col-md-12">
+					
+					<div class="materias">
+						<select id="asignatura">
+							<option value="fisica" selected>Fisica</option>
+							<option value="artes">Artes</option>
+							<option value="geografia">Geografia</option>
+						</select>
+						
+						<input type="button" value="Iniciar Juego" id="btnCorrer" >
+					</div>
+									
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-7">
+			
+					<div class="palabras">
+						<label class="letra">JUEGO DEL AHORCADO</label>
+						<!-- Aqui van los espacios de las palabras-->
+					</div>
+		
+					<div id="animation_container">
+						<canvas id="canvas"  style="position: absolute; display: block;"></canvas>
+						<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; position: absolute; left: 0px; top: 0px; display: block;"></div>
+					</div>
+				</div>
+		
+				<div class="col-md-5">
+					
+					<div class="alfabeto">
+						<!-- Aqui van los botones con las letras-->
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+<!-- write your code here -->
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 
 <script>
 	var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -53,54 +96,8 @@
 		fnStartAnimation();
 	}
 </script>
-	<div class="cuerpo">
-		<div class="row">
-			<div class="col-md-12">
-				
-				<div class="row">
-					<div class="col-md-12">
-						
-						<div class="materias">
-							<select id="asignatura">
-								<option value="fisica" selected>Fisica</option>
-								<option value="artes">Artes</option>
-								<option value="geografia">Geografia</option>
-							</select>
-							
-							<input type="button" value="Iniciar Juego" id="btnCorrer" >
-						</div>
-										
-					</div>
-				</div>
 
-				<div class="row">
-					<div class="col-md-7">
-				
-						<div class="palabras">
-							<label class="letra">JUEGO DEL AHORCADO</label>
-							<!-- Aqui van los espacios de las palabras-->
-						</div>
-			
-						<div id="animation_container">
-							<canvas id="canvas"  style="position: absolute; display: block;"></canvas>
-							<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; position: absolute; left: 0px; top: 0px; display: block;"></div>
-						</div>
-					</div>
-			
-					<div class="col-md-5">
-						
-						<div class="alfabeto">
-							<!-- Aqui van los botones con las letras-->
-						</div>
-						
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	
-	  
+	<script type='text/javascript' src="{{ asset('js/Dinamicas/Ahorcado/munecoJS.js')}}"></script> 
 	<script type='text/javascript' src="{{ asset('js/Dinamicas/Ahorcado/ahorcadoJS.js')}}"></script>
 
 

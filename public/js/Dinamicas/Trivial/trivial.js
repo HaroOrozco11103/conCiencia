@@ -12,7 +12,6 @@ var listaRespuestas = [];
 
 var segundos;
 var minutos;
-var spans;
 
 function setListaPreguntas(data){
     this.listaPreguntas = data;
@@ -42,10 +41,10 @@ function limpiar(){
     $(".boton").val("")
     $(".boton").css("background-color","#333");
     
-    spans = $(".cronometro").find("span");
+    
     spans[0].innerHTML = "00:";
-    spans[1].innerHTML = "00:";
-    spans[2].innerHTML = "00";
+    spans[1].innerHTML = "00";
+    
     
 }
 
@@ -62,48 +61,6 @@ function Correr(){
     inicializar_tiempo();
 }
 
-//Inicializamos el cronometro y evaluamos
-function inicializar_tiempo(){
-    try{
-        
-        if((segundos == 0 && minutos == 0 || finDelJuego)){
-
-            if(!reiniciar){
-                alert("FIN DEL JUEGO! \n   PUNTAJE:" + score);
-             
-                limpiar();
-            }
-            
-                
-             
-        }else{
-
-            if(segundos == 0){
-                segundos = 59;
-                minutos--;
-            }
-            
-            
-            segundos--;
-            
-            if(minutos < 10){
-                spans[1].innerHTML = "0" + minutos + " : ";
-            }else{
-                spans[1].innerHTML = minutos + " : ";
-            }
-
-            if(segundos<10){
-                spans[2].innerHTML = "0" + segundos;
-            }else{
-                spans[2].innerHTML = segundos;
-            }
-
-            setTimeout(inicializar_tiempo, 1000);
-        }
-            }catch(error){
-        console.log(error);
-    }
-}
 
 //Obtenemos la pregunta u la imprimimos en pantalla
 function cargarPregunta(){

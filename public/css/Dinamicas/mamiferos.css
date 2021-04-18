@@ -1,13 +1,13 @@
 
-.contenido{
-    padding-left: 20px;
-    padding-right: 20px;
-
+.cuerpo{
     background: linear-gradient(rgba(255,255,255,.1), rgba(0, 0, 0,.9)), url("../../images/lobo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 100%;
+}
+
+.contenido{
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 h1{

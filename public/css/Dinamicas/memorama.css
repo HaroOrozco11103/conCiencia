@@ -1,34 +1,8 @@
 .cuerpo{
     background-color: beige;
-    height: 100%;
 }
 
-.materias{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: center;
-}
 
-.materias #asignatura{
-    border-radius: 5px;
-    width: 130px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.materias #btnCorrer{
-    margin-left: 10px;
-    border-radius: 5px;
-    width: 130px;
-    height: 40px;
-    background-color: red;
-    color: white;
-}
-
-.materias #btnCorrer:hover{
-    background-color: white;
-    color: #006600;
-}
 
 .contenedor{
     max-width: 800px;
@@ -112,16 +86,6 @@
     text-align: right;
     margin-right: 20%;
     
-}
-
-.materias{
-    width: 300px;
-    height: 30px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    display: block;
 }
 
 

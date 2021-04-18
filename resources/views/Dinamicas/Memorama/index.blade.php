@@ -27,13 +27,14 @@
         <div class="row">
             <div class="col-md-12">                
 
-                <div class="datos">
-                    <div class="score">0.0</div>
+                <div class="marcador">
+                    <div class="puntaje">
+                        <p class="score">score:</p>
+                    </div>
 
                     <div class="cronometro">
-                        <span class="Hora">00:</span>
-                        <span class="Minuto">00:</span>
-                        <span class="Segundo">00</span>
+                        <span class="tiempo" id="minuto">00:</span>
+                        <span class="tiempo" id="segundo">00</span>
                     </div>
                 </div>
                 
@@ -42,11 +43,11 @@
                 </div>
                 
             </div>
-
         </div>
     </div>
 
     <link rel="stylesheet" href="{{asset('css/Dinamicas/memorama.css')}}">
     
-    <script type='text/javascript' src="{{ asset('js/Dinamicas/Memorama/memorama.js')}}"></script>    
+    <script type='text/javascript' src="{{ asset('js/Dinamicas/Memorama/memorama.js')}}"></script>
+    <script type='text/javascript' src="{{ asset('js/Dinamicas/cronometro.js')}}"></script>    
 @endsection

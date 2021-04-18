@@ -4,39 +4,12 @@
     height: 100%;
 }
 
-.materias{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.materias #asignatura{
-    border-radius: 5px;
-    width: 200px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.materias #btnCorrer{
-    margin-left: 10px;
-    border-radius: 5px;
-    width: 200px;
-    height: 40px;
-    background-color: red;
-    color: white;
-}
-
-.materias #btnCorrer:hover{
-    background-color: white;
-    color: #006600;
-}
-
-
 .palabras{
     margin-left: 10px;
     margin-bottom: 60px;
     text-align: center;
     color:yellow;
+    text-shadow: 2px 2px 2px black;
 }
 
 .palabras .letra{
@@ -60,8 +33,6 @@
     color: white;
     border-radius: 5px;
 }
-
-
 
 .alfabeto .botones:hover{
     background: linear-gradient(to top left, #66ff33 0%, #006600 100%);
@@ -90,16 +61,7 @@ canvas{
 
 
 @media only screen and (min-device-width:100px) and (max-device-width:1000px){
-    
-    .materias #asignatura{
-        width: 110px;
-        height: 40px;
-    }
-    
-    .materias #btnCorrer{
-        width: 110px;
-        height: 40px;   
-    }
+
 
     .alfabeto{  
         padding: 5%;
