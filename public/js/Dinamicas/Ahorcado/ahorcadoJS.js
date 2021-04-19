@@ -5,7 +5,6 @@ $(document).ready(function(){
 
 var listaPalabras;
 var indexP;
-var palabraCompleta;
 var vidas;
 
 function inicializar(){
@@ -23,7 +22,6 @@ function reiniciar(){
 function limpiar(){
     listaPalabras = [];
     indexP = 0;
-    palabraCompleta = false;
     vidas=6;
     $(".botones").attr("disabled", false);
     $(".letra").remove();
@@ -70,19 +68,16 @@ function leerJson(){
 }
 
 function verificar(letra){
-    var value = letra.value.toLowerCase();
     var palabra = listaPalabras[indexP];
 
     var letraEncontrada = false;
-    //alert(palabra + "\n"+ value);
-
-    palabraCompleta = true;
+    var palabraCompleta = true;
 
     var campos = $('.palabras').find(".letra");
 
     for (let i = 0; i < palabra.length; i++) {     
-        if(value == palabra.charAt(i)){
-            campos[i].innerHTML = value;
+        if(letra == palabra.charAt(i)){
+            campos[i].innerHTML = letra;
             letraEncontrada = true;
         }
             
@@ -95,10 +90,9 @@ function verificar(letra){
         mostrarPieza(vidas);
 
         if(vidas == 0){
-            setTimeout(function(){
-                alert("¡PERDISTE!");
-                reiniciar();
-            },100);
+            alert("¡PERDISTE!");
+            reiniciar();
+            return;
         }
     }
 
@@ -113,9 +107,23 @@ function verificar(letra){
                         /* Eventos*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 $(".alfabeto").on("click", ".botones",function () {
     this.setAttribute('disabled', true);
-    verificar(this);
+    
+    var letra = this.value.toLowerCase();
+    verificar(letra);
+});
+
+$(document).keypress(function (e) {
+    var boton =  $(`.alfabeto .botones[value="${e.key.toUpperCase()}"]`);
+    
+    if(!boton.prop('disabled')){
+        
+        boton.attr('disabled', true);
+        var letra = e.key.toLowerCase();
+        verificar(letra);
+    }
     
 });
 

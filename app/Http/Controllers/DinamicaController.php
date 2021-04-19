@@ -14,7 +14,7 @@ class DinamicaController extends Controller
      */
     public function index()
     {
-        return view('Dinamicas.Trivial.index');
+        return view('Dinamicas.Ahorcado.index');
     }
 
     /**
