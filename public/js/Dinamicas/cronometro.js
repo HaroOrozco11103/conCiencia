@@ -9,7 +9,7 @@ function inicializar_tiempo(){
         if((segundos == 0 && minutos == 0) || finDelJuego){
             
             if(!reiniciar){
-                alert("FIN DEL JUEGO! \n   PUNTAJE:" + score);
+                Mensaje("PUNTAJE: " + score);
                 limpiar();
             }
             
@@ -41,4 +41,15 @@ function inicializar_tiempo(){
             }catch(error){
         console.log(error);
     }
+}
+
+function Mensaje(mensaje, puntaje){
+    $('#myModal').modal();
+    $('#status').html(mensaje);
+    $('#puntaje').html(`puntaje final: ${puntaje}`);
+}
+
+function Mensaje(mensaje){
+    $('#myModal').modal();
+    $('#status').html(mensaje);
 }

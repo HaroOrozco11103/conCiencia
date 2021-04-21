@@ -49,5 +49,4 @@
     <link rel="stylesheet" href="{{asset('css/Dinamicas/memorama.css')}}">
     
     <script type='text/javascript' src="{{ asset('js/Dinamicas/Memorama/memorama.js')}}"></script>
-    <script type='text/javascript' src="{{ asset('js/Dinamicas/cronometro.js')}}"></script>    
 @endsection

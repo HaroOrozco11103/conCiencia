@@ -12,10 +12,13 @@ function inicializar(){
     $(".botones").attr("disabled", true);
 }
 
-function reiniciar(){
+async function reiniciar(){
     limpiar();
-    leerJson();
-    crearEspacios();
+    leerJson().then(() =>{
+        crearEspacios();
+    });
+        
+    
     
 }
 
@@ -51,7 +54,7 @@ function imprimirBotones(){
        
 }
 
-function leerJson(){
+async function leerJson(){
     try {
         $.ajax({
             url: `${json}/Ahorcado/palabras.json`,
@@ -90,14 +93,14 @@ function verificar(letra){
         mostrarPieza(vidas);
 
         if(vidas == 0){
-            alert("¡PERDISTE!");
+            Mensaje("¡ ¡ ¡ PERDISTE ! ! ! :(")
             reiniciar();
             return;
         }
     }
 
     if(palabraCompleta){
-        alert("¡GANASTE!");
+        Mensaje("¡ ¡ ¡ GANASTE! ! ! !");
         reiniciar();
     }
 }

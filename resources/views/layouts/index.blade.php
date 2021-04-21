@@ -9,6 +9,7 @@
         <title>ConCiencia</title>
         <link href="{{ asset('layout/dist/css/styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/juego.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('css/modal.css') }}" rel="stylesheet"/>        
         
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 
@@ -41,6 +42,10 @@
             <!-- Content -->
             @yield('content')
         </div>
+
+        <!-- Modal -->
+        @include('layouts.modal')
+
         
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('layout/dist/js/scripts.js') }}"></script>
@@ -50,5 +55,8 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('layout/dist/assets/demo/datatables-demo.js') }}"></script>
+
+                <!-- JS PARA EL CRONOMETRO Y LOS MENSAJES -->
+                <script type='text/javascript' src="{{ asset('js/Dinamicas/cronometro.js')}}"></script>    
     </body>
 </html>
