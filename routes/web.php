@@ -32,6 +32,7 @@ Route::resource('asignaturas', 'AsignaturaController');
 
 //------------------------------------------------------DINAMICAS-------------------------------------------------------
 Route::resource('dinamicas', 'DinamicaController');
+Route::get('dinamicas/juego/{id}', 'DinamicaController@getViewDinamica')->name('dinamicas.juego');
 
 //------------------------------------------------------GRUPOS-------------------------------------------------------
 Route::resource('grupos', 'GrupoController');

@@ -82,4 +82,20 @@ class DinamicaController extends Controller
     {
         //
     }
+
+
+    public function getViewDinamica(Request $request){
+        $juego = $request->id;
+
+        $vista;
+
+        switch($juego){
+            case 1: $vista = 'Dinamicas.Trivial.index'; break;
+            case 2: $vista = 'Dinamicas.Memorama.index'; break;
+            case 3: $vista = 'Dinamicas.Ahorcado.index'; break;
+            case 4: $vista = 'Dinamicas.Mamiferos.index';break;
+        }
+
+        return view($vista);
+    }
 }

@@ -16,9 +16,7 @@ async function reiniciar(){
     limpiar();
     leerJson().then(() =>{
         crearEspacios();
-    });
-        
-    
+    });  
     
 }
 
