@@ -1,0 +1,88 @@
+.juego{
+    padding-top: 80px;
+}
+
+.materias{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.materias #asignatura{
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.materias #btnCorrer{
+    margin-left: 10px;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    background-color: red;
+    color: white;
+}
+
+.materias #btnCorrer:hover{
+    background-color: white;
+    color: #006600;
+}
+
+.tipoJuego{
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    display: block;
+    text-align: center  ;
+}
+
+.marcador{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    color: darkorange;
+    text-shadow: 2px 2px 2px black;
+    width: 40%;
+    height: 40px;
+    padding-top: 10px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+
+.puntaje{
+    float: left;
+    margin: 0px auto;
+    width: 100px;
+    height: 30px;
+}
+
+.score{
+    width: 100px;
+    height: 30px;
+}
+
+.cronometro{
+    float: right;
+    margin: 0px auto;
+}
+
+
+@media screen and (min-device-width:100px) and (max-device-width:900px){
+    .marcador{
+        height: 40px;
+        width: 80%;
+        font-size: 15px;
+    }
+     
+    .materias #asignatura{
+        width: 110px;
+        height: 40px;
+    }
+    
+    .materias #btnCorrer{
+        width: 110px;
+        height: 40px;   
+    }
+}

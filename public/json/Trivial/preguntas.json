@@ -1,0 +1,17 @@
+{
+    "fisica":[{
+        "pregunta": "Padre de la fisica clasica",
+        "respuesta": "Newton"
+    },{
+        "pregunta": "creador de la primera bobina",
+        "respuesta": "Tesla"
+    },{
+        "pregunta": "La teorira de la relatividad fue publicado por?",
+        "respuesta": "Einstein"
+    }],
+
+    "arte":[{
+        "pregunta": "Escultor del David",
+        "respuesta": "Miguel Angel"
+    }]
+}   
