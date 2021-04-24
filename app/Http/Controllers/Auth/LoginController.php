@@ -44,4 +44,8 @@ class LoginController extends Controller
 
       return '/users';
     }
+
+    public function username(){
+      return 'username';
+    }
 }

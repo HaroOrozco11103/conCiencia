@@ -18,9 +18,7 @@
               <a class="dropdown-item" href="{{ route('users.index') }}">Perfil</a>
               <a class="dropdown-item" href="#">Configuración</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
+              <a class="dropdown-item" href="{{ route('logout') }}">
                 {{ __('Cerrar Sesión') }}
               </a>
           </div>

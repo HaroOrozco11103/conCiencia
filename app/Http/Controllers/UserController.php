@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
 use App\Grupo;
 use Illuminate\Support\Facades\DB;
@@ -154,5 +155,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route("inicio");
     }
 }
