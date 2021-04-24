@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+<br><br><br>
 <div class="card shadow">
     <div class="card-header">{{ __('Agregar usuario') }}</div>
 
@@ -81,7 +82,7 @@
 
                 @if(isset($user))
                 <div class="form-group">
-                    <a class="btn-outline-info bg-white" href="{{ route('users.create') }}">Modificar contraseña</a>
+                    <a class="btn-outline-info bg-white" href="{{ route('users.editPsw', $user->id) }}">Modificar contraseña</a>
                 </div>
     </div>
     @endif
@@ -89,13 +90,15 @@
     <div class="form-group row mb-0">
         <div class="col-md-6 offset-md-4">
             <button type="submit" class="btn btn-outline-primary">
-                {{ __('Crear Cuenta') }}
+                @if(isset($user))
+                  {{ __('Actualizar') }}
+                @else
+                  {{ __('Crear Cuenta') }}
+                @endif
             </button>
         </div>
     </div>
 
     </form>
-</div>
-
 </div>
 @endsection

@@ -3,9 +3,9 @@
 @section('content')
 <br><br><br>
 <div class="card shadow">
-    <div class="card-header">{{ __('Entrar a un grupo') }}</div>
+    <div class="card-header">{{ __('Crear grupo') }}</div>
     <div class="card-body">
-        <form method="POST" action="{{ route('grupos.autenticar') }}">
+        <form method="POST" action="{{ route('grupos.store') }}">
             @csrf
 
             <div class="form-group row">
@@ -25,16 +25,10 @@
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-outline-primary">
-                        {{ __('ENTRAR!') }}
+                        {{ __('Crear') }}
                     </button>
                 </div>
             </div>
-
-            @if (session('mensaje'))
-                <div class="alert alert-danger">
-                    {{ session('mensaje') }}
-                </div>
-            @endif
 
         </form>
     </div>

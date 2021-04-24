@@ -16,16 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function ()
 {
     return view('inicio');
-})->name('inicio');
+})->name('inicio')->middleware('profe');
 
 Auth::routes();
 
 //--------------------------------------------------------USERS--------------------------------------------------------
 Route::resource('users', 'UserController');
-//Route::get('users/contrasena/{user}', 'UserController@editPass')
-//->name('users.editPass');
-//Route::PATCH('users/cambiar-contraseña/{user}', 'UserController@updatePass')
-//->name('users.updatePass');
+Route::get('users/{id}/edit/contrasena', 'UserController@editPsw')->name('users.editPsw');
+Route::PATCH('users/cambiar-contrasena/{id}', 'UserController@updatePsw')->name('users.updatePsw');
 
 //------------------------------------------------------ASIGNATURAS-------------------------------------------------------
 Route::resource('asignaturas', 'AsignaturaController');

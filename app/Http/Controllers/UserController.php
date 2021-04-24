@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Grupo;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -20,8 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-      $user = \Auth::user();
-      return view('users.userIndex', compact('user'));
+      return redirect()->route('grupos.index');
     }
 
     /**
@@ -53,7 +54,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = \Auth::user();
+        return view('profesores.showProfile', compact('user'));
     }
 
     /**
@@ -64,7 +66,20 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = \Auth::user();
+      return view('auth.register', compact('user'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editPsw($id)
+    {
+      $user = \Auth::user();
+      return view('auth.passwords.reset', compact('user'));
     }
 
     /**
@@ -76,7 +91,58 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $user = \Auth::user();
+      $request->validate([
+        'nombre' => 'required|string|max:50',
+        'username' => 'required|string|min:5|max:25|unique:users,username,'.$id,
+        'email' => 'required|string|email|max:50|unique:users,email,'.$id,
+      ]);
+
+      $user->nombre = $request->input('nombre');
+      $user->username = $request->input('username');
+      $user->email = $request->input('email');
+      $user->save();
+
+      return redirect()->route('users.show', 'id')
+        ->with([
+            'mensaje' => 'Tu información ha sido actualizada exitosamente',
+            'alert-class' => 'alert-warning'
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePsw(Request $request, User $user)
+    {
+        $user = \Auth::user();
+        $request->validate([
+          'password' => 'required|string|min:8|max:30|confirmed',
+          'oldPassword' => 'required|string|max:30',
+        ]);
+
+        if(Hash::check($request->oldPassword, $user->password))
+        {
+          $user->password = Hash::make($request->password);
+          $user->save();
+          return redirect()->route('users.show', $user->id)
+            ->with([
+                'mensaje' => 'Tu contraseña ha sido actualizada exitosamente',
+                'alert-class' => 'alert-warning'
+            ]);
+        }
+        else
+        {
+          return redirect()->route('users.editPsw', $user->id)
+            ->with([
+                'mensaje' => 'Tu contraseña antigua no ha coincidido con el campo proporcionado',
+                'alert-class' => 'alert-warning'
+            ]);
+        }
     }
 
     /**

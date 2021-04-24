@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+<br><br><br>
 <div class="card shadow">
     <div class="card-header">{{ __('Iniciar Sesión') }}</div>
 
@@ -9,15 +10,15 @@
             @csrf
 
             <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
+                <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Nombre de usuario') }}</label>
 
                 <div class="col-md-6">
-                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                        name="email" value="{{ old('email') }}" required autofocus>
+                    <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                        name="username" value="{{ old('username') }}" required autofocus>
 
-                    @if ($errors->has('email'))
+                    @if ($errors->has('username'))
                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>{{ $errors->first('username') }}</strong>
                     </span>
                     @endif
                 </div>
@@ -54,15 +55,12 @@
 
             <div class="form-group row mb-0">
                 <div class="col-md-8 offset-md-4">
+                    <a class="btn btn-link" href="{{ route('register') }}">
+                      {{ __('Crear una cuenta') }}
+                    </a>
                     <button type="submit" class="btn btn-outline-primary">
                         {{ __('Iniciar Sesión') }}
                     </button>
-
-                    @if (Route::has('password.request'))
-                    <a class="btn btn-link" href="{{ route('informes.index') }}">
-                        {{ __('¿Olvidaste tu contraseña?') }}
-                    </a>
-                    @endif
                 </div>
             </div>
         </form>

@@ -15,7 +15,7 @@ class AsignaturaController extends Controller
     public function index()
     {
         $asignaturas = Asignatura::all(); //Todas las asignaturas
-        return view('asignaturasIndex', compact('asignaturas'));
+        return view('alumnos.asignaturasIndex', compact('asignaturas'));
     }
 
     /**
