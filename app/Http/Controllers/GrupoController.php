@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Grupo;
+use App\Alumno;
 use App\Asignatura;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -109,7 +110,8 @@ class GrupoController extends Controller
      */
     public function show(Grupo $grupo)
     {
-        //
+        $alumnos = DB::table('alumnos')->where('grupo_id', $grupo->id)->get();
+        return view('profesores.grupoShow', compact('grupo', 'alumnos'));
     }
 
     /**
@@ -132,7 +134,14 @@ class GrupoController extends Controller
      */
     public function update(Request $request, Grupo $grupo)
     {
-        //
+        $request->validate([
+          'nombre' => 'required|string|min:5|max:50',
+        ]);
+
+        $grupo->nombre = $request->input('nombre');
+        $grupo->save();
+
+        return redirect()->route('grupos.show', $grupo->id);
     }
 
     /**

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class AsignaturaController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('profe'); //Si hay un profesor loggeado denegar acceso y redirigir
+    }
+
     /**
      * Display a listing of the resource.
      *

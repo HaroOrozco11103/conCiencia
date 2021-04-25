@@ -20,22 +20,26 @@ Route::get('/', function ()
 
 Auth::routes();
 
-//--------------------------------------------------------USERS--------------------------------------------------------
+//------------------------------------------------------USERS---------------------------------------------------------------
 Route::resource('users', 'UserController');
 Route::get('users/{id}/edit/contrasena', 'UserController@editPsw')->name('users.editPsw');
 Route::PATCH('users/cambiar-contrasena/{id}', 'UserController@updatePsw')->name('users.updatePsw');
 Route::get('/logout', 'UserController@logout')->name('logout');
 
-//------------------------------------------------------ASIGNATURAS-------------------------------------------------------
+//------------------------------------------------------ALUMNOS-------------------------------------------------------------
+Route::resource('alumnos', 'AlumnoController');
+Route::get('alumnos/create/{grupo?}', 'AlumnoController@create')->name('alumnos.create');
+
+//------------------------------------------------------ASIGNATURAS---------------------------------------------------------
 Route::resource('asignaturas', 'AsignaturaController');
 
-//------------------------------------------------------DINAMICAS-------------------------------------------------------
+//------------------------------------------------------DINAMICAS-----------------------------------------------------------
 Route::resource('dinamicas', 'DinamicaController');
 
-//------------------------------------------------------GRUPOS-------------------------------------------------------
+//------------------------------------------------------GRUPOS--------------------------------------------------------------
 Route::resource('grupos', 'GrupoController');
 Route::get('entrar', 'GrupoController@entrar')->name('grupos.entrar');
 Route::POST('entrar/autenticando', 'GrupoController@autenticar')->name('grupos.autenticar');
 
-//------------------------------------------------------PARTICIPACIONES-------------------------------------------------------
+//------------------------------------------------------PARTICIPACIONES-----------------------------------------------------
 Route::resource('participaciones', 'ParticipacionController');
