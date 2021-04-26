@@ -4,14 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Asignatura;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AsignaturaController extends Controller
 {
-    public function __construct()
-    {
-      $this->middleware('profe'); //Si hay un profesor loggeado denegar acceso y redirigir
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -52,7 +48,8 @@ class AsignaturaController extends Controller
      */
     public function show(Asignatura $asignatura)
     {
-        dd($asignatura->nombre);
+        $dinamicas = DB::table('dinamicas')->where('asignatura_id', $asignatura->id)->get();
+        return view('alumnos.dinamicasIndex', compact('dinamicas'));
     }
 
     /**
