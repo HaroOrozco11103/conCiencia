@@ -1,0 +1,92 @@
+.cuerpo{
+    background-color: beige;
+}
+
+
+
+.contenedor{
+    max-width: 800px;
+    min-width: 200px;
+    min-height: 300px;
+    max-height: 700px;
+    
+    border: dashed 1px #808080;
+    text-align: center;
+    
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding-top: 10px;
+}
+
+
+.carta{
+    width: 90px;
+    min-height: 120px;
+    border: solid .5px #000;
+    display: inline-block;
+    margin: 5px;
+    position: relative;
+
+    text-align: center;
+    transition: all 1s ease;
+    transform: perspective(600px);
+    transform-origin: 100% 50%;
+    transform-style: preserve-3d;
+}
+
+
+.rotar{
+    transform: perspective(600px) rotateY(-180deg) translateX(100%) !important;
+}
+
+.cara:hover, .tapa:hover {
+    width: 90px;
+    height: 120px;
+    margin: 0px;
+    transition-duration: 20ms;
+}
+
+.carta .cara,
+.carta .tapa{
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+
+.carta .cara{
+    transform: rotateY(-180deg);
+}
+
+.cara, .tapa{ 
+    margin: 5%;
+    width: 80px;
+    height: 110px;
+    display: block;
+}
+
+
+.cabecera .titulo{
+    font-size: 4vw;
+    text-align: center;
+}
+
+.datos{
+    display: inline;
+    margin-bottom: 100px;
+}
+
+.datos .score{
+    float: left;
+    margin-left: 20%;
+}
+
+.datos .cronometro{
+    text-align: right;
+    margin-right: 20%;
+    
+}
+
+
+

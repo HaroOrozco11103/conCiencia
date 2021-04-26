@@ -1,0 +1,26 @@
+
+.modal-dialog .modal-content .modal-header{
+    background: linear-gradient(to top left, #ffff66 0%, #66ff33 100%);;
+    color: red;
+    text-shadow: 2px 2px 2px orange;
+    padding: 1rem 0;
+}
+
+.modal-dialog .modal-content .modal-header h5{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-dialog .modal-content #modal-body{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.modal-dialog .modal-content button.close{
+    background-color: cadetblue !important;
+    padding: 10px !important;
+}
+
+
+
