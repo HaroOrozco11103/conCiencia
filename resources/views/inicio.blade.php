@@ -33,7 +33,7 @@
     <div class="container">
       <div class="row justify-content-center pt-5">
         <div class="col-0">
-          <form action="{{ route('inicio') }}" method="GET">
+          <form action="{{ route('asignaturas.index') }}" method="GET">
             <button type="submit" class="btn block btn-block">Jugar</button>
           </form>
           <br><br><br>
