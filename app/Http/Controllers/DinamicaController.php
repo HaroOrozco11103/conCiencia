@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Asignatura;
 use App\Dinamica;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DinamicaController extends Controller
 {
@@ -46,7 +48,10 @@ class DinamicaController extends Controller
      */
     public function show(Dinamica $dinamica)
     {
-        //
+        $asignatura = $dinamica->asignatura_id;
+        $vista = 'Dinamicas.' . $dinamica->nombre . '.index';
+
+        return view($vista, compact('asignatura'));
     }
 
     /**
@@ -57,7 +62,6 @@ class DinamicaController extends Controller
      */
     public function edit(Dinamica $dinamica)
     {
-        //
     }
 
     /**
@@ -81,21 +85,5 @@ class DinamicaController extends Controller
     public function destroy(Dinamica $dinamica)
     {
         //
-    }
-
-
-    public function getViewDinamica(Request $request){
-        $juego = $request->id;
-
-        $vista;
-
-        switch($juego){
-            case 1: $vista = 'Dinamicas.Trivial.index'; break;
-            case 2: $vista = 'Dinamicas.Memorama.index'; break;
-            case 3: $vista = 'Dinamicas.Ahorcado.index'; break;
-            case 4: $vista = 'Dinamicas.Mamiferos.index';break;
-        }
-
-        return view($vista);
     }
 }

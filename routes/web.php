@@ -35,7 +35,6 @@ Route::resource('asignaturas', 'AsignaturaController')->middleware('profe');
 
 //------------------------------------------------------DINAMICAS-----------------------------------------------------------
 Route::resource('dinamicas', 'DinamicaController')->middleware('profe');
-Route::get('dinamicas/juego/{id}', 'DinamicaController@getViewDinamica')->middleware('profe')->name('dinamicas.juego');
 
 //------------------------------------------------------GRUPOS--------------------------------------------------------------
 Route::resource('grupos', 'GrupoController');

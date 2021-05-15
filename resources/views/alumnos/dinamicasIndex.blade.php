@@ -18,7 +18,7 @@
                 @foreach($dinamicas as $key => $din)
                 <tr>
                     <td>
-                        <a href="{{ route('dinamicas.juego', $din->id) }}" class="btn-outline-info bg-white"> {{ $din->nombre }} </a>
+                        <a href="{{ route('dinamicas.show', $din->id) }}" class="btn-outline-info bg-white"> {{ $din->nombre }} </a>
                     </td>
                 </tr>
                 @endforeach
