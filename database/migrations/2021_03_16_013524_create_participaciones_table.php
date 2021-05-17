@@ -21,7 +21,6 @@ class CreateParticipacionesTable extends Migration
             $table->integer('puntaje')->default(-1);
 
             $table->string('unregistered_user')->nullable();
-            $table->unsignedInteger('alumno_id')->nullable();
             $table->foreign('alumno_id')->references('id')->on('alumnos');
             $table->timestamps();
         });
