@@ -10,6 +10,7 @@ function inicializar_tiempo(){
             
             if(!reiniciar){
                 Mensaje("PUNTAJE: " + score);
+                postear(score);
                 limpiar();
             }
             
@@ -52,4 +53,18 @@ function Mensaje(mensaje, puntaje){
 function Mensaje(mensaje){
     $('#myModal').modal();
     $('#status').html(mensaje);
+}
+
+function postear(puntaje){
+    $.ajax({
+        url:"dinamicas",
+        type:"POST",
+        data: {
+            marcador:puntaje,
+            "_token": $("meta[name='csrf-token']").attr("content")
+        },
+        success: function(a){
+            console.log("puntaje enviado" + a);
+        }
+    });
 }

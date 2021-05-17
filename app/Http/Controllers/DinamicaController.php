@@ -16,7 +16,7 @@ class DinamicaController extends Controller
      */
     public function index()
     {
-        return view('Dinamicas.Ahorcado.index');
+        return view('Dinamicas.Trivial.index');
     }
 
     /**
@@ -37,7 +37,14 @@ class DinamicaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo 'puntaje'.$request->input('marcador');
+    }
+
+    public function myroute(Request $request){
+        if ($request->isMethod('post')){
+            $nombre = $request->input("marcador");
+            var_dump($nombre);
+        }
     }
 
     /**
