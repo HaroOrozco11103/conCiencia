@@ -40,13 +40,6 @@ class DinamicaController extends Controller
         echo 'puntaje'.$request->input('marcador');
     }
 
-    public function myroute(Request $request){
-        if ($request->isMethod('post')){
-            $nombre = $request->input("marcador");
-            var_dump($nombre);
-        }
-    }
-
     /**
      * Display the specified resource.
      *

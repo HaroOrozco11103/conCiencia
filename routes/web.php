@@ -43,3 +43,4 @@ Route::POST('entrar/autenticando', 'GrupoController@autenticar')->name('grupos.a
 
 //------------------------------------------------------PARTICIPACIONES-----------------------------------------------------
 Route::resource('participaciones', 'ParticipacionController');
+Route::post('participacion', 'ParticipacionController@agregar')->name('participacion.agregar');

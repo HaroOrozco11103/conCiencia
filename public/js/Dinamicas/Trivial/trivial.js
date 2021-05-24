@@ -51,7 +51,7 @@ function limpiar(){
 
 function Correr(){
 
-    segundos = 30;
+    segundos = 5;
     minutos = 0;
     finDelJuego = false;
     reiniciar = false;

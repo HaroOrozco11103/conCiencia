@@ -45,11 +45,12 @@ class GrupoController extends Controller
     public function autenticar(Request $request)
     {
         try {
-            $grupo = DB::table('grupos')->join('alumnos', 'grupos.id','=','alumnos.grupo_id')
+            $grupo = Grupo::join('alumnos', 'grupos.id','=','alumnos.grupo_id')
             ->where('grupos.codigo', $request->codigo)->where('alumnos.username', $request->nombre)->get();
 
             if(sizeof($grupo) > 0){
               //enviar a la ruta el grupo y el usuario para motivos de almacenamiento de datos
+              session(['alumno_id' => $grupo[0]->id]);
                 return redirect()->route('asignaturas.index');
             }else{
                 return redirect()->route('grupos.entrar')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Participacion;
+use App\Alumno;
 use Illuminate\Http\Request;
 
 class ParticipacionController extends Controller
@@ -81,5 +82,26 @@ class ParticipacionController extends Controller
     public function destroy(Participacion $participacion)
     {
         //
+    }
+
+    public function agregar(Request $request){
+
+        //print_r ("puntaje:". $request->input('marcador') ." alumno_id:". session()->get('alumno_id')); exit;
+
+        $puntaje = $request->input('marcador');
+        $alumno_id = session()->get('alumno_id');
+        /*Participacion::create([
+            'puntaje' => $puntaje,
+            'alumno_id' = $alumno_id
+        ]);*/
+        
+        $participacion = new Participacion();
+        $participacion->alumno_id = $alumno_id;
+        $participacion->puntaje = $puntaje;
+        $participacion->dinamica_id = 7;
+
+        $participacion->save();
+
+        
     }
 }

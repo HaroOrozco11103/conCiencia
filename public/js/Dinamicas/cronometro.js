@@ -56,15 +56,39 @@ function Mensaje(mensaje){
 }
 
 function postear(puntaje){
+/*
+    const data = new FormData();
+    data.append('puntaje', score);
+
+    fetch('/participacion', {
+        headers:{
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $("meta[name='csrf-token']").attr("content"),
+        },
+        method:'POST',
+        body: data
+    }).then(function(response){
+        if(response.ok) {
+            return response.text();
+        } else {
+            throw "Error en la llamada Ajax";
+        }
+    }).then(function(texto){
+        console.log(texto);
+    }).catch(function(err){
+        console.log(err);
+    });*/
+
+    
     $.ajax({
-        url:"dinamicas",
+        url:"/participacion",
         type:"POST",
         data: {
             marcador:puntaje,
             "_token": $("meta[name='csrf-token']").attr("content")
         },
         success: function(a){
-            console.log("puntaje enviado" + a);
+            console.log(a);
         }
     });
 }

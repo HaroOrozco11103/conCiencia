@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParticipacionesTable extends Migration
+class Participacions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateParticipacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('participaciones', function (Blueprint $table) {
+        Schema::create('participacions', function (Blueprint $table) {
             $table->id();
             //$table->increments('id');
             $table->unsignedInteger('dinamica_id');
             $table->foreign('dinamica_id')->references('id')->on('dinamicas');
             $table->integer('puntaje')->default(-1);
+            $table->unsignedInteger('alumno_id');
+            $table->foreign('alumno_id')->references('id')->on('alumnos');
 
             $table->string('unregistered_user')->nullable();
-            $table->foreign('alumno_id')->references('id')->on('alumnos');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateParticipacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('participaciones');
+        Schema::dropIfExists('participacions');
     }
 }
