@@ -2,44 +2,53 @@
 
 @section('content')
 <br><br><br>
-<div class="card shadow">
-    <div class="card-header">{{ __('Entrar a un grupo') }}</div>
-    <div class="card-body">
-        <form method="POST" action="{{ route('grupos.autenticar') }}">
-            @csrf
-
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label text-md-right">Nombre</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="nombre" required>
+<head>
+    <meta charset="UTF-8">
+    <title>Entrar a un grupo</title>
+    <link rel="stylesheet" href="{{ asset('css/style/style.css') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+    <img src="{{ asset('images/img/wave.png') }}" alt="" class="wave">
+    <div class="container">
+        <div class="img">
+            <img src="{{ asset('images/img/classroom.png') }}" alt="">
+        </div>
+        <div class="contenedor-form">
+            <form method="POST" action="{{ route('grupos.autenticar') }}">
+                @csrf
+                <h2 class=title-entrar-grupo>Entrar a un grupo</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Nombre</h5>
+                        <input type="text" class="input" name="nombre" required>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label text-md-right">Código de grupo</label>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="codigo" required>
+                <div class="input-div two">
+                    <div class="i">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Código de Grupo</h5>
+                        <input type="text" class="input" name="codigo" required>
+                    </div>
                 </div>
-            </div>
+                <a class="link-form" href="{{ route('login') }}">Soy un profesor</a>
+                <input type="submit" class="btn" value="Entrar" >
 
-            <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
-                    <a class="btn btn-link" href="{{ route('login') }}">
-                      {{ __('Soy profesor') }}
-                    </a>
-                    <button type="submit" class="btn btn-outline-primary">
-                        {{ __('ENTRAR!') }}
-                    </button>
-                </div>
-            </div>
-
-            @if (session('mensaje'))
-                <div class="alert alert-danger">
-                    {{ session('mensaje') }}
-                </div>
-            @endif
-
-        </form>
+                @if (session('mensaje'))
+                    <div class="alert alert-danger">
+                        {{ session('mensaje') }}
+                    </div>
+                @endif
+            </form>
+        </div>
     </div>
-</div>
+    <script src="app.js"></script>
+</body>
 @endsection

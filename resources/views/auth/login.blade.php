@@ -2,68 +2,65 @@
 
 @section('content')
 <br><br><br>
-<div class="card shadow">
-    <div class="card-header">{{ __('Iniciar Sesión') }}</div>
+<head>
+    <meta charset="UTF-8">
+    <title>Entrar Profesor</title>
+    <link rel="stylesheet" href="{{ asset('css/style/style.css') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="{{ asset('images/img/teacher.png') }}" alt="">
+        </div>
+        <div class="contenedor-form">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <h2 class=title-entrar-profesor>INICIAR SESIÓN PROFESOR</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Nombre de Usuario</h5>
+                        <input id="username" type="text" class="input form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                            name="username" value="{{ old('username') }}" required autofocus>
 
-    <div class="card-body">
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div class="form-group row">
-                <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Nombre de usuario') }}</label>
-
-                <div class="col-md-6">
-                    <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
-                        name="username" value="{{ old('username') }}" required autofocus>
-
-                    @if ($errors->has('username'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('username') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
-
-                <div class="col-md-6">
-                    <input id="password" type="password"
-                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
-                        required>
-
-                    @if ($errors->has('password'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-6 offset-md-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                            {{ old('remember') ? 'checked' : '' }}>
-
-                        <label class="form-check-label" for="remember">
-                            {{ __('Recordar') }}
-                        </label>
+                        @if ($errors->has('username'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('username') }}</strong>
+                        </span>
+                        @endif
                     </div>
                 </div>
-            </div>
+                <div class="input-div two">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Contraseña</h5>
+                        <input id="password" type="password"
+                            class="input password form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                            required>
 
-            <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4">
-                    <a class="btn btn-link" href="{{ route('register') }}">
-                      {{ __('Crear una cuenta') }}
-                    </a>
-                    <button type="submit" class="btn btn-outline-primary">
-                        {{ __('Iniciar Sesión') }}
-                    </button>
+                        @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <span class="show-pass" onclick="showPass()">
+                        <i id="hide1" class="fas fa-eye"></i>
+                        <i id="hide2" class="fas fa-eye-slash"></i>
+                    </span>
                 </div>
-            </div>
-        </form>
+                <a class="link-form" href="{{ route('register') }}">Crear cuenta</a>
+                <input type="submit" class="btn" value="Entrar" >
+            </form>
+        </div>
     </div>
-</div>
+    <script src="{{ asset('js/scripts/app.js') }}"></script>
+</body>
 @endsection
