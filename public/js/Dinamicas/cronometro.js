@@ -79,12 +79,14 @@ function postear(puntaje){
         console.log(err);
     });*/
 
-    
+    var dinamica_id = $('#asignatura').val();    
+    console.log(dinamica_id);
     $.ajax({
         url:"/participacion",
         type:"POST",
         data: {
-            marcador:puntaje,
+            marcador:puntaje, 
+            dinamica:dinamica_id,
             "_token": $("meta[name='csrf-token']").attr("content")
         },
         success: function(a){
@@ -92,3 +94,8 @@ function postear(puntaje){
         }
     });
 }
+
+
+const removeAccents = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}  

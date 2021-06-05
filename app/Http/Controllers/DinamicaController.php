@@ -16,7 +16,9 @@ class DinamicaController extends Controller
      */
     public function index()
     {
-        return view('Dinamicas.Trivial.index');
+        $dinamicas = Dinamica::groupBy('nombre', 'asignatura_id')->select('nombre', 'asignatura_id')
+        ->where('nombre', 'Fisica')->get();
+        return view('Dinamicas.Trivial.index')->with(compact('dinamicas'));
     }
 
     /**
@@ -49,9 +51,15 @@ class DinamicaController extends Controller
     public function show(Dinamica $dinamica)
     {
         $asignatura = $dinamica->asignatura_id;
+        
+        $dinamicas = Dinamica::select('dinamicas.id', 'dinamicas.nombre', 'asignaturas.nombre AS asignatura')->
+        join('asignaturas', 'dinamicas.asignatura_id','=', 'asignaturas.id')
+        ->where('dinamicas.nombre', $dinamica->nombre)->get();
+        
         $vista = 'Dinamicas.' . $dinamica->nombre . '.index';
 
-        return view($vista, compact('asignatura'));
+        //dd($dinamicas);
+        return view($vista, compact('asignatura', 'dinamicas'));
     }
 
     /**

@@ -89,6 +89,7 @@ class ParticipacionController extends Controller
         //print_r ("puntaje:". $request->input('marcador') ." alumno_id:". session()->get('alumno_id')); exit;
 
         $puntaje = $request->input('marcador');
+        $dinamica_id = $request->input('dinamica');
         $alumno_id = session()->get('alumno_id');
         /*Participacion::create([
             'puntaje' => $puntaje,
@@ -98,10 +99,9 @@ class ParticipacionController extends Controller
         $participacion = new Participacion();
         $participacion->alumno_id = $alumno_id;
         $participacion->puntaje = $puntaje;
-        $participacion->dinamica_id = 7;
+        $participacion->dinamica_id = $dinamica_id;
 
         $participacion->save();
-
         
     }
 }

@@ -131,13 +131,15 @@ function Evaluar(e){
 
 //Leer preguntas y respuestas del Json
 function leerJson(){
+    var materia = removeAccents($("#asignatura option:selected").text().toLowerCase().trim());
+
     //AJAX sincrono
     $.ajax({
         url: `${json}/Trivial/preguntas.json`,
         dataType: 'json',
         async: false,
         success: function (json) {
-            setListaPreguntas(json[$("#asignatura").val()]);
+            setListaPreguntas(json[materia]);
         }
     });
 
@@ -146,7 +148,7 @@ function leerJson(){
         dataType: 'json',
         async: false,
         success: function (json) {
-            setListaRespuestas(json[$("#asignatura").val()]);
+            setListaRespuestas(json[materia]);
         }
     });
     /* JQuery asincrono

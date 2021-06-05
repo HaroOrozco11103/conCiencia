@@ -29,16 +29,17 @@ function run(){
 function limpiar(){
     
     $('.score').html("score: 0");
-    spans[1].innerHTML = "00: ";
-    spans[2].innerHTML = "00";
+    spans[0].innerHTML = "00: ";
+    spans[1].innerHTML = "00";
+    $('.carta').remove();
 }
 
 function inicializar_juego(){
     
     $('.carta').remove();
 
-    minutos = 2;
-    segundos = 10;
+    minutos = 0;
+    segundos = 5;
     score = 0;
     finDelJuego = false;
     reiniciar = false;
@@ -106,14 +107,14 @@ function revolver(){
 //obtener la listas de imagenes de json
 function leerJson(){
     try{
-                
+        var materia = removeAccents($("#asignatura option:selected").text().toLowerCase().trim());        
         //AJAX sincrono
         $.ajax({
             url: `${json}/Memorama/cartas.json`,
             dataType: 'json',
             async: false,
             success: function (json) {
-                cartas = json[$("#asignatura").val()];
+                cartas = json[materia];
             }
         });
         
