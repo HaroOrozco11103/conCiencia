@@ -24,7 +24,11 @@
             @endif
                 @csrf
 
+                @if(isset($user))
+                <h2 class=title-registor-profe>Actualizar datos</h2>
+                @else
                 <h2 class=title-registor-profe>Crear cuenta</h2>
+                @endif
 
                 <div class="input-div one">
                     <div class="i">
