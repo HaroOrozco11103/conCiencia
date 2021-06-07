@@ -21,5 +21,7 @@
 
     <link rel="stylesheet" href="{{asset('css/Dinamicas/memorama.css')}}">
     
+     <!-- JS PARA EL CRONOMETRO Y LOS MENSAJES -->
+     <script type='text/javascript' src="{{ asset('js/Dinamicas/cronometro.js')}}"></script>    
     <script type='text/javascript' src="{{ asset('js/Dinamicas/Memorama/memorama.js')}}"></script>
 @endsection

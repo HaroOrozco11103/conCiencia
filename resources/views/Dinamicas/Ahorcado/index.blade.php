@@ -97,6 +97,8 @@
 	}
 </script>
 
+ 	<!-- JS PARA EL CRONOMETRO Y LOS MENSAJES -->
+ 	<script type='text/javascript' src="{{ asset('js/Dinamicas/cronometro.js')}}"></script>    
 	<script type='text/javascript' src="{{ asset('js/Dinamicas/Ahorcado/munecoJS.js')}}"></script> 
 	<script type='text/javascript' src="{{ asset('js/Dinamicas/Ahorcado/ahorcadoJS.js')}}"></script>
 

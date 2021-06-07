@@ -50,7 +50,7 @@ class GrupoController extends Controller
 
             if(sizeof($grupo) > 0){
               //enviar a la ruta el grupo y el usuario para motivos de almacenamiento de datos
-              $request->session(['alumno_id' => $grupo[0]->id]);
+              session(['alumno_id' => $grupo[0]->id]);
                 return redirect()->route('asignaturas.index');
             }else{
                 return redirect()->route('grupos.entrar')

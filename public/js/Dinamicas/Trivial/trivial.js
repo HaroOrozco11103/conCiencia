@@ -10,9 +10,6 @@ var reiniciar = false;
 var listaPreguntas = [];
 var listaRespuestas = [];
 
-var segundos;
-var minutos;
-
 function setListaPreguntas(data){
     this.listaPreguntas = data;
 }
@@ -22,6 +19,7 @@ function setListaRespuestas(data){
 }
 
 function inicializar(){
+    cargarBotonInicializar();
     limpiar();
 }
 
@@ -49,8 +47,9 @@ function limpiar(){
 }
 
 
-function Correr(){
+function inicializar_juego(){
 
+    limpiar();
     segundos = 5;
     minutos = 0;
     finDelJuego = false;
@@ -177,16 +176,6 @@ function ajustarTexto(e){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
                             /* Eventos*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Evento cuando se le de clic al boton de iniciar
-$("#btnCorrer").on("click", function(ev){
-    console.log(ev.detail);
-    if(ev.detail < 2){
-        finDelJuego = true;
-        reiniciar = true;
-        setTimeout(Correr, 1000);
-    }
-});
 
 //Cuando se les da click a los botonoes
 $(".boton").on("click", function(){

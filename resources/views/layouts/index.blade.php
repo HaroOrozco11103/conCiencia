@@ -58,7 +58,6 @@
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('layout/dist/assets/demo/datatables-demo.js') }}"></script>
 
-                <!-- JS PARA EL CRONOMETRO Y LOS MENSAJES -->
-                <script type='text/javascript' src="{{ asset('js/Dinamicas/cronometro.js')}}"></script>    
+               
     </body>
 </html>

@@ -87,7 +87,7 @@ class ParticipacionController extends Controller
     public function agregar(Request $request){
 
         //print_r ("puntaje:". $request->input('marcador') ." alumno_id:". session()->get('alumno_id')); exit;
-
+       
         $puntaje = $request->input('marcador');
         $dinamica_id = $request->input('dinamica');
         $alumno_id = session()->get('alumno_id');

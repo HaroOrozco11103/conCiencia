@@ -95,6 +95,16 @@ function postear(puntaje){
     });
 }
 
+function cargarBotonInicializar(){
+    //cuando das click al boton de iniciar juego
+    $("#btnCorrer").click(function (ev) { 
+        if(ev.detail < 2){
+            finDelJuego = true;
+            reiniciar = true;
+            setTimeout(inicializar_juego,1000);
+        }
+    });
+}
 
 const removeAccents = (str) => {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
