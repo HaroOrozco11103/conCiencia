@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Asignatura;
+use App\Participacion;
 use App\Dinamica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,11 +51,27 @@ class DinamicaController extends Controller
      */
     public function show(Dinamica $dinamica)
     {
+
         $asignatura = $dinamica->asignatura_id;
         
         $dinamicas = Dinamica::select('dinamicas.id', 'dinamicas.nombre', 'asignaturas.nombre AS asignatura')->
         join('asignaturas', 'dinamicas.asignatura_id','=', 'asignaturas.id')
         ->where('dinamicas.nombre', $dinamica->nombre)->get();
+        
+        $puntaje = -1;
+        $dinamica_id = $dinamica->id;
+        
+        $alumno_id = null;
+        if(session()->has('alumno_id')){
+            $alumno_id = session()->get('alumno_id');
+        }
+        
+        $participacion = new Participacion();
+        $participacion->alumno_id = $alumno_id;
+        $participacion->puntaje = $puntaje;
+        $participacion->dinamica_id = $dinamica_id;
+
+        $participacion->save();
         
         $vista = 'Dinamicas.' . $dinamica->nombre . '.index';
 

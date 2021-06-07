@@ -91,17 +91,13 @@ class ParticipacionController extends Controller
         $puntaje = $request->input('marcador');
         $dinamica_id = $request->input('dinamica');
         $alumno_id = session()->get('alumno_id');
-        /*Participacion::create([
-            'puntaje' => $puntaje,
-            'alumno_id' = $alumno_id
-        ]);*/
+        $participacion = Participacion::where('alumno_id', $alumno_id)->latest()->first();
         
-        $participacion = new Participacion();
         $participacion->alumno_id = $alumno_id;
         $participacion->puntaje = $puntaje;
         $participacion->dinamica_id = $dinamica_id;
 
-        $participacion->save();
+        $participacion->update();
         
     }
 }
