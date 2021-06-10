@@ -12,6 +12,6 @@ class ParticipacionSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Participacion::class, 300)->create();
+        factory(App\Participacion::class, 1000)->create();
     }
 }
