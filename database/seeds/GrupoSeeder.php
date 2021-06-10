@@ -15,19 +15,19 @@ class GrupoSeeder extends Seeder
         Grupo::create([
           'nombre' => 'Francisco Villa 3C',
           'codigo' => 'FV3C',
-          'user_id' => 1,
+          'user_id' => 2,
         ]);
 
         Grupo::create([
           'nombre' => 'Maria Teresa Campirano 6A',
           'codigo' => 'MTC6A',
-          'user_id' => 2,
+          'user_id' => 3,
         ]);
 
         Grupo::create([
           'nombre' => 'David Alfaro Siqueiros 4B',
           'codigo' => 'DAS4B',
-          'user_id' => 3,
+          'user_id' => 4,
         ]);
     }
 }
