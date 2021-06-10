@@ -19,10 +19,8 @@ class Participacions extends Migration
             $table->unsignedInteger('dinamica_id');
             $table->foreign('dinamica_id')->references('id')->on('dinamicas');
             $table->integer('puntaje')->default(-1);
-            $table->unsignedInteger('alumno_id');
+            $table->unsignedInteger('alumno_id')->nullable();
             $table->foreign('alumno_id')->references('id')->on('alumnos');
-
-            $table->string('unregistered_user')->nullable();
             $table->timestamps();
         });
     }
