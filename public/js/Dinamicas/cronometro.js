@@ -56,36 +56,28 @@ function Mensaje(mensaje){
 }
 
 function postear(puntaje){
-/*
-    const data = new FormData();
-    data.append('puntaje', score);
-
-    fetch('/participacion', {
-        headers:{
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': $("meta[name='csrf-token']").attr("content"),
-        },
-        method:'POST',
-        body: data
-    }).then(function(response){
-        if(response.ok) {
-            return response.text();
-        } else {
-            throw "Error en la llamada Ajax";
-        }
-    }).then(function(texto){
-        console.log(texto);
-    }).catch(function(err){
-        console.log(err);
-    });*/
 
     var dinamica_id = $('#asignatura').val();    
-    console.log(dinamica_id);
     $.ajax({
         url:"/participacion",
         type:"POST",
         data: {
             marcador:puntaje, 
+            dinamica:dinamica_id,
+            "_token": $("meta[name='csrf-token']").attr("content")
+        },
+        success: function(a){
+            console.log(a);
+        }
+    });
+}
+
+function nuevaParticipacion(){
+    var dinamica_id = $('#asignatura').val();    
+    $.ajax({
+        url:"/participacion/nueva",
+        type:"POST",
+        data: {
             dinamica:dinamica_id,
             "_token": $("meta[name='csrf-token']").attr("content")
         },
@@ -101,7 +93,11 @@ function cargarBotonInicializar(){
         if(ev.detail < 2){
             finDelJuego = true;
             reiniciar = true;
+            
             setTimeout(inicializar_juego,1000);
+
+            nuevaParticipacion();
+                console.log("nueva participacion");
         }
     });
 }

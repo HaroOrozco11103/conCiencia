@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function ()
 {
+    session()->forget('alumno_id');
     return view('inicio');
 })->name('inicio')->middleware('profe');
 
@@ -43,4 +44,5 @@ Route::POST('entrar/autenticando', 'GrupoController@autenticar')->name('grupos.a
 
 //------------------------------------------------------PARTICIPACIONES-----------------------------------------------------
 Route::resource('participaciones', 'ParticipacionController');
-Route::post('participacion', 'ParticipacionController@agregar')->name('participacion.agregar');
+Route::post('participacion', 'ParticipacionController@cambiarPuntuacion')->name('participacion.cambiarPuntuacion');
+Route::post('participacion/nueva', 'ParticipacionController@agregar')->name('participacion.agregar');

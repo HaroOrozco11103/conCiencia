@@ -85,9 +85,27 @@ class ParticipacionController extends Controller
     }
 
     public function agregar(Request $request){
+        
+        $participacion = new Participacion();
+
+        $puntaje = -1;
+        $dinamica_id = $request->input('dinamica');
+        
+        if(!empty(session()->has('alumno_id'))){
+            $alumno_id = session()->get('alumno_id');
+            $participacion->alumno_id = $alumno_id;
+        }
+        $participacion->puntaje = $puntaje;
+        $participacion->dinamica_id = $dinamica_id;
+
+        $participacion->save();
+        
+    }
+
+    public function cambiarPuntuacion(Request $request){
 
         //print_r ("puntaje:". $request->input('marcador') ." alumno_id:". session()->get('alumno_id')); exit;
-       
+
         $puntaje = $request->input('marcador');
         $dinamica_id = $request->input('dinamica');
         $alumno_id = session()->get('alumno_id');
@@ -98,6 +116,5 @@ class ParticipacionController extends Controller
         $participacion->dinamica_id = $dinamica_id;
 
         $participacion->update();
-        
     }
 }

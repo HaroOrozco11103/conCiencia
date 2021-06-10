@@ -58,21 +58,6 @@ class DinamicaController extends Controller
         join('asignaturas', 'dinamicas.asignatura_id','=', 'asignaturas.id')
         ->where('dinamicas.nombre', $dinamica->nombre)->get();
         
-        $puntaje = -1;
-        $dinamica_id = $dinamica->id;
-        
-        $alumno_id = null;
-        if(session()->has('alumno_id')){
-            $alumno_id = session()->get('alumno_id');
-        }
-        
-        $participacion = new Participacion();
-        $participacion->alumno_id = $alumno_id;
-        $participacion->puntaje = $puntaje;
-        $participacion->dinamica_id = $dinamica_id;
-
-        $participacion->save();
-        
         $vista = 'Dinamicas.' . $dinamica->nombre . '.index';
 
         //dd($dinamicas);

@@ -15,6 +15,7 @@ class AsignaturaController extends Controller
      */
     public function index()
     {
+        //print_r(session()->has('alumno_id')); exit;
         $asignaturas = Asignatura::all(); //Todas las asignaturas
         return view('alumnos.asignaturasIndex', compact('asignaturas'));
     }
