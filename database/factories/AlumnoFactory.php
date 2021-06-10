@@ -10,5 +10,6 @@ $factory->define(Alumno::class, function (Faker $faker) {
         'nombre' => $faker->name,
         'username' => $faker->unique()->userName,
         'grupo_id' => $faker->numberBetween($min = 1, $max = 3),
+        //'unregistered_user'
     ];
 });
