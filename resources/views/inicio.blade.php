@@ -41,6 +41,11 @@
 </body>
 
 <footer>
-  <p><a href="">Stats Globales</a></p>
+  <p>
+    <a href="{{ route('SLR', 'Tal') }}" onclick="event.preventDefault(); document.getElementById('SLR-form').submit();">
+      Stats Globales
+    </a>
+    <form id="SLR-form" action="{{ route('SLR', 'globalTipoDinamica') }}" method="POST">@csrf</form>
+  </p>
 </footer>
 @endsection

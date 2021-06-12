@@ -46,3 +46,8 @@ Route::POST('entrar/autenticando', 'GrupoController@autenticar')->name('grupos.a
 Route::resource('participaciones', 'ParticipacionController');
 Route::post('participacion', 'ParticipacionController@cambiarPuntuacion')->name('participacion.cambiarPuntuacion');
 Route::post('participacion/nueva', 'ParticipacionController@agregar')->name('participacion.agregar');
+
+
+
+//------------------------------------------------------STATS---------------------------------------------------------------
+Route::POST('stats/SLR/{tipo}', 'StatsController@selectDataToSLR')->name('SLR');
