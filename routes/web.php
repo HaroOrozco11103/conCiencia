@@ -50,4 +50,5 @@ Route::post('participacion/nueva', 'ParticipacionController@agregar')->name('par
 
 
 //------------------------------------------------------STATS---------------------------------------------------------------
-Route::POST('stats/SLR/{tipo}', 'StatsController@selectDataToSLR')->name('SLR');
+Route::get('stats', 'StatsController@index')->name('stats.index');
+Route::POST('stats/SLR/{tipo}', 'StatsController@selectDataToSLR')->name('stats.SLR');
