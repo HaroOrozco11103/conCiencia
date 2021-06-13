@@ -46,11 +46,112 @@ class StatsController extends Controller
         }
 
         $lista = DB::select($query, [1]);
-        $this->SLR($lista);
+        $regLin = $this->SLR($lista, $request->porcentaje);
+        return view('SLResults', compact('regLin'));
     }
 
-    public function SLR($lista)
+    public function SLR($lista, $porcentaje)
     {
-        dd($lista);
+        $regLin = [];  //Diccionario de valores de la regresión
+        $numPart = [];  //El número de participaciones es X para la regresión
+        for($i=0.05; $i<=1.01; $i+=0.05) //i es el porcentaje de participaciones, i toma 20 valores diferentes
+        {
+          array_push($numPart, round(count($lista)*$i, 0, PHP_ROUND_HALF_DOWN));
+        }
+
+        $promPart = [];  //El promedio de los puntajes dentro de X es Y para la regresión
+        foreach($numPart as $key => $nP)
+        {
+          $slicedList = array_slice($lista, 0, $nP);
+          $suma = 0;
+          foreach ($slicedList as $key => $sL)
+          {
+            $suma += $sL->puntaje;
+          }
+          array_push($promPart, $suma/$nP);
+        }
+
+        if($porcentaje <= 1)
+        {
+          $regLin = [
+            [
+              "nombre" => "Promedio historico",
+              "resultado" => "Aquí va el resultado",
+            ],
+          ];
+
+          return $regLin;
+        }
+
+        $sumaX = 0;
+        $sumaY = 0;
+        $sumaProductos = 0;
+        $sumaXCuad = 0;
+        $sumaYCuad = 0;
+        for($i=0; $i<20; $i++)
+        {
+            $sumaX += $numPart[$i];
+            $sumaY += $promPart[$i];
+            $sumaProductos += $numPart[$i] * $promPart[$i];
+            $sumaXCuad += $numPart[$i]**2;
+            $sumaYCuad += $promPart[$i]**2;
+        }
+        $mediaX = $sumaX/20;
+        $mediaY = $sumaY/20;
+        $mediaProductos = $sumaProductos/20;
+        $mediaXCuad = $sumaXCuad/20;
+        $mediaYCuad = $sumaYCuad/20;
+
+        $varianzaX = ($mediaXCuad - ($mediaX**2));
+        $varianzaY = ($mediaYCuad - ($mediaY**2));
+        $desvEstX = sqrt($varianzaX);
+        $desvEstY = sqrt($varianzaY);
+        $covarianza = $mediaProductos - ($mediaX * $mediaY);
+
+        $correlacion = $covarianza / ($desvEstX * $desvEstY); // Correlacion
+        $b1 = (20 * $sumaProductos - $sumaX * $sumaY)/(20 * $sumaXCuad - $sumaX * $sumaX); // Pendiente β1 = (nΣxiyi-ΣxiΣyi)/(nΣxi-ΣxiΣxi)
+        $b0 = $mediaY - $b1 * $mediaX; // β0 = y¯-β1x¯
+        //$b0 = ($sumaY - $b1 * $sumaX)/20; // β0 = (Σyi-β1Σxi)/n
+        $valPred = round($b0 + $b1 * (count($lista) * $porcentaje)); // y^ = β0+β1Xi (Valor preddecido por la regresión)
+        $regLin = [
+          [
+            "nombre" => "Varianza de X",
+            "resultado" => $varianzaX,
+          ],
+          [
+            "nombre" => "Varianza de Y",
+            "resultado" => $varianzaY,
+          ],
+          [
+            "nombre" => "Desviacion estandar de X",
+            "resultado" => $desvEstX,
+          ],
+          [
+            "nombre" => "Desviacion estandar de Y",
+            "resultado" => $desvEstY,
+          ],
+          [
+            "nombre" => "Covarianza",
+            "resultado" => $covarianza,
+          ],
+          [
+            "nombre" => "Correlación",
+            "resultado" => $correlacion,
+          ],
+          [
+            "nombre" => "β1 (Pendiente)",
+            "resultado" => $b1,
+          ],
+          [
+            "nombre" => "β0",
+            "resultado" => $b0,
+          ],
+          [
+            "nombre" => "Valor predecido",
+            "resultado" => $valPred,
+          ],
+        ];
+
+        return $regLin;
     }
 }
