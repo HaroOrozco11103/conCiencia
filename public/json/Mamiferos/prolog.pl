@@ -602,6 +602,7 @@ caracteristica(diprotodontia,garras).
 caracteristica(diprotodontia,mediano).
 caracteristica(diprotodontia,pentadactilo).
 caracteristica(diprotodontia,plantigrado).
+caracteristica(diprotodontia,huellas_digitales).
 caracteristica(diprotodontia,digitigrado).
 
 caracteristica(erinaceomorpha,theria).
