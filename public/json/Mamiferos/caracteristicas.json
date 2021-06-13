@@ -1,0 +1,353 @@
+{
+    "theria": {
+       "info": "Se refiere a los animales que se desarrollan dentro del útero de la madre y nacen de este."
+    },
+
+    "prototheria": {
+        "info":"Se refiere a los animales que se desarrollan dentro de un huevo y nacen de este."
+    },
+
+    "eutheria": {
+        "info":"Se refiere a los animales que se desarrollan en una placenta dentro del útero de la madre."
+    },
+
+    "metatheria": {
+        "info":"Se refiere a los animales que se desarrollan poco tiempo dentro del útero de la madre<br>y terminan su desarrollo agarrados a las glándulas mamarias del interior de un marsupio."
+    },
+
+    "endemico_africa": {
+        "info":"Se refiere a los animales cuya distribución o hábitat se limita al continente Africano."
+    },
+
+    "endemico_australia": {
+        "info":"Se refiere a los animales cuya distribución o hábitat se limita a la región de Australia."
+    },
+
+    "endemico_america": {
+        "info":"Se refiere a los animales cuya distribución o hábitat se limita al continente Americano."
+    },
+
+    "endemico_asia": {
+        "info":"Se refiere a los animales cuya distribución o hábitat se limita al continente Asiático."
+    },
+
+    "omnivoro": {
+        "info":"Se refiere a los animales cuya alimentación está basada tanto de carne como de plantas y vegetales."
+    },
+
+    "carnivoro": {
+        "info":"Se refiere a los animales cuya alimentación se basa principalmente en carne."
+    },
+
+    "herbivoro": {
+        "info":"Se refiere a los animales cuya alimentación se basa principalmente en hierbas, vegetales o afines."
+    },
+
+    "insectivoro": {
+        "info":"Se refiere a los animales cuya alimentación se basa principalmente en insectos y arácnidos."
+    },
+
+    "frugivoro": {
+        "info":"Se refiere a los animales cuya alimentación se basa principalmente en frutas."
+    },
+
+    "hematofago": {
+        "info":"Se refiere a los animales que pueden llegar a alimentarse de sangre."
+    },
+
+    "pequeno": {
+        "info":"Se refiere a los animales que miden menos de medio metro de longitud."
+    },
+
+    "mediano": {
+        "info":"Se refiere a los animales que miden de medio metro a metro y medio de longitud."
+    },
+
+    "grande": {
+        "info":"Se refiere a los animales que miden de metro y medio a tres metros de longitud."
+    },
+
+    "muy_grande": {
+        "info":"Se refiere a los animales que miden más de tres metros de longitud."
+    },
+
+    "terrestre": {
+        "info":"Se refiere a los animales que se transportan principalmente por el suelo."
+    },
+
+    "acuatico": {
+        "info":"Se refiere a los animales que se transportan solo por el agua."
+    },
+
+    "semiacuatico": {
+        "info":"Se refiere a los animales que se transportan tanto por el suelo como por el agua."
+    },
+
+    "aereo": {
+        "info":"Se refiere a los animales con la capacidad de volar."
+    },
+
+    "arboricola": {
+        "info":"Se refiere a los animales que usualmente se transportan sobre los árboles."
+    },
+
+    "hocico_alargado": {
+        "info":"Se refiere a los animales provistos de un hocico alargado en relación con su cabeza."
+    },
+
+    "hocico_proboscide": {
+        "info":"Se refiere a los animales cuyo hocico es prolongado y flexible."
+    },
+
+    "labio_leporino": {
+        "info":"Se refiere a la división en el labio superior de algunos animales y que conecta este con la nariz."
+    },
+
+    "orejas_largas": {
+        "info":"Se refiere a los animales provistos de un par de orejas alargadas."
+    },
+
+    "pico": {
+        "info":"Se refiere a los animales cuyo hocico termina en un pico."
+    },
+
+    "ojos_diminutos": {
+        "info":"Se refiere a los animales cuyos ojos son muy pequeños en relación a su cabeza."
+    },
+
+    "ojos_vestigiales": {
+        "info":"Se refiere a los animales cuyos ojos poseen ceguera total o parcial y no le son de mucha utilidad<br>puesto que usan otros sentidos para orientarse."
+    },
+
+    "vision_desarrollado": {
+        "info":"Se refiere a los animales provistos de una visión aguda y desarrollada."
+    },
+
+    "lengua_protactil": {
+        "info":"Se refiere a la lengua de algunos animales que puede proyectarse mucho hacia fuera de la boca."
+    },
+
+    "garras": {
+        "info":"Se refiere a los animales provistos de uñas corvas y afiladas."
+    },
+
+    "patagio": {
+        "info":"Se refiere a la membrana elástica de piel a modo de alas que poseen algunos animales."
+    },
+
+    "escamas": {
+        "info":"Se refiere a los animales provistos de escamas."
+    },
+
+    "aletas": {
+        "info":"Se refiere a los animales provistos con aletas en lugar de patas."
+    },
+
+    "placa_osea": {
+        "info":"Se refiere a la coraza o caparazón dorsal que poseen algunos animales."
+    },
+
+    "pezunas": {
+        "info":"Se refiere a los animales cuyos dedos están cubiertos con uñas desarrolladas llamadas pezuñas."
+    },
+
+    "pelaje": {
+        "info":"Se refiere a los animales cuyo cuerpo está cubierto de pelo casi en su totalidad."
+    },
+
+    "puas_o_espinas": {
+        "info":"Se refiere a los animales cuyo dorso está cubierto de púas."
+    },
+
+    "escroto": {
+        "info":"Se refiere a los animales cuyos testiculos están contenidos en un saco escrotal."
+    },
+
+    "espiraculo": {
+        "info":"Se refiere al orificio externo que poseen algunos animales en la parte superior de la cabeza<br>por medio del cual respiran aire."
+    },
+
+    "unas_planas": {
+        "info":"Se refiere a los animales provistos de uñas planas en lugar de garras afiladas."
+    },
+
+    "articulaciones_xenartrales": {
+        "info":"Se refiere a las articulaciones vertebrales peculiares y diferentes a las de cualquier<br>otro mamífero. Gracias a estas articulaciones tienen mayor potencia cuando cavan."
+    },
+
+    "cola_prensil": {
+        "info":"Se refiere a los animales provistos de una cola que les permite el agarre o sujetar objetos."
+    },
+
+    "cola_larga": {
+        "info":"Se refiere a los animales cuya cola tiene una longitud muy larga en relación<br>con el resto de su cuerpo."
+    },
+
+    "huellas_digitales": {
+        "info":"Se refiere al relieve de las marcas de piel visibles que se encuentran<br>en los dedos de algunos animales."
+    },
+
+    "sin_marsupio": {
+        "info":"Se refiere a los animales considerados marsupiales pero que no cuentan con una bolsa marsupial."
+    },
+
+    "robusto": {
+        "info":"Se refiere a los animales cuyo cuerpo es denso, grueso o gordo."
+    },
+
+    "piel_gruesa": {
+        "info":"Se refiere a los animales provistos de una piel gruesa."
+    },
+
+    "caninos_desarrollados": {
+        "info":"Se refiere a los animales provistos de colmillos en sus dientes caninos."
+    },
+
+    "sin_caninos": {
+        "info":"Se refiere a los animales que no cuentan con dientes caninos."
+    },
+
+    "carniceras_desarrollados": {
+        "info":"Se refiere a los animales provistos de molares muy desarrollados adaptados para una dieta carnivora."
+    },
+
+    "diastema_marcado": {
+        "info":"Se refiere a la separación entre los incisivos y el resto de los dientes."
+    },
+
+    "sin_diastema": {
+        "info":"Se refiere a los animales que no tienen separación entre los incisivos y el resto de los dientes."
+    },
+
+    "sin_incisivos": {
+        "info":"Se refiere a los animales que no cuentan con dientes incisivos."
+    },
+
+    "incisivos_desarrollados": {
+        "info":"Se refiere a los animales provistos de enormes colmillos en sus dientes incisivos."
+    },
+
+    "incisivos_no_desarrollados": {
+        "info":"Se refiere a los animales provistos de incisivos poco desarrollados que no son funcionales."
+    },
+
+    "incisivos_hipertrofiados": {
+        "info":"Se refiere a los animales provistos de incisivos muy desarrollados adaptados para roer."
+    },
+
+    "incisivos_clavija": {
+        "info":"Se refiere a un segundo par de incisivos de menor tamaño con forma de clavija<br>colocados justo detras del primer par."
+    },
+
+    "incisivos_superiores_dos": {
+        "info":"Se refiere a los animales provistos solo de dos incisivos arriba y dos abajo"
+    },
+
+    "duplidentado": {
+        "info":"Se refiere a los animales provistos de dos pares de incisivos en el maxilar."
+    },
+
+    "diprotodonto": {
+        "info":"Se refiere a los animales considerados marsupiales provistos con solo dos incisivos en la mandíbula."
+    },
+
+    "poliprotodonto": {
+        "info":"Se refiere a los animales considerados marsupiales provistos con más de tres incisivos<br>en la mandíbula superior y cuatro o más en la inferior."
+    },
+
+    "sin_dientes": {
+        "info":"Se refiere a los animales que no tienen dientes durante su etapa adulta o parte de ella."
+    },
+
+    "dientes_no_desarrollados": {
+        "info":"Se refiere a los animales cuyos dientes están muy poco desarrollados y que no son funcionales."
+    },
+
+    "dientes_cincuenta": {
+        "info":"Se refiere a los animales provistos con cincuenta (50) dientes."
+    },
+
+    "dientes_tubulados": {
+        "info":"Se refiere a los animales provistos de muelas formadas de tubos hexagonales<br>recubiertos de una capa de cemento."
+    },
+
+    "dedos_pares": {
+        "info":"Se refiere a los animales cuyas extremidades terminan en un número par de dedos."
+    },
+
+    "dedos_impares": {
+        "info":"Se refiere a los animales cuyas extremidades terminan en un número impar de dedos."
+    },
+
+    "dedos_min_cuatro": {
+        "info":"Se refiere a los animales que tienen mínimo cuatro dedos en cada extremidad."
+    },
+
+    "pentadactilo": {
+        "info":"Se refiere a los animales que tienen cinco dedos en cada extremidad."
+    },
+
+    "sindactilos": {
+        "info":"Se refiere a los animales que cuentan con algunos dedos fusionados."
+    },
+
+    "dedos_palmeados": {
+        "info":"Se refiere a los animales cuyos dedos están unidos por una membrana de piel."
+    },
+
+    "dedos_delanteros_cuatro": {
+        "info":"Se refiere a los animales que tienen cuatro dedos en cada extremidad delantera."
+    },
+
+    "dedos_traseros_tres": {
+        "info":"Se refiere a los animales que tienen tres dedos en cada extremidad trasera."
+    },
+
+    "dedos_delanteros_cinco": {
+        "info":"Se refiere a los animales que tienen cinco dedos en cada extremidad delantera."
+    },
+
+    "dedos_traseros_cuatro": {
+        "info":"Se refiere a los animales que tienen cuatro dedos en cada extremidad trasera."
+    },
+
+    "dedos_traseros_cinco": {
+        "info":"Se refiere a los animales que tienen cinco dedos en cada extremidad trasera."
+    },
+
+    "digitigrado": {
+        "info":"Se refiere a los animales que al caminar apoyan en el suelo únicamente los dedos<br>y no toda la planta de sus pies."
+    },
+
+    "plantigrado": {
+        "info":"Se refiere a los animales que al caminar apoyan en el suelo toda la planta de sus pies."
+    },
+
+    "ungulado": {
+        "info":"Se refiere a los animales que al caminar apoyan solo el extremo de los dedos o son descendientes<br>de algún animal que lo hacía. Usualmente tienen las patas terminadas en pezuña."
+    },
+
+    "bipedo": {
+        "info":"Se refiere a los animales que se sostienen sobre dos pies o patas para caminar.<br>Usualmente las dos extremidades inferiores."
+    },
+
+    "nocturno": {
+        "info":"Se refiere al ciclo de comportamiento en que el animal es más activo durante la noche<br>que durante el día."
+    },
+
+    "macrosmatico": {
+        "info":"Se refiere a los animales que tienen un sentido del olfato particularmente desarrollado."
+    },
+
+    "fosorial": {
+        "info":"Se refiere a los animales que están adaptados para la excavación y vida subterránea."
+    },
+
+    "venenoso": {
+        "info":"Se refiere a los animales provistos de toxinas o veneno."
+    },
+
+    "ecolocacion": {
+        "info":"Se refiere a los animales que tienen la capacidad de ubicarse en el espacio y medir distancias<br>por medio del sonido que emiten."
+    }
+}

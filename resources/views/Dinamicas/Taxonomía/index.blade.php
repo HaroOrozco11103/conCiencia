@@ -14,7 +14,7 @@
 
                 <div class="options">
                     <input class="box" type="checkbox" name="theria" value="theria" id="theria"> <label for="theria"> Theria (viviparo) </label>
-                    <input class="box" type="checkbox" name="prototheria" value="prototheria" id="prototheria"> <label for="prototheria"> Protheria (Ovíparo) </label> 
+                    <input class="box" type="checkbox" name="prototheria" value="prototheria" id="prototheria"> <label for="prototheria"> Protheria (Ovíparo) </label>
                 </div>
             </div>
 
@@ -48,7 +48,9 @@
                     <input class="box" type="checkbox" name="omnivoro" value="omnivoro" id="omnivoro" > <label for="omnivoro"> Omnívoro </label>
                     <input class="box" type="checkbox" name="carnivoro" value="carnivoro" id="carnivoro"> <label for="carnivoro"> Carnívoro </label>
                     <input class="box" type="checkbox" name="herbivoro" value="herbivoro" id="herbivoro"> <label for="herbivoro"> Hervívoro </label>
-                    <input class="box" type="checkbox" name="insectivoro" value="insectivoro" id="insectivoro"> <label for="insectivoro"> insectivoro </label>
+                    <input class="box" type="checkbox" name="insectivoro" value="insectivoro" id="insectivoro"> <label for="insectivoro"> Insectívoro </label>
+                    <input class="box" type="checkbox" name="frugivoro" value="frugivoro" id="frugivoro"> <label for="frugivoro"> Frugívoro </label>
+                    <input class="box" type="checkbox" name="hematofago" value="hematofago" id="hematofago"> <label for="hematofago"> Hematófago </label>
                 </div>
             </div>
 
@@ -72,6 +74,7 @@
                     <input class="box" type="checkbox" name="terrestre" value="terrestre" id="terrestre"> <label for="terrestre"> Terrestre </label>
                     <input class="box" type="checkbox" name="acuatico" value="acuatico" id="acuatico"> <label for="acuatico"> Acuático </label>
                     <input class="box" type="checkbox" name="semiacuatico" value="semiacuatico" id="semiacuatico"> <label for="semiacuatico"> Semiacuático </label>
+                    <input class="box" type="checkbox" name="aereo" value="aereo" id="aereo"> <label for="aereo"> Aereo </label>
                     <input class="box" type="checkbox" name="arboricola" value="arboricola" id="arboricola"> <label for="arboricola"> Arborícola </label>
                 </div>
             </div>
