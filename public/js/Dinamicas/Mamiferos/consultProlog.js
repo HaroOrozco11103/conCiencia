@@ -1,6 +1,8 @@
 var consultOrden = true;
 var listQuery = new Set();
 var finalizado = false;
+var info = '';
+var imagen = '';
 
 $(document).ready(function(){
     $('.box').prop('checked', false);
@@ -87,8 +89,39 @@ $('#tablaOrdenes').on('click', '.ordenData > td', function(){
     var orden = this.innerHTML;
     consultOrden = false;
 
+    leerJson(orden);
+
+    $('#myModal').addClass('modal-taxo');
+    
+    $('#myModalTitle').html(orden.toUpperCase());
+    $('#modal-body').empty();
+    
+    $('#modal-body').append(`
+        <div class ='info'> ${info}</div>
+        <img src='${image}/mamiferos/${imagen}' alt='${orden}'>
+    `);
+    
+    $('#myModal').modal();   
+
     $('#familiaTbody').empty();
     query = `pertenece(X, ${orden}),`;
 
     runProlog(query);
 });
+
+function leerJson(orden){
+    orden = orden.trim();
+    $.ajax({
+        url: `${json}/Mamiferos/mamiferos.json`,
+        dataType: 'json',
+        async: false,
+        success: function (json) {
+            info = json[orden]['info'];
+            imagen = json[orden]['imagen'];
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+   
+}

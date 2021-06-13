@@ -22,5 +22,22 @@
     padding: 10px !important;
 }
 
+.modal-taxo{
+    width: 100% !important;
+    height: 100vh !important;
+}
+
+.modal-taxo .modal-dialog{
+    max-width: none;
+    width: 90%;
+    height: 90vh;
+}
+
+
+
+.modal-taxo .modal-dialog #modal-body img{
+    width: 50%;
+    height: 50%;
+}
 
 

@@ -1,0 +1,159 @@
+{
+    "afrosoricida": {
+       "info": "Afrosoricida<br>Los afrosorícidos también conocidos como tenrecomorfos, son un orden de pequeños mamíferos<br>placentarios conformado por dos familias a las que pertenecen los topos dorados y los tenrecs.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Endémico de África, Insectívoro, Omnívoro, Plantígrado, Terrestre, Fosorial, Macrosmático, Venenoso, Nocturno.<br><br>Morfología:<br>Pequeño, Hocico alargado, Púas/Espinas, Ojos diminutos, Pentadáctilo, Garras.",
+       "imagen": "Afrosoricida.png"
+    },
+
+    "artiodactyla": {
+        "info":"Artiodactyla<br>Actualmente estos pertenecen al orden Cetartiodactyla.<br><br> Características y comportamientos:<br>Vivíparo, Placentario, Ungulado, Herbívoro, Gregario, Digitígrado, Terrestre.<br><br>Morfología:<br>Número par de dedos, Pezuñas, Pelaje, Robusto, Variedad de tamaños.",
+        "imagen": "Artiodactyla.jpg"
+    },
+
+    "carnivora": {
+        "info":"Carnivora<br>Los carnívoros son mamíferos que presentan una columna vertebral fuerte y flexible, glándulas anales desarrolladas que sirven para la defensa, el marcaje de territorio es característico en el orden, además del reconocimiento social y la mayoría de lasespecies son digitígrados.<br>Esencialmente los carnívoros presentan adaptaciones anatómicas hacia una dieta exclusivamente o en gran parte de carne.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Carnívoro, Omnívoro, Terrestre, Algunos semiacuaticos.<br><br>Morfología:<br>Mínimo cuatro dedos, Garras, Caninos y carniceras desarrolladas, Pelaje,<br>Variedad de tamaños.",
+        "imagen": "Carnivora.jpg"
+    },
+
+    "cetacea": {
+        "info":"Cetacea<br>Actualmente estos pertenecen al orden Cetartiodactyla.<br>Son un infraorden de mamíferos placentarios completamente adaptados a la vida acuática.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Grande, Ungulado, Carnívoro, Acuático.<br><br>Morfología:<br>Número par de dedos, Robusto, Piel gruesa, Aletas, Espiráculo.",
+        "imagen":"Cetacea.png"
+    },
+
+    "cetartiodactyla": {
+        "info": "Cetartiodactyla<br>Los cetartiodáctilos son mamíferos placentarios ungulados cuyas extremidades terminan en un número par de dedos.<br><br>Reúne a los antiguos órdenes de los cetáceos (Cetacea) y de los artiodáctilos (Artiodactyla).<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Ungulado.<br><br>Morfología:<br>Número par de dedos, Robusto, Variedad de tamaños.",
+        "imagen": "Cetartiodactyla.jpg" 
+    },
+    
+    "chiroptera": {
+        "info": "Chiroptera<br>Los quirópteros, conocidos comúnmente como murciélagos, son un orden de mamíferos placentarios cuyas extremidades superiores se desarrollaron como alas.<br>Están presentes en todos los continentes, excepto en la Antártida. Son los únicos mamíferos capaces de volar, se han extendido por casi todo el mundo y han ocupado una gran variedad de nichos ecológicos diferentes. Más de la mitad de especies conocidas se orientan y cazan por medio de la ecolocalización. La mayoría de las especies son insectívoras y la mayor parte del resto frugívoras; algunas se alimentan de pequeños vertebrados como ranas, roedores, aves, peces, otros murciélagos o, como en el caso de los vampiros, de sangre.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Insectivoro, Frugivoro, Hematofago, Ecolocación, Platígrado, Macrosmático, Aereo.<br><br>Morfología:<br>Patagio, Mínimo cuatro dedos, Garras, Incisivos no desarrollados, Pequeño.",
+        "imagen": "Chiroptera.jpg"
+    },
+
+    "cingulata": {
+        "info": "Cingulata<br>Son los comúnmente conocidos como armadillos, destaca la coraza que recubre su cuerpo dándole un aspecto primitivo e inconfundible. Se describen como animales terrestres, con buenas dotes para excavar, alimentándose de vegetales e invertebrados. Son habitantes de determinadas zonas geográficas americanas.<br><br>Características y comportamientos: <br>Vivíparo, Placentario, Insectívoro, Endémico de América, Fosorial, Plantígrado, Macrosmático, Terrestre.<br><br>Morfología:<br>Mínimo cuatro dedos, Placa ósea, Garras, Sin dientes, Lengua protáctil, Hocico alargado, Articulaciones Xenartrales, Pequeño y mediano.",
+        "imagen": "Cingulata.jpg"
+    },
+
+    "dasyuromorphia": {
+        "info": "Dasyuromorphia<br>Los dasiuromorfos, son un orden de mamíferos integrados en el grupo de los marsupiales de Oceanía, entre sus características destacan que son poliprotodontos, es decir, poseen más de tres incisivos en la mandíbula superior y cuatro o más en la inferior, igualmente suelen ser didáctilos, presentan el segundo y tercer dedo<br>de cada pie posterior unido por una vaina, y la bolsa abdominal en hembras no está muy desarrollada.<br><br>Características y comportamientos:<br>Vivíparo, Marsupial, Carnívoro, Insectívoro, Endémico de Australia, Nocturno, Terrestre.<br><br>Morfología:<br>Mínimo cuatro dedos, Garras, Pelaje, Caninos y carniceras desarrolladas, Poliprotodonto, Sindáctilo, Pequeño y mediano.",
+        "imagen": "Dasyuromorphia.jpg"
+    },
+
+    "dermoptera": {
+        "info":"Dermoptera<br>Los dermópteros son mamíferos placentarios arborícolas que poseen una membrana cutánea o patagio que une las extremidades con el cuerpo, por esa razón comúnmente se conocen como lemures voladores o colugos. Comen frutos y hojas.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Frugívoro, Herbívoro, Nocturno, Arborícola.<br><br>Morfología:<br>Pentadáctilo, Patagio, Dedos palmeados, Garras, Pelaje, Plantígrado, Pequeño y mediano.",
+        "imagen": "Dermoptera.jpg"
+    },
+
+    "didelphimorphia": {
+        "info": "Didelphimorphia<br>Los didelfimorfos, son mamíferos marsupiales más conocidos como zarigüeyas o tlacuaches, habitan en continente americano. Entre sus características destacan su hocico alargado y sin pelo, con cierto parecido a una rata, cuerpo mediano a pequeño. Las patas posteriores presentan un pulgar oponible y sin presencia de uña, la cola es alargada al igual que su cuerpo y poseen una cola prensil.<br><br>Características y comportamientos:<br>Vivíparo, Marsupial, Omnívoro, Endémico de América, Nocturno, Terrestre, Arborícola, Macrosmático, Plantígrado.<br><br>Morfología:<br>Pentadáctilo, Pelaje, Caninos y carniceras desarrolladas, Cincuenta dientes, Poliprotodonto, Hocico alargado, Cola larga y prensil, Mediano.",
+        "imagen": "Didelphimorphia.jpg"
+    },
+
+    "diprotodontia": {
+        "info": "Diprotodontia<br>Los diprotodontos son marsupiales con no más de tres incisivos en cada hemimandíbula superior y solo dos en la inferior (mandíbula). Se caracteriza por la presencia de individuos con dedos sindáctilos, los caninos inferiores están ausentes.<br><br>Características y comportamientos:<br>Vivíparo, Marsupial, Herbívoro, Endémico de Australia, Terrestre.<br><br>Morfología:<br>Pentadáctilo, Sindáctilo, Diprotodonto, Diastema marcado, Incisivos hipertrofiados,Pelaje, Labio leporino, Garras, Pequeño y mediano.",
+        "imagen": "Diprotodontia.png"
+    },
+
+    "erinaceomorpha": {
+        "info": "Erinaceomorpha<br>Son los conocidos erizos y otros individuos llamadas comúnmente como gimnuros. Los primeros caracterizados por la presencia de púas en su cuerpo y los segundos en poseer un pelaje bastante duro y con cierta morfología a las ratas.<br><br>Actualmente estos pertenecen al orden Eulipotyphla.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Insectívoro, Nocturno, Macrosmático, Venenoso, Terrestre.<br><br>Morfología:<br>Pentadáctilo, Púas o espinas, Pelaje, Hocico alargado, Diastema marcado, Garras, Plantígrado, Pequeño.",
+        "imagen": "Erinaceomorpha.jpg"
+    },
+
+    "eulipotyphla": {
+        "info": "Eulipotyphla<br>Los eulipotiflanos son mamíferos placentarios. Son pequeños con hocicos largos y puntiagudos. Sus fórmulas dentales son variables y están adaptadas para sostener y aplastar sus presas. La mayoría son peludos a excepción de los erizos que tienenpúas que le sirven para defenderse de sus depredadores. Se han adaptado a todos los biomas desde los bosques a los desiertos. Son animales solitarios y generalmente nocturnos. Todos cavan madrigueras u hoyos. Se alimentan principalmente de invertebrados y por ello se consideran insectívoros.Reúne a los antiguos órdenes de los erinaceomorfos (Erinaceomorpha) y de los soricomorfos (Soricomorpha).<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Insectívoro, Nocturno, Macrosmático, Venenoso, Plantígrado, Terrestre.<br><br>Morfología:<br>Pentadáctilo, Púas o espinas, Pelaje, Ojos diminutos, Hocico alargado, Caninos desarrollados, Carniceras desarrolladas,  Diastema marcado, Garras, Plantígrado, Pequeño.",
+        "imagen": "Eulipotyphla.jpg"
+    },
+
+    "hyracoidea": {
+"info": "Hyracoidea<br>Los hiracoideos son mamíferos comúnmente denominados damanes. Destacan la elasticidad de lasalmohadillas de sus pies, los delanteros están formado por cuatro dedos y los traseros por tres.Las uñas se asemejan a pequeñas pezuñas, ya que cubre parte de los dedos y se presentan en formaglobosa. Los colmillos están ausente, aunque poseen una mandíbula fuerte. Disponen de glándulasodoríferas presentes en pelos ubicados en el lomo. La cola es corta, y son mamíferos de pequeñotamaño.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Herbívoro, Ungulado, Plantígrado, Terrestre. <br>Morfología: Cuatro dedos delanteros y tres dedos traseros, Sin caninos, Pelaje, Incisivos hipertrofiados, Diastema marcado, Plantígrado, Pequeño.",
+        "imagen": "Hyracoidea.jpg"
+    },
+
+    "lagomorpha": {
+        "info": "Lagomorpha<br><br>Los lagomorfos son animales mamíferos placentarios que presentan diversidad de tamaños según la especie, poseen cola corta y un pelaje suave y denso que puede variar en función de los cambios estacionales. Su dentadura presenta algunas peculiaridades como la presencia de dos pares de incisivos en el maxilar, por esa razón también se les denomina duplidentados. El segundo par de incisivos, situados posteriormente a los tradicionales, son notablemente más pequeños.<br><br>Características y comportamientos:<br> Vivíparo, Placentario, Herbívoro, Fosorial, Nocturno, Terrestre.<br>Morfología:<br>Pentadáctilo, Pelaje, Sin caninos, Duplidentado, Incisivos clavija, Incisivos hipertrofiados, Diastema marcado, Labio leporino, Garras, Orejas largas, Plantígrado, Pequeño y mediano.",
+        "imagen": "Lagomorpha.jpg"
+    },
+
+    "macroscelidea": {
+        "info": "Macroscelidea<br> Los macroscelídeos, lo constituyen un grupo de mamíferos comúnmente denominados musarañas elefantes, por el peculiar hocico puntiagudo en forma de probóscide.Poseen patas largas y delgadas, con cuatro o cinco dedos, la cola también es delgada, los ojos son bastante grandes y desarrollados al igual que sus orejas. Presentan una cabeza considerable y un cuello moderado. Se distribuyen por el continente africano, viven en numerosos hábitats y se alimentan de hormigas, termitas, invertebrados, incluso pequeños vertebrados y detritus. <br><br>Características y comportamientos: <br>Vivíparo, Placentario, Endémico de África, Insectívoro, Digitígrado, Macrosmático, Terrestre. <br>Morfología: Mínimo cuatro dedos, Pelaje, Lengua protáctil, Hocico proboscide, Hocico alargado, Garras, Cola larga, Pequeño.",
+        "imagen": "Macroscelidea.jpg"
+    },
+
+    "microbiotheria": {
+        "info": "Microbiotheria<br>Los microbioterios, constituye un orden de mamíferos marsupiales, que guarda ciertas características con los marsupiales australianos, un eslabón evolutivo entre ese continente y el americano, su hábitat actual. Viven en selvas tropicales templadas en las que abunda el bambú y tienen el tamaño de un pequeño ratón.<br><br>Características y comportamientos:<br>Vivíparo, Marsupial, Endémico de América, Herbívoro, Plantígrado, Arborícola, Terrestre.<br><br>Morfología:<br>Pentadáctilo, Poliprotodonto, Cincuenta dientes, Pelaje, Cola larga, Cola prensil, Uñas planas, Pequeño.",
+        "imagen": "Microbiotheria.jpg"
+    },
+
+    "monotremata": {
+        "info": "Monotremata<br>Los monotremas mantienen rasgos muy primitivos. Entre sus caracteres más significativos destacan el hecho de tener cloaca, son ovíparos, es decir se reproducen por medio de huevos que con posterioridad son incubados. Poseen un pico revestido de piel suave, carecen de orejas y disponen de glándulas mamarias, aunque no de mamas externas. Su temperatura corporal suele ser menor que la de otros mamíferos y mantienen algunos rasgos anatómicos reptilianos.<br><br>Características y comportamientos: Ovíparo, Endémico de Australia, Insectívoro, Carnívoro, Venenoso, Semiacuático, Plantígrado, Terrestre.<br><br>Morfología:<br>Pentadáctilo, Sin dientes, Pico, Pelaje, Lengua protáctil, Hocico alargado, Garras, Púas, Dedos palmeados, Pequeño.",
+        "imagen": "Monotremata.png"
+    },
+
+
+    "notoryctemorphia": {
+        "info": "Notoryctemorphia<br>Los notoricteromorfos, constituye un grupo de mamíferos de australia denominados topos marsupiales. Presentan un asombroso parecido con los topos dorados placentarios aunque se trate de especies muy alejadas. Sus ojos son vestigiales y los oídos externos están ausentes. Poseen garras delanteras que le sirven para moverse por la arena, más que cavar galerías realizan movimientos que asimilan nadar. Tienen capacidad de respirar oxígeno existente entre la arena. Se alimentan de pequeños invertebrados y son activos tanto por el día como por la noche.<br><br>Características y comportamientos:<br>Vivíparo, Marsupial, Endémico de Autralia, Insectívoro, FosorialPeramelemorphia Los peramelemorfos son mamíferos marsupiales denominados comúnmente como bandicuts y bilbies, suelen llamarles omnívoros marsupiales. Algunas especies destacan en apariencia a un roedor. Presentan nariz alargada, cuerpo rechoncho, patas largas y pelaje amarronado, en algunos casos con rayas. Por lo general son nocturnos y omnívoros y poseen olfato y ojos desarrollados. Son habitantes de determinadas zonas de Oceanía.<br><br>Características y comportamientos:<br>Vivíparo, Marsupial, Endémico de Australia, Omnívoro, Macrosmático, Nocturno, Terrestre.<br><br>Morfología:<br>Mínimo cuatro dedos, Pelaje, Hocico alargado, Sindáctilo, Garras, Pequeño., Terrestre.<br><br>Morfología:<br>Pentadáctilo, Pelaje, Ojos diminutos, Ojos vestigiales, Garras, Pequeño.",
+        "imagen": "Notoryctemorphia.jpg"
+    },
+
+    "paucituberculata": {
+        "info": "Paucituberculata <br>Los paucituberculados son marsupiales de América conocidos como ratones runchos (o zarigüeyas-musaraña) por el parecido que guardan con los ratones placentarios. Poseen ojos pequeños, cola larga aunque no prensil y pelaje grisáceo a pardo, presenta dos incisivos en la parte inferior grandes y un poco horizontales, por lo que sobresalen, se ha sugerido que es una adaptación que les habilita a capturar mejor a sus presas. Se distribuyen en América del Sur. Habitan en áreas con bastante vegetación, por lo que no son muy fáciles de avistar.<br><br>Características y comportamientos:<br>Vivíparo, Marsupial, Endémico de América, Insectívoro, Nocturno, Terrestre.<br>Morfología:<br><br>Mínimo cuatro dedos, Pelaje, Sin marsupio, Sindáctilo, Dedos palmeados, Labio leporino, Poliprotodonto, Garras, Pequeño.",
+        "imagen": "Paucituberculata.jpg"
+    },
+
+    "peramelemorphia": {
+        "info": "Peramelemorphia<br>Los peramelemorfos son mamíferos marsupiales denominados comúnmente como bandicuts y bilbies, suelen llamarles omnívoros marsupiales. Algunas especies destacan en apariencia a un roedor. Presentan nariz alargada, cuerpo rechoncho, patas largas y pelaje amarronado, en algunos casos con rayas. Por lo general son nocturnos y omnívoros y poseen olfato y ojos desarrollados. Son habitantes de determinadas zonas de Oceanía.<br><br>Características y comportamientos:<br>Vivíparo, Marsupial, Endémico de Australia, Omnívoro, Macrosmático, Nocturno, Terrestre.<br><br>Morfología:<br>Mínimo cuatro dedos, Pelaje, Hocico alargado, Sindáctilo, Garras, Pequeño.",
+        "imagen": "Peramelemorphia.jpg"
+    },
+
+    "perissodactyla": {
+        "info": "Perissodactyla<br>Los perisodáctilos son mamíferos placentarios ungulados que se caracterizan porla posesión de extremidades con un número impar de dedos terminados en pezuñas.Son herbívoros, la mayoría poseen tres dedos aún funcionales en sus extremidades,aunque, el que se ubica la posición central es el más desarrollado y el que funcionacomo eje para ese miembro. En algunos animales, como por ejemplo en el caballo, losdedos se han reducido totalmente hasta quedar presente solo uno.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Ungulado, Herbívoro, Gregario, Digitígrado, Terrestre.<br><br>Morfología:<br>Número impar de dedos, Pezuñas, Pelaje, Robusto, Grandes.",
+        "imagen": "Perissodactyla.jpg"
+    },
+
+    "pholidota": {
+        "info": "Pholidota<br>Los folidotos son mamíferos placentarios, conocidos popularmente como pangolines. Tienen grandes escamas en la piel, son los únicos mamíferos que las poseen y viven en las regiones tropicales de África y Asia. No tienen dientes, y atrapan las hormigas y termitas mediante su larga lengua estrecha y pegajosa. ​En general, son animales nocturnos que utilizan su olfato bien desarrollado para encontrar los insectos de los que se alimentan. Se pasan la mayor parte de día durmiendo enroscados en una bola.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Insectívoro, Fosorial, Plantígrado, Macrosmático, Nocturno, Arborícola, Terrestre.<br><br>Morfología:<br>Mínimo cuatro dedos, Escamas, Piel gruesa, Sin dientes, Cola larga, Cola prensil, Garras, Lengua protáctil, Hocico alargado, Pequeño y mediano.",
+        "imagen": "Pholidota.jpg"
+    },
+
+    "pilosa": {
+        "info": "Pilosa <br>Los pilosos son mamíferos con ciertas peculiaridades morfológicas, como es el hecho de presentar cuerpos alargados, fuertes garras, cola larga y en algunos casos prensil. Ciertas especies carecen de dientes, incluso en determinados ejemplares poseen un la captura de insectos. pronunciado hocico con abertura bucal estrecha, ya que su lengua está adaptada para<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Herbívoro, Insectívoro, Arborícola, Terrestre.<br><br>Morfología:<br>Sin dientes, Dientes no desarrollados, Articulaciones Xenartrales, Garras, Pelaje, Lengua protáctil, Hocico alargado, Mediano.",
+        "imagen": "Pilosa.png"
+    },
+
+    "primates": {
+        "info": "Primates <br>Los Primates son mamíferos caracterizado por su inteligencia, vista aguzada y presencia de manos y pies. En su evolución, incluyendo al hombre, han podido llegar a niveles de especialización muy avanzados, precisamente por el hecho de sufrir mayor desarrollo del sistema nervioso, también al tratarse de mamíferos plantígrados pentadáctilos, eximiéndose, en muchos casos, de una locomoción estrictamente cuadrúpeda por el desarrollo sufrido en las manos como órgano de aprehensión y la consecuente posición erecta o semierecta del cuerpo en muchas especies, como es el caso del hombre.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Omnívoro, Plantígrado, Bípedo, Arborícola, Terrestre.<br><br>Morfología:<br>Pentadáctilo, Visión desarrollada, Uñas planas, Pelaje, Cola larga, Cola prensil, Variedad de tamaños.",
+        "imagen": "Primates.jpg"
+    },
+
+
+    "proboscidea": {
+        "info": "Proboscidea<br>Los proboscídeos son mamíferos placentarios robustos, su cabeza de enormes dimensiones, al igual que sus orejas, contrastan con un cuello corto. Las patas son alargadas destacando su trompa prensil y habilitada para la respiración. Son descritos como pentadáctilos y plantígrados, con revestimiento piloso pobre, Con un incisivo superior de crecimiento durante toda la vida, colmillos que pueden medir superando los 3m de longitud. El cerebro está desarrollado y es el mayor en peso y volumen que el de cualquier mamífero de hábitos terrestres.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Ungulado, Herbívoro, Terrestre.<br><br>Morfología: <br>Pentadáctilo, Hocico proboscide, Hocico alargado, Incisivos desarrollados, Sin caninos, Orejas largas, Piel gruesa, Robusto, Muy grandes.",
+        "imagen": "Proboscidea.jpg"
+    },
+
+    "rodentia": {
+        "info": "Rodentia<br>Los roedores son mamíferos placentarios, es el orden más numeroso de mamíferos. Pueden hallarse en gran número en todos los continentes salvo la Antártida. Lo que más caracteriza al grupo Rodentia es la presencia de 4 incisivos, dos arriba y los otros dos en la parte inferior de la boca, son de crecimiento continuo, por lo que compensa el desgaste producido mediante su acción de roer. Carecen de caninos y premolares anteriores.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Omnívoro, Nocturno, Terrestre.<br><br>Morfología:<br>Cinco dedos en patas delanteras y cuatro en las traseras, Pelaje, Dos incisivos en cada maxilar, Incisivos hipertrofiados, Diastema marcado, Sin caninos, Garras, Cola larga, Pequeño y mediano.",
+        "imagen": "Rodentia.png"
+    },
+    
+    "scandentia": {
+        "info": "ScandentiaLos escandentios son mamíferos placentarios conocidos vulgarmente como tupayas o musarañas arborícolas. Son animales pequeños que viven en las selvas del sudeste asiático. Se trata del grupo más cercano a los primates, después de los dermópteros.Son animales omnívoros que poseen ojos grandes y buena audición. Algunas especies viven en los árboles, otras son terrestres. Suelen ser nocturnos, aunque también pueden estar activos durante el día.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Endémico de Asia, Omnívoro, Plantígrado, Nocturno, Arborícola, Terrestre.<br><br>Morfología:<br>Pentadáctilo, Pelaje, Cola larga, Hocico alargado, Garras, Cola larga, Pequeño.",
+        "imagen": "Scandentia.jpg"
+    },
+
+    "sirenia": {
+        "info": "Sirenia<br>Los sirenios son mamíferos placentarios conocidos como vacas marinas. Su principal característica es la ausencia de extremidades posteriores, las anteriores, en su evolución, se han transformado en aletas. Su cola está aplastada horizontalmente y la cabeza presenta un labio superior muy desarrollado. En general, poseen un cuerpo de gran tamaño y rechoncho, carecen de caninos y se alimentan de vegetación acuática. Habitan en agua dulce o salada. Son los únicos mamíferos marinos herbívoros y junto con los cetáceos los únicos mamíferos adaptados completamente a la vida acuática.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Ungulado, Herbívoro, Acuático.<br><br>Morfología:<br>Pentadáctilo, Hocico proboscide, Aletas, Uñas planas, Piel gruesa, Robusto, Muy grandes.",
+        "imagen": "Sirenia.jpg"
+    },
+
+    "soricomorpha": {
+        "info": "Soricomorpha<br>Actualmente estos pertenecen al orden Eulipotyphla.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Insectívoro, Nocturno, Macrosmático, Venenoso, Plantígrado, Terrestre.<br><br>Morfología:<br>Pentadáctilo, Pelaje, Ojos diminutos, Hocico alargado, Caninos desarrollados, Carniceras desarrolladas, Garras, Plantígrado, Pequeño.",
+        "imagen": "soricomorpha.jpg"
+    },
+
+    "tubulidentata": {
+        "info": "Tubulidentata<br>Los tubulidentados son mamíferos placentarios que se caracterizan por sus peculiares muelas formadas de tubos hexagonales de dentina y carentes de esmalte, aunque están recubiertos de una capa de cemento. Son oriundos de África y se alimenta de termitas y hormigas. Son digitígrados, con presencia de cuatro dedos en la patas anteriores y cinco en las posteriores, las uñas muy fuertes les facultan para excavar. Destaca su hocico largo y cilíndrico y orejas también alargadas. La lengua es protráctil.<br><br>Características y comportamientos:<br>Vivíparo, Placentario, Ungulado, Endémico de África, Insectívoro, Digitígrado, Nocturno, Terrestre.<br><br>Morfología:<br>Cuatro dedos en patas delanteras y cinco en las traseras, Piel gruesa,Dientes tubulados, Sin caninos, Sin incisivos, Garras, Lengua protáctil, Hocico proboscide, Hocico alargado, Mediano.",
+        "imagen": "Tubulidentata.jpg"
+    }
+
+}
