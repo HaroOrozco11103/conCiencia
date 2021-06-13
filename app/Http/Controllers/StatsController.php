@@ -21,27 +21,31 @@ class StatsController extends Controller
         switch($tipo)
         {
           case "profeAlumno":
-              $query = "SELECT * FROM `conciencia`.`participacions` WHERE `alumno_id` = " . $tipo;
+              $query = "SELECT * FROM `conciencia`.`participacions` WHERE `alumno_id` = " . $request->alumno . " AND `puntaje` > -1";
+          break;
+
+          case "profeAlumnoMateria":
+              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `dinamicas`.`asignatura_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `alumno_id` = " . $request->alumno . " AND `asignatura_id` = " . $request->matSelect . " AND `puntaje` > -1";
           break;
 
           case "profeGrupo":
-              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `alumnos`.`grupo_id` FROM `conciencia`.`participacions` LEFT JOIN `alumnos` ON `participacions`.`alumno_id` = `alumnos`.`id` WHERE `grupo_id` = " . $tipo;
+              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `alumnos`.`grupo_id` FROM `conciencia`.`participacions` LEFT JOIN `alumnos` ON `participacions`.`alumno_id` = `alumnos`.`id` WHERE `grupo_id` = " . $request->grupo . " AND `puntaje` > -1";
           break;
 
-          case "profeMateria":
-              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `alumnos`.`grupo_id`, `dinamicas`.`asignatura_id` FROM `conciencia`.`participacions` LEFT JOIN `alumnos` ON `participacions`.`alumno_id` = `alumnos`.`id` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `grupo_id` = " . $tipo . "AND `asignatura_id` = " . $tipo;
+          case "profeGrupoMateria":
+              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `alumnos`.`grupo_id`, `dinamicas`.`asignatura_id` FROM `conciencia`.`participacions` LEFT JOIN `alumnos` ON `participacions`.`alumno_id` = `alumnos`.`id` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `grupo_id` = " . $request->grupo . " AND `asignatura_id` = " . $request->matSelect . " AND `puntaje` > -1";
           break;
 
           case "globalMateria":
-              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `dinamicas`.`asignatura_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `asignatura_id` = " . $request->matSelect;
+              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `dinamicas`.`asignatura_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `asignatura_id` = " . $request->matSelect . " AND `puntaje` > -1";
           break;
 
           case "globalTipoDinamica":
-              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `dinamicas`.`asignatura_id`, `dinamicas`.`nombre` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `nombre` = " . "'" . $request->tipoDinSelect . "'";
+              $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `dinamicas`.`asignatura_id`, `dinamicas`.`nombre` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `nombre` = '" . $request->tipoDinSelect . "' AND `puntaje` > -1";
           break;
 
           case "globalDinamicaEspecifica":
-              $query = "SELECT * FROM `conciencia`.`participacions` WHERE `dinamica_id` = " . $request->dinSelect;
+              $query = "SELECT * FROM `conciencia`.`participacions` WHERE `dinamica_id` = " . $request->dinSelect . " AND `puntaje` > -1";
           break;
         }
 
@@ -73,10 +77,18 @@ class StatsController extends Controller
 
         if($porcentaje <= 1)
         {
+          $slicedList = array_slice($lista, 0, round(count($lista)*$porcentaje, 0, PHP_ROUND_HALF_DOWN));
+          $suma = 0;
+          foreach ($slicedList as $key => $sL)
+          {
+            $suma += $sL->puntaje;
+          }
+          $historico = $suma/round(count($lista)*$porcentaje, 0, PHP_ROUND_HALF_DOWN);
+
           $regLin = [
             [
               "nombre" => "Promedio historico",
-              "resultado" => "Aquí va el resultado",
+              "resultado" => $historico,
             ],
           ];
 
@@ -113,27 +125,8 @@ class StatsController extends Controller
         $b0 = $mediaY - $b1 * $mediaX; // β0 = y¯-β1x¯
         //$b0 = ($sumaY - $b1 * $sumaX)/20; // β0 = (Σyi-β1Σxi)/n
         $valPred = round($b0 + $b1 * (count($lista) * $porcentaje)); // y^ = β0+β1Xi (Valor preddecido por la regresión)
+
         $regLin = [
-          [
-            "nombre" => "Varianza de X",
-            "resultado" => $varianzaX,
-          ],
-          [
-            "nombre" => "Varianza de Y",
-            "resultado" => $varianzaY,
-          ],
-          [
-            "nombre" => "Desviacion estandar de X",
-            "resultado" => $desvEstX,
-          ],
-          [
-            "nombre" => "Desviacion estandar de Y",
-            "resultado" => $desvEstY,
-          ],
-          [
-            "nombre" => "Covarianza",
-            "resultado" => $covarianza,
-          ],
           [
             "nombre" => "Correlación",
             "resultado" => $correlacion,

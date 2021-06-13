@@ -69,7 +69,8 @@ class AlumnoController extends Controller
     {
         $profeId = \Auth::user()->id;
         $grupos = DB::table('grupos')->where('user_id', $profeId)->get();
-        return view('profesores.alumnoStats', compact('alumno', 'grupos'));
+        $materias = DB::select('SELECT `id`, `nombre` FROM `conciencia`.`asignaturas`', [1]);
+        return view('profesores.alumnoStats', compact('alumno', 'grupos', 'materias'));
     }
 
     /**

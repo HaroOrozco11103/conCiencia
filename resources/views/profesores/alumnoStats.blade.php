@@ -50,6 +50,49 @@
 <br><br><br>
 
 <div class="card shadow">
-    <div class="card-header">{{ __('STATS') }}</div>
+  <div class="card-header">
+    <p>
+      <form id="SLR-form" action="{{ route('stats.SLR', 'profeAlumno') }}" method="POST">
+        @csrf
+          <input type="hidden" name="alumno" value="{{ $alumno->id }}">
+          <select name="porcentaje">
+              @for($i=0.05; $i<=1.01; $i+=0.05)
+                <option value="{{ $i }}">{{ $i * 100 }}%</option>
+              @endfor
+              @for($i=1.5; $i<=10.00; $i+=0.50)
+                <option value="{{ $i }}">{{ $i * 100 }}%</option>
+              @endfor
+          </select>
+      </form>
+      <a class="btn btn-link" href="{{ route('stats.SLR', 'profeAlumno') }}" onclick="event.preventDefault(); document.getElementById('SLR-form').submit();">
+        Ver progreso
+      </a>
+    </p>
+  </div>
+  <div class="card-header">
+    <div class="card-header">Materia</div>
+    <form method="POST" action="{{ route('stats.SLR', 'profeAlumnoMateria') }}">
+      @csrf
+        <input type="hidden" name="alumno" value="{{ $alumno->id }}">
+        <select name="matSelect">
+            @foreach($materias as $key => $mat)
+              <option value="{{ $mat->id }}">{{ $mat->nombre }}</option>
+            @endforeach
+        </select>
+        <select name="porcentaje">
+            @for($i=0.05; $i<=1.01; $i+=0.05)
+              <option value="{{ $i }}">{{ $i * 100 }}%</option>
+            @endfor
+            @for($i=1.5; $i<=10.00; $i+=0.50)
+              <option value="{{ $i }}">{{ $i * 100 }}%</option>
+            @endfor
+        </select>
+        <div class="col-md-6 offset-md-4">
+            <button type="submit" class="btn btn-outline-primary">
+              Ver progreso
+            </button>
+        </div>
+    </form>
+  </div>
 </div>
 @endsection
