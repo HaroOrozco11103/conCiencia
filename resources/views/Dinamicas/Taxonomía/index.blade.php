@@ -2,8 +2,11 @@
 
 @section('content')
 
+@include("layouts.popup")
     <div class="contenido">
         <h1 class="text-center"> ORDENES DE MAMIFEROS</h1>
+        <br> <br>
+
 
         <!-- PRIMERA FILA DE DATOS-->
         <div class="row">
@@ -36,7 +39,7 @@
                     <input class="box" type="checkbox" name="endemico_africa" value="endemico_africa" id="endemico_africa"> <label for="endemico_africa"> Africa </label>
                     <input class="box" type="checkbox" name="endemico_australia" value="endemico_australia" id="endemico_australia"> <label for="endemico_australia"> Australia </label>
                     <input class="box" type="checkbox" name="endemico_america" value="endemico_america" id="endemico_america"> <label for="endemico_america"> América </label>
-                    <input class="box" type="checkbox" name="endemico_asia" value="endemico_asia" id="asia"> <label for="asia"> Asia </label>
+                    <input class="box" type="checkbox" name="endemico_asia" value="endemico_asia" id="endemico_asia"> <label for="endemico_asia"> Asia </label>
                 </div>
             </div>
 
@@ -265,6 +268,7 @@
     </div>
 
     <link rel="stylesheet" href="{{asset('css/Dinamicas/mamiferos.css')}}">
+    <link rel="stylesheet" href="{{asset('css/popup.css')}}">
     <script type="text/javascript" src="{{asset('js/Dinamicas/Mamiferos/tau-prolog.js')}}"></script>
     <script src="{{asset('js/Dinamicas/Mamiferos/consultProlog.js')}}" type="text/javascript"></script>
 

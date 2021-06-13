@@ -3,6 +3,7 @@ var listQuery = new Set();
 var finalizado = false;
 var info = '';
 var imagen = '';
+var listaCaracteristicas = [];
 
 $(document).ready(function(){
     $('.box').prop('checked', false);
@@ -84,6 +85,15 @@ $(".box").click(function(event){
     
 });
 
+$("input[type=checkbox] + label").hover(function(){
+    
+    var box = this.getAttribute('for').trim();
+    var popup = document.getElementById("myPopup");
+    popup.innerHTML = listaCaracteristicas[box];
+    popup.classList.toggle("show");
+});
+
+
 //Creamos un evento para los rows de la tabla ordenes
 $('#tablaOrdenes').on('click', '.ordenData > td', function(){
     var orden = this.innerHTML;
@@ -96,7 +106,7 @@ $('#tablaOrdenes').on('click', '.ordenData > td', function(){
     $('#myModalTitle').html(orden.toUpperCase());
     $('#modal-body').empty();
     
-    $('#modal-body').append(`
+    $('#modal-body').html(`
         <div class ='info'> ${info}</div>
         <img src='${image}/mamiferos/${imagen}' alt='${orden}'>
     `);
@@ -108,6 +118,7 @@ $('#tablaOrdenes').on('click', '.ordenData > td', function(){
 
     runProlog(query);
 });
+   
 
 function leerJson(orden){
     orden = orden.trim();
@@ -122,6 +133,19 @@ function leerJson(orden){
         error: function(err){
             console.log(err);
         }
-    });
-   
+    });  
 }
+
+
+
+$.ajax({
+    url: `${json}/Mamiferos/caracteristicas.json`,
+    dataType: 'json',
+    async: false,
+    success: function (json) {
+        listaCaracteristicas = json;
+    },
+    error: function(err){
+        console.log(err);
+    }
+});
