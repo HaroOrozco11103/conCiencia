@@ -10,13 +10,6 @@ var reiniciar = false;
 var listaPreguntas = [];
 var listaRespuestas = [];
 
-function setListaPreguntas(data){
-    this.listaPreguntas = data;
-}
-
-function setListaRespuestas(data){
-    this.listaRespuestas = data;
-}
 
 function inicializar(){
     cargarBotonInicializar();
@@ -138,7 +131,7 @@ function leerJson(){
         dataType: 'json',
         async: false,
         success: function (json) {
-            setListaPreguntas(json[materia]);
+            listaPreguntas = json[materia];
         }
     });
 
@@ -147,7 +140,7 @@ function leerJson(){
         dataType: 'json',
         async: false,
         success: function (json) {
-            setListaRespuestas(json[materia]);
+            listaRespuestas = json[materia];
         }
     });
     /* JQuery asincrono

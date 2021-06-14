@@ -4,8 +4,11 @@ var finalizado = false;
 var info = '';
 var imagen = '';
 var listaCaracteristicas = [];
+var score = 0;
 
 $(document).ready(function(){
+    nuevaParticipacion();
+    score = 0;
     $('.box').prop('checked', false);
 });
 
@@ -79,12 +82,12 @@ $(".box").click(function(event){
     });  
 
     runProlog(query).then((response) => {
-        console.log(response);
-            this.disabled = false;
+        this.disabled = false;
     });
     
 });
 
+//Mostrar leyenda de la descipcion
 $("input[type=checkbox] + label").hover(function(){
     
     var box = this.getAttribute('for').trim();
@@ -113,6 +116,9 @@ $('#tablaOrdenes').on('click', '.ordenData > td', function(){
     
     $('#myModal').modal();   
 
+    score += 10;
+    postear(score);
+    
     $('#familiaTbody').empty();
     query = `pertenece(X, ${orden}),`;
 

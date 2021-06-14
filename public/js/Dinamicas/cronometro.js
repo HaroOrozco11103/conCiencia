@@ -44,10 +44,11 @@ function inicializar_tiempo(){
     }
 }
 
-function Mensaje(mensaje, puntaje){
+function Mensajes(mensaje, puntaje){
+    console.log(puntaje);
     $('#myModal').modal();
     $('#status').html(mensaje);
-    $('#puntaje').html(`puntaje final: ${puntaje}`);
+    $('#puntaje').html('puntaje final: ' + puntaje);
 }
 
 function Mensaje(mensaje){
@@ -57,7 +58,10 @@ function Mensaje(mensaje){
 
 function postear(puntaje){
 
-    var dinamica_id = $('#asignatura').val();    
+    if(typeof(dinamica_id) === 'undefined' || dinamica_id === null){
+        dinamica_id = $('#asignatura').val();
+    }
+    
     $.ajax({
         url:"/participacion",
         type:"POST",
@@ -73,7 +77,11 @@ function postear(puntaje){
 }
 
 function nuevaParticipacion(){
-    var dinamica_id = $('#asignatura').val();    
+    
+    if(typeof(dinamica_id) === 'undefined' || dinamica_id === null){
+        dinamica_id = $('#asignatura').val();
+    }
+    
     $.ajax({
         url:"/participacion/nueva",
         type:"POST",
@@ -90,7 +98,8 @@ function nuevaParticipacion(){
 function cargarBotonInicializar(){
     //cuando das click al boton de iniciar juego
     $("#btnCorrer").click(function (ev) { 
-        if(ev.detail < 2){
+        console.log(ev.detail);
+        if(ev.detail == 1){
             finDelJuego = true;
             reiniciar = true;
             

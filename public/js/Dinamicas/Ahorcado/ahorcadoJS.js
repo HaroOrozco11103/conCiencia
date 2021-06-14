@@ -6,6 +6,8 @@ $(document).ready(function(){
 var listaPalabras;
 var indexP;
 var vidas;
+var score = 0;
+var aciertos = 1;
 
 function inicializar(){
     imprimirBotones();
@@ -13,7 +15,7 @@ function inicializar(){
 }
 
 async function reiniciar(){
-    limpiar();
+    $(".botones").attr("disabled", false);
     leerJson().then(() =>{
         crearEspacios();
     });  
@@ -21,10 +23,12 @@ async function reiniciar(){
 }
 
 function limpiar(){
-    listaPalabras = [];
+    score = 0;
+    aciertos = 1;
     indexP = 0;
     vidas=6;
-    $(".botones").attr("disabled", false);
+    listaPalabras = [];
+    $(".botones").attr("disabled", true);
     $(".letra").remove();
     ocultarPiezas();
 }
@@ -53,13 +57,14 @@ function imprimirBotones(){
 }
 
 async function leerJson(){
+    var materia = removeAccents($("#asignatura option:selected").text().toLowerCase().trim());
     try {
         $.ajax({
             url: `${json}/Ahorcado/palabras.json`,
             dataType: "json",
             async: false,
             success: function (json) {
-                listaPalabras = json[$("#asignatura").val()];
+                listaPalabras = json[materia];
             }
         });    
 
@@ -80,6 +85,9 @@ function verificar(letra){
         if(letra == palabra.charAt(i)){
             campos[i].innerHTML = letra;
             letraEncontrada = true;
+            score += 1 * aciertos;
+            aciertos++;
+
         }
             
         if(campos[i].innerHTML == '_')
@@ -88,18 +96,21 @@ function verificar(letra){
     
     if(!letraEncontrada){
         vidas--;
+        acierto = 1;
         mostrarPieza(vidas);
 
         if(vidas == 0){
-            Mensaje("¡ ¡ ¡ PERDISTE ! ! ! :(")
-            reiniciar();
+            Mensajes("¡ ¡ ¡ PERDISTE ! ! ! :(", score)
+            postear(score);
+            limpiar();
             return;
         }
     }
 
     if(palabraCompleta){
-        Mensaje("¡ ¡ ¡ GANASTE! ! ! !");
-        reiniciar();
+        Mensajes("¡ ¡ ¡ GANASTE! ! ! !", score);
+        postear(score);
+        limpiar();
     }
 }
 
@@ -121,7 +132,7 @@ $(document).keypress(function (e) {
     
     if(!boton.prop('disabled')){
         
-        boton.attr('disabled', true);
+        boton.attr('disanuevaParticipacion();bled', true);
         var letra = e.key.toLowerCase();
         verificar(letra);
     }
@@ -129,5 +140,7 @@ $(document).keypress(function (e) {
 });
 
 $("#btnCorrer").on("click",function (e) { 
+    limpiar();
     reiniciar();
+    nuevaParticipacion();
 });

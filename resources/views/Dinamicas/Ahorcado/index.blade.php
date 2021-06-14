@@ -10,21 +10,9 @@
 	<div class="row">
 		<div class="col-md-12">
 			
-			<div class="row">
-				<div class="col-md-12">
-					
-					<div class="materias">
-						<select id="asignatura">
-							<option value="fisica" selected>Fisica</option>
-							<option value="artes">Artes</option>
-							<option value="geografia">Geografia</option>
-						</select>
-						
-						<input type="button" value="Iniciar Juego" id="btnCorrer" >
-					</div>
-									
-				</div>
-			</div>
+		@include('Dinamicas.materias')
+
+        @yield('materias')
 
 			<div class="row">
 				<div class="col-md-7">

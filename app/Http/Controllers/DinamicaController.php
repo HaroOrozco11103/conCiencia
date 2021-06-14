@@ -53,6 +53,7 @@ class DinamicaController extends Controller
     {
 
         $asignatura = $dinamica->asignatura_id;
+        $dinamica_id= $dinamica->id;
         
         $dinamicas = Dinamica::select('dinamicas.id', 'dinamicas.nombre', 'asignaturas.nombre AS asignatura')->
         join('asignaturas', 'dinamicas.asignatura_id','=', 'asignaturas.id')
@@ -61,7 +62,7 @@ class DinamicaController extends Controller
         $vista = 'Dinamicas.' . $dinamica->nombre . '.index';
 
         //dd($dinamicas);
-        return view($vista, compact('asignatura', 'dinamicas'));
+        return view($vista, compact('asignatura', 'dinamicas', 'dinamica_id'));
     }
 
     /**

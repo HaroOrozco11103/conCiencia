@@ -267,9 +267,15 @@
         </div>
     </div>
 
+
+    <script>
+        var dinamica_id = {{$dinamica_id}};
+    </script>
+
     <link rel="stylesheet" href="{{asset('css/Dinamicas/mamiferos.css')}}">
     <link rel="stylesheet" href="{{asset('css/popup.css')}}">
     <script type="text/javascript" src="{{asset('js/Dinamicas/Mamiferos/tau-prolog.js')}}"></script>
     <script src="{{asset('js/Dinamicas/Mamiferos/consultProlog.js')}}" type="text/javascript"></script>
+    <script src="{{asset('js/Dinamicas/cronometro.js')}}" type="text/javascript"></script>
 
 @endsection
