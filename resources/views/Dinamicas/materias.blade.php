@@ -13,9 +13,13 @@
         <div class="col-md-12">
                 
             <div class="materias">
-                <select id="asignatura">
+                <select id="asignatura" >
                     @foreach ($dinamicas as $dinamica)
-                        <option value={{$dinamica->id}}>{{$dinamica->asignatura}}</option>    
+                        @if ($dinamica->id == $dinamica_id)
+                            <option value={{$dinamica->id}} selected>{{$dinamica->asignatura}}</option>    
+                        @else
+                            <option value={{$dinamica->id}}>{{$dinamica->asignatura}}</option>        
+                        @endif
                     @endforeach
                     
                 </select>
