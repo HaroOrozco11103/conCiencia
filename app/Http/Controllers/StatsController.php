@@ -50,17 +50,38 @@ class StatsController extends Controller
         }
 
         $lista = DB::select($query, [1]);
+        if($lista == [])
+        {
+            //mensaje
+            dd("No existen datos suficientes para mostrar los resultados");
+            return;
+        }
+
         $regLin = $this->SLR($lista, $request->porcentaje);
         return view('SLResults', compact('regLin'));
     }
 
     public function SLR($lista, $porcentaje)
     {
+        $cantDatos = 0;  //Cantidad de datos a analizar
+        if((round(count($lista)*$porcentaje, 0, PHP_ROUND_HALF_DOWN)) < 1)  //Si el número de participaciones para cada porcentaje es menor a uno
+        {
+          $cantDatos = 1.0;  //Insertar el valor 1.0 (De no hacer esto la función redondearía hacia 0 y no es posible trabajar las siguientes funciones con 0 como valor)
+        }
+        else {
+          $cantDatos = round(count($lista)*$porcentaje, 0, PHP_ROUND_HALF_DOWN);
+        }
         $regLin = [];  //Diccionario de valores de la regresión
         $numPart = [];  //El número de participaciones es X para la regresión
         for($i=0.05; $i<=1.01; $i+=0.05) //i es el porcentaje de participaciones, i toma 20 valores diferentes
         {
-          array_push($numPart, round(count($lista)*$i, 0, PHP_ROUND_HALF_DOWN));
+          if((round(count($lista)*$i, 0, PHP_ROUND_HALF_DOWN)) < 1)  //Si el número de participaciones para cada porcentaje es menor a uno
+          {
+            array_push($numPart, 1.0);  //Insertar el valor 1.0 (De no hacer esto la función redondearía hacia 0 y no es posible trabajar las siguientes funciones con 0 como valor)
+          }
+          else {
+            array_push($numPart, round(count($lista)*$i, 0, PHP_ROUND_HALF_DOWN));
+          }
         }
 
         $promPart = [];  //El promedio de los puntajes dentro de X es Y para la regresión
@@ -77,15 +98,19 @@ class StatsController extends Controller
 
         if($porcentaje <= 1)
         {
-          $slicedList = array_slice($lista, 0, round(count($lista)*$porcentaje, 0, PHP_ROUND_HALF_DOWN));
+          $slicedList = array_slice($lista, 0, $cantDatos);
           $suma = 0;
           foreach ($slicedList as $key => $sL)
           {
             $suma += $sL->puntaje;
           }
-          $historico = $suma/round(count($lista)*$porcentaje, 0, PHP_ROUND_HALF_DOWN);
+          $historico = $suma/$cantDatos;
 
           $regLin = [
+            [
+              "nombre" => "Cantidad de datos",
+              "resultado" => $cantDatos,
+            ],
             [
               "nombre" => "Promedio historico",
               "resultado" => $historico,
@@ -125,22 +150,27 @@ class StatsController extends Controller
         $b0 = $mediaY - $b1 * $mediaX; // β0 = y¯-β1x¯
         //$b0 = ($sumaY - $b1 * $sumaX)/20; // β0 = (Σyi-β1Σxi)/n
         $valPred = round($b0 + $b1 * (count($lista) * $porcentaje)); // y^ = β0+β1Xi (Valor preddecido por la regresión)
+        if($valPred < 0) $valPred = 0;
 
         $regLin = [
           [
-            "nombre" => "Correlación",
-            "resultado" => $correlacion,
+            "nombre" => "Cantidad de datos",
+            "resultado" => $cantDatos,
           ],
           [
-            "nombre" => "β1 (Pendiente)",
-            "resultado" => $b1,
+            "nombre" => "Precisión de la predicción",
+            "resultado" => abs(round($correlacion*100)) . "%",
           ],
           [
-            "nombre" => "β0",
-            "resultado" => $b0,
+            "nombre" => "Porcentaje de mejora",
+            "resultado" => round($b1*100) . "%",
           ],
           [
-            "nombre" => "Valor predecido",
+            "nombre" => "Indice de mejora",
+            "resultado" => "x" . round($b1*2, 1),
+          ],
+          [
+            "nombre" => "Puntaje predecido",
             "resultado" => $valPred,
           ],
         ];
