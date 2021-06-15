@@ -58,7 +58,7 @@ function Mensaje(mensaje){
 
 function postear(puntaje){
 
-    if(typeof(dinamica_id) === 'undefined' || dinamica_id === null){
+    if(typeof(dinamica_id) === 'undefined' || dinamica_id === null || dinamica_id != 9){
         dinamica_id = $('#asignatura').val();
     }
     
@@ -78,7 +78,7 @@ function postear(puntaje){
 
 function nuevaParticipacion(){
     
-    if(typeof(dinamica_id) === 'undefined' || dinamica_id === null){
+    if(typeof(dinamica_id) === 'undefined' || dinamica_id === null || dinamica_id != 9){
         dinamica_id = $('#asignatura').val();
     }
     
