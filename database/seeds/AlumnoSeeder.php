@@ -30,6 +30,6 @@ class AlumnoSeeder extends Seeder
           'grupo_id' => 3,
         ]);
 
-        factory(App\Alumno::class, 17)->create();
+        factory(Alumno::class, 17)->create();
     }
 }
