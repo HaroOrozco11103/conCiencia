@@ -213,33 +213,23 @@ class StatsController extends Controller
             array_push($listaPre, $data[0]);
           }
         }
-        //dd($listaPre);
 
         foreach ($alumnos as $key => $alu)  //Crear la lista de alumnos clasificados
         {
-          if($alu->id != $alumno)
+          if($alu->id == $alumno || $alu->asigClas == null) continue;
+          $userKNN = [];
+          $userKNN[0] = $alu->asigClas;
+          foreach ($listaPre as $key => $lP)
           {
-            $aux = 0;  //Ratio en el que se insertó la materia
-            $userKNN = [];
-            foreach ($listaPre as $key => $lP)
+            if($alu->id == $lP->alumno_id)
             {
-              if($alu->id == $lP->alumno_id)
-              {
-                if($lP->numPart > 0) $ratio = $lP->sumPunt/$lP->numPart;  //Proporción de puntaje jugadas sobre veces jugadas
-                else $ratio = 0;
-
-                if($ratio >= $aux)
-                {
-                  $aux = $ratio;
-                  $userKNN[0] = $lP->asignatura_id;
-                }
-                array_push($userKNN, $ratio);
-              }
+              if($lP->numPart > 0) $ratio = $lP->sumPunt/$lP->numPart;  //Proporción de puntaje jugadas sobre veces jugadas
+              else $ratio = 0;
+              array_push($userKNN, $ratio);
             }
-            array_push($lista, $userKNN);  //Ejemplo de como quedaría el arreglo userKNN -> {materia, ratio, ratio, ratio, ratio, 0.0}
           }
+          array_push($lista, $userKNN);  //Ejemplo de como quedaría el arreglo userKNN -> {materia, ratio, ratio, ratio, ratio, 0.0}
         }
-        //dd($lista);
 
         $alumnoData = [];
         $alumnoData[0] = 0;
@@ -252,7 +242,6 @@ class StatsController extends Controller
             array_push($alumnoData, $ratio);
           }
         }
-        //dd($alumnoData);
 
         if($lista == [])
         {
@@ -270,6 +259,8 @@ class StatsController extends Controller
             $matClas = $asi->nombre;  //El nombre de la materia clasificada
           }
         }
+        $data = ['asigClas' => $cKNN];
+        DB::table('alumnos')->where('id', $alumno)->update($data);
         dd($matClas);
         //return view('xxx', compact('matClas'));  //Vista o pop que va amostrar la asginatura en la que se clasificó al alumno
     }
@@ -300,7 +291,6 @@ class StatsController extends Controller
           array_push($cKNN, $ls);
         }
         usort($cKNN, $this->array_sorter(sizeof($alumnoData)));  //Ordenar arreglo por sus distancias
-        //dd($cKNN);
 
         //Subfuncion de clasificar
         for($i=0; $i<$k; $i++)
@@ -314,9 +304,7 @@ class StatsController extends Controller
           }
         }
         usort($clasMatCount, $this->array_sorter(1, "DESC"));  //Ordenar arreglo por su contador
-        //dd($clasMatCount);
         $alumnoData[0] = array_shift($clasMatCount)[0];  //Clasificar al alumno en la materia cuyo contador resultó mayor
-        //dd($alumnoData);
 
         return $alumnoData[0];  //En la posición 0 del arreglo está el id de la materia
     }
@@ -333,5 +321,55 @@ class StatsController extends Controller
             $result=  ($orden=="DESC") ? strnatcmp($b[$clave], $a[$clave]) :  strnatcmp($a[$clave], $b[$clave]);
             return $result;
         };
+    }
+
+    public function massiveClasif() //Clasificación masiva de la mayoría de datos
+    {
+        $asignaturas = Asignatura::all();
+        $alumnos = Alumno::all();
+        $listaPre = [];  //Lista preeliminar de la cuál se sacará la lista definitiva
+
+        foreach ($alumnos as $key => $alu)
+        {
+          if($alu->id <= 20) continue;
+          foreach ($asignaturas as $key => $asi)
+          {
+            $query = "SELECT COUNT(`participacions`.`puntaje`) AS `numPart`, SUM(`participacions`.`puntaje`) AS `sumPunt`, `dinamicas`.`asignatura_id`, `participacions`.`alumno_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `asignatura_id` = " . $asi->id . " AND `alumno_id` = " . $alu->id . " AND `puntaje` > -1 GROUP BY `alumno_id`, `asignatura_id`";
+            $data = DB::select($query, [1]);
+            if(empty($data))
+            {
+              $query = "SELECT `participacions`.`puntaje` AS `numPart`, `participacions`.`puntaje` AS `sumPunt`, `dinamicas`.`asignatura_id`, `participacions`.`alumno_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `participacions`.`id` = 1";
+              $data = DB::select($query, [1]);
+              $data[0]->numPart = 0;
+              $data[0]->sumPunt = "0";
+              $data[0]->asignatura_id = $asi->id;
+              $data[0]->alumno_id = $alu->id;
+            }
+            array_push($listaPre, $data[0]);
+          }
+        }
+
+        foreach ($alumnos as $key => $alu)  //Crear la lista de alumnos clasificados
+        {
+          if($alu->id <= 20) continue;
+          $aux = 0;  //Ratio en el que se insertó la materia
+          $userKNN = [];
+          foreach ($listaPre as $key => $lP)
+          {
+            if($alu->id == $lP->alumno_id)
+            {
+              if($lP->numPart > 0) $ratio = $lP->sumPunt/$lP->numPart;  //Proporción de puntaje jugadas sobre veces jugadas
+              else $ratio = 0;
+
+              if($ratio >= $aux)
+              {
+                $aux = $ratio;
+                $userKNN[0] = $lP->asignatura_id;
+              }
+            }
+          }
+          $data = ['asigClas' => $userKNN[0]];
+          DB::table('alumnos')->where('id', $alu->id)->update($data);
+        }
     }
 }

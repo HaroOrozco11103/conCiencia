@@ -12,7 +12,7 @@ class ParticipacionSeeder extends Seeder
      */
     public function run()
     {
-        $multiplicador = 100;
+        $multiplicador = 360;
 
         //Crear 300 participaciones con puntaje -1
         factory(Participacion::class, 3*$multiplicador)->states('pp-1')->create();

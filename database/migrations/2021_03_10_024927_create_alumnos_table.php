@@ -18,6 +18,8 @@ class CreateAlumnosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('username');
+            $table->unsignedInteger('asigClas')->nullable();
+            $table->foreign('asigClas')->references('id')->on('asignaturas');
             //Foreign - A qué grupo pertenece. Un grupo tiene muchos alumnos. Un alumno pertenece a un solo grupo.
             $table->unsignedInteger('grupo_id')->nullable();
             $table->foreign('grupo_id')->references('id')->on('grupos');
