@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Asignatura;
+use App\Alumno;
 
 class StatsController extends Controller
 {
@@ -108,6 +110,10 @@ class StatsController extends Controller
 
           $regLin = [
             [
+              "nombre" => "Porcentaje",
+              "resultado" => $porcentaje*100 . "%",
+            ],
+            [
               "nombre" => "Cantidad de datos",
               "resultado" => $cantDatos,
             ],
@@ -149,10 +155,14 @@ class StatsController extends Controller
         $b1 = (20 * $sumaProductos - $sumaX * $sumaY)/(20 * $sumaXCuad - $sumaX * $sumaX); // Pendiente β1 = (nΣxiyi-ΣxiΣyi)/(nΣxi-ΣxiΣxi)
         $b0 = $mediaY - $b1 * $mediaX; // β0 = y¯-β1x¯
         //$b0 = ($sumaY - $b1 * $sumaX)/20; // β0 = (Σyi-β1Σxi)/n
-        $valPred = round($b0 + $b1 * (count($lista) * $porcentaje)); // y^ = β0+β1Xi (Valor preddecido por la regresión)
+        $valPred = round($b0 + $b1 * (count($lista) * $porcentaje)); // y^ = β0+β1Xi (Valor predecido por la regresión)
         if($valPred < 0) $valPred = 0;
 
         $regLin = [
+          [
+            "nombre" => "Porcentaje",
+            "resultado" => $porcentaje*100 . "%",
+          ],
           [
             "nombre" => "Cantidad de datos",
             "resultado" => $cantDatos,
@@ -176,5 +186,152 @@ class StatsController extends Controller
         ];
 
         return $regLin;
+    }
+
+    public function selectDataToKNNc($alumno)
+    {
+        $asignaturas = Asignatura::all();
+        $alumnos = Alumno::all();
+        $listaPre = [];  //Lista preeliminar de la cuál se sacará la lista definitiva
+        $lista = [];
+
+        foreach ($alumnos as $key => $alu)
+        {
+          foreach ($asignaturas as $key => $asi)
+          {
+            $query = "SELECT COUNT(`participacions`.`puntaje`) AS `numPart`, SUM(`participacions`.`puntaje`) AS `sumPunt`, `dinamicas`.`asignatura_id`, `participacions`.`alumno_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `asignatura_id` = " . $asi->id . " AND `alumno_id` = " . $alu->id . " AND `puntaje` > -1 GROUP BY `alumno_id`, `asignatura_id`";
+            $data = DB::select($query, [1]);
+            if(empty($data))
+            {
+              $query = "SELECT `participacions`.`puntaje` AS `numPart`, `participacions`.`puntaje` AS `sumPunt`, `dinamicas`.`asignatura_id`, `participacions`.`alumno_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `participacions`.`id` = 1";
+              $data = DB::select($query, [1]);
+              $data[0]->numPart = 0;
+              $data[0]->sumPunt = "0";
+              $data[0]->asignatura_id = $asi->id;
+              $data[0]->alumno_id = $alu->id;
+            }
+            array_push($listaPre, $data[0]);
+          }
+        }
+        //dd($listaPre);
+
+        foreach ($alumnos as $key => $alu)  //Crear la lista de alumnos clasificados
+        {
+          if($alu->id != $alumno)
+          {
+            $aux = 0;  //Ratio en el que se insertó la materia
+            $userKNN = [];
+            foreach ($listaPre as $key => $lP)
+            {
+              if($alu->id == $lP->alumno_id)
+              {
+                if($lP->numPart > 0) $ratio = $lP->sumPunt/$lP->numPart;  //Proporción de puntaje jugadas sobre veces jugadas
+                else $ratio = 0;
+
+                if($ratio >= $aux)
+                {
+                  $aux = $ratio;
+                  $userKNN[0] = $lP->asignatura_id;
+                }
+                array_push($userKNN, $ratio);
+              }
+            }
+            array_push($lista, $userKNN);  //Ejemplo de como quedaría el arreglo userKNN -> {materia, ratio, ratio, ratio, ratio, 0.0}
+          }
+        }
+        //dd($lista);
+
+        $alumnoData = [];
+        $alumnoData[0] = 0;
+        foreach ($listaPre as $key => $lP)
+        {
+          if($lP->alumno_id == $alumno)
+          {
+            if($lP->numPart > 0) $ratio = $lP->sumPunt/$lP->numPart;
+            else $ratio = 0;
+            array_push($alumnoData, $ratio);
+          }
+        }
+        //dd($alumnoData);
+
+        if($lista == [])
+        {
+            //mensaje
+            dd("No existen datos suficientes para mostrar los resultados");
+            return;
+        }
+
+        $cKNN = $this->cKNN($lista, $alumnoData);
+        $matClas = "";
+        foreach ($asignaturas as $key => $asi)
+        {
+          if($asi->id == $cKNN)
+          {
+            $matClas = $asi->nombre;  //El nombre de la materia clasificada
+          }
+        }
+        dd($matClas);
+        //return view('xxx', compact('matClas'));  //Vista o pop que va amostrar la asginatura en la que se clasificó al alumno
+    }
+
+    public function cKNN($lista, $alumnoData)  //KNN designado a la clasificación de un usuario sobre una asignatura
+    {
+        //Preparación de datos necesarios para el KNN
+        $k = round(sizeof($lista)*0.2);  //Número de elementos a tomar en cuenta para medir sus distancias (2%)
+        $cKNN = [];  //Lista con las distancias añadidas y ordenadas
+        $clasMatCount = [];  //Clasificador del alumno en materia por su contador. (Cada materia y su contador de coincidencias con el KNN)
+        $asignaturas = Asignatura::all();
+        foreach ($asignaturas as $key => $asi)
+        {
+          array_push($clasMatCount, [$asi->id, 0]);
+        }
+
+        //Subfuncion de insertar las distancias ordenadas
+        foreach ($lista as $key => $ls)
+        {
+          $sumDist = 0;
+          for($i=1; $i<sizeof($ls); $i++)
+          {
+            $cuadResRat = ($ls[$i] - $alumnoData[$i])**2;  //Caudrados de la resta de los ratios
+            $sumDist += $cuadResRat;  //Suma de los caudrados de la resta de los ratios
+          }
+          $distancia = sqrt($sumDist);  //Distancia Euclidiana
+          array_push($ls, $distancia);  //Inserta la distancia para el KNN
+          array_push($cKNN, $ls);
+        }
+        usort($cKNN, $this->array_sorter(sizeof($alumnoData)));  //Ordenar arreglo por sus distancias
+        //dd($cKNN);
+
+        //Subfuncion de clasificar
+        for($i=0; $i<$k; $i++)
+        {
+          for($j=0; $j<sizeof($clasMatCount); $j++)
+          {
+            if($cKNN[$i][0] == $clasMatCount[$j][0])
+            {
+              $clasMatCount[$j][1]++;
+            }
+          }
+        }
+        usort($clasMatCount, $this->array_sorter(1, "DESC"));  //Ordenar arreglo por su contador
+        //dd($clasMatCount);
+        $alumnoData[0] = array_shift($clasMatCount)[0];  //Clasificar al alumno en la materia cuyo contador resultó mayor
+        //dd($alumnoData);
+
+        return $alumnoData[0];  //En la posición 0 del arreglo está el id de la materia
+    }
+
+    public function rKNN($lista)  //KNN designado a la recomendación de dinamicas despues de una participación
+    {
+
+    }
+
+    function array_sorter($clave,$orden=null)  //Función para ordenar los arreglos de arreglos por un indice numérico el cuál sera la clave
+    {
+        return function ($a, $b) use ($clave,$orden)
+        {
+            $result=  ($orden=="DESC") ? strnatcmp($b[$clave], $a[$clave]) :  strnatcmp($a[$clave], $b[$clave]);
+            return $result;
+        };
     }
 }

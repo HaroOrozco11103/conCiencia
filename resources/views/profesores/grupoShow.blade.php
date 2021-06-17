@@ -46,6 +46,8 @@
                     <td>{{ $alu->created_at }}</td>
                     <td>
                         <a href="{{ route('alumnos.show', $alu->id) }}" class="btn-outline-info bg-white"> Detalles </a>
+                        <br>
+                        <a href="{{ route('stats.cKNN', $alu->id) }}" class="btn-outline-info bg-white"> Clasificación </a>
                     </td>
                 </tr>
                 @endforeach

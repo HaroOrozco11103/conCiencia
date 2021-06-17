@@ -27,27 +27,27 @@ function limpiar(){
     $(".score").val(score);
     $(".score").html("Score: "+ score);
     $("#txtPregunta").html("");
-    
+
 
     $(".boton").val("")
     $(".boton").css("background-color","#333");
-    
-    
+
+
     spans[0].innerHTML = "00:";
     spans[1].innerHTML = "00";
-    
-    
+
+
 }
 
 
 function inicializar_juego(){
 
     limpiar();
-    segundos = 5;
-    minutos = 0;
+    segundos = 30;
+    minutos = 1;
     finDelJuego = false;
     reiniciar = false;
-    
+
     leerJson();
     cargarPregunta();
     inicializar_tiempo();
@@ -66,7 +66,7 @@ function cargarPregunta(){
 //Imprimimos las respuestas en la pantalla
 function imprimirRespuestas(){
     if(!finDelJuego){
-        
+
         var respuesta = revolverAleatorias(listaRespuestas[preguntaIndex]);
 
         $("#respuesta1").val(respuesta[0]);
@@ -92,15 +92,15 @@ function revolverAleatorias (lista){
 
 //Evaluamos la respuesta obtenida
 function Evaluar(e){
-    
+
     if(!respondido && !finDelJuego){
         if(e.val() == listaPreguntas[preguntaIndex]["respuesta"]){
             score += 5;
             $(".score").val(score);
             $(".score").html("Score: " + score);
-            
+
             e.attr('style','background-color: #00ff00 !important');
-        
+
         }else{
             e.attr('style', 'background-color: #ff0000 !important');
         }
@@ -108,7 +108,7 @@ function Evaluar(e){
         respondido = true;
 
         setTimeout(function()
-        {  
+        {
             if(!finDelJuego){
                 respondido = false;
                 e.css('background', '#333');
@@ -118,7 +118,7 @@ function Evaluar(e){
         }, 1000);
 
     }
-    
+
 }
 
 //Leer preguntas y respuestas del Json
@@ -153,7 +153,7 @@ function leerJson(){
 //los texto lasrgos los ajusta
 function ajustarTexto(e){
     var textLength = e.val().length;
-  
+
     if(textLength <= 16){
         e.css('font-size', '20px');
     }else if(textLength > 16 && textLength <= 19) {
@@ -174,4 +174,3 @@ function ajustarTexto(e){
 $(".boton").on("click", function(){
     Evaluar( $('#'+this.id) );
 });
-
