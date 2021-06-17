@@ -371,5 +371,6 @@ class StatsController extends Controller
           $data = ['asigClas' => $userKNN[0]];
           DB::table('alumnos')->where('id', $alu->id)->update($data);
         }
+        dd("listo :)");
     }
 }

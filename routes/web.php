@@ -54,3 +54,4 @@ Route::get('stats', 'StatsController@index')->name('stats.index');
 Route::POST('stats/SLR/{tipo}', 'StatsController@selectDataToSLR')->name('stats.SLR');
 Route::get('alumnos/{alumno}/clasificacion', 'StatsController@selectDataToKNNc')->name('stats.cKNN');
 //Route::get('participacion/{participacion}', 'StatsController@selectDataToKNNr')->name('stats.rKNN');
+Route::get('alumnos/{x}/clasificacion_masiva', 'StatsController@massiveClasif')->name('stats.massive');
