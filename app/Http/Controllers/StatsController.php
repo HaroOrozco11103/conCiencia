@@ -277,7 +277,7 @@ class StatsController extends Controller
     public function cKNN($lista, $alumnoData)  //KNN designado a la clasificación de un usuario sobre una asignatura
     {
         //Preparación de datos necesarios para el KNN
-        $k = round(sizeof($lista)*0.2);  //Número de elementos a tomar en cuenta para medir sus distancias (2%)
+        $k = round(sizeof($lista)*0.25);  //Número de elementos a tomar en cuenta para medir sus distancias (25%)
         $cKNN = [];  //Lista con las distancias añadidas y ordenadas
         $clasMatCount = [];  //Clasificador del alumno en materia por su contador. (Cada materia y su contador de coincidencias con el KNN)
         $asignaturas = Asignatura::all();
