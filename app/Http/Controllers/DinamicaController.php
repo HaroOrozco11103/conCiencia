@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Asignatura;
 use App\Participacion;
 use App\Dinamica;
+use App\Http\Controllers\StatsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -51,18 +52,18 @@ class DinamicaController extends Controller
      */
     public function show(Dinamica $dinamica)
     {
-
+        $sC = new StatsController();
         $asignatura = $dinamica->asignatura_id;
         $dinamica_id= $dinamica->id;
-        
+
         $dinamicas = Dinamica::select('dinamicas.id', 'dinamicas.nombre', 'asignaturas.nombre AS asignatura')->
         join('asignaturas', 'dinamicas.asignatura_id','=', 'asignaturas.id')
         ->where('dinamicas.nombre', $dinamica->nombre)->get();
-        
+
         $vista = 'Dinamicas.' . $dinamica->nombre . '.index';
 
-        //dd($dinamicas);
-        return view($vista, compact('asignatura', 'dinamicas', 'dinamica_id'));
+        $recomendaciones = $sC->selectDataToKNNr($dinamica->id);
+        return view($vista, compact('asignatura', 'dinamicas', 'dinamica_id', 'recomendaciones'));
     }
 
     /**

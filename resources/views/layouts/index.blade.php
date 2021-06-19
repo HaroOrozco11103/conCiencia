@@ -7,12 +7,12 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
-        
+
         <title>ConCiencia</title>
         <link href="{{ asset('layout/dist/css/styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/juego.css') }}" rel="stylesheet"/>
-        <link href="{{ asset('css/modal.css') }}" rel="stylesheet"/>        
-        
+        <link href="{{ asset('css/modal.css') }}" rel="stylesheet"/>
+
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
@@ -25,10 +25,10 @@
             var js = "{{ asset('js') }}"
             var image = "{{ asset('images') }}"
         </script>
-        
+
     </head>
     <body class="sb-nav-fixed cuerpo">
-       
+
         <div class="row">
             <div class="col-md-12">
                 <!--Top Navbar-->
@@ -48,7 +48,7 @@
         <!-- Modal -->
         @include('layouts.modal')
 
-        
+
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('layout/dist/js/scripts.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -58,6 +58,6 @@
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('layout/dist/assets/demo/datatables-demo.js') }}"></script>
 
-               
+
     </body>
 </html>

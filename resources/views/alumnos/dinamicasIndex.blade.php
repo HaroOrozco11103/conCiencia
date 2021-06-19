@@ -14,7 +14,7 @@
                 <div class="alert alert-dismissible text-center alert-dismissible" style="background-color:#ff9d16;" role="alert">
                   No hay dinamicas registradas.
                 </div>
-              @else 
+              @else
                 @foreach($dinamicas as $key => $din)
                 <tr>
                     <td>

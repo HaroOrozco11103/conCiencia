@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Asignatura;
 use App\Alumno;
+use App\Dinamica;
 
 class StatsController extends Controller
 {
@@ -309,9 +310,100 @@ class StatsController extends Controller
         return $alumnoData[0];  //En la posición 0 del arreglo está el id de la materia
     }
 
-    public function rKNN($lista)  //KNN designado a la recomendación de dinamicas despues de una participación
+    public function selectDataToKNNr($dinamica)
     {
+        $alumnos = Alumno::all();
+        $dinamicas = Dinamica::all();
+        $asignaturas = Asignatura::all();
+        $lista = [];  //Matriz de dinamica completa sin tomar en cuenta la dinamica pasada por parametro
+        $dinamicaData = [];  //Vector de dinamica solo para la dinamica pasada por paratro
 
+        foreach ($dinamicas as $key => $din)
+        {
+          $query = "SELECT COUNT(`participacions`.`id`) AS `numPart`, `participacions`.`dinamica_id`, `participacions`.`alumno_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `dinamicas`.`id` = " . $din->id . " AND `alumno_id` = " . $alu->id . " AND `puntaje` > -1 GROUP BY `alumno_id`, `dinamica_id`";
+          $data = DB::select($query, [1]);
+          if(empty($data))
+          {
+            $query = "SELECT `participacions`.`id` AS `numPart`, `participacions`.`dinamica_id`, `participacions`.`alumno_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `participacions`.`id` = 1";
+            $data = DB::select($query, [1]);
+            $data[0]->numPart = 0;
+            $data[0]->dinamica_id = $din->id;
+            $data[0]->alumno_id = $alu->id;
+          }
+          if($din->id == $dinamica) array_push($dinamicaData, $data[0]);
+          else array_push($lista, $data[0]);
+        }
+
+        if($lista == [])
+        {
+            //mensaje
+            dd("No existen datos suficientes para mostrar los resultados");
+            return;
+        }
+
+        $rKNN = $this->rKNN($lista, $dinamicaData);  //El id de los tres valores recomendados
+        $dinRec = [];  //El nombre de los tres valores recomendados
+        foreach ($rKNN as $key => $KNN)  //Sacar el nombre de los valores recomendados
+        {
+          foreach ($dinamicas as $key => $din)
+          {
+            if($din->id == $KNN[0])
+            {
+              $KNN[1] = $din->nombre . " - " . $din->asignatura->nombre;  //El nombre de la dinamica recomendada y la asginatura a la que pertenece
+              array_push($dinRec, $KNN);
+            }
+          }
+        }
+        return $dinRec;
+    }
+
+    public function rKNN($listaPre, $dinamicaDataPre)  //KNN designado a la recomendación de dinamicas en una participación
+    {
+        //dd($listaPre, $dinamicaDataPre);
+        //Preparación de ambas listas
+        $tam = sizeof(Dinamica::all());
+        $lista = [];
+        foreach ($listaPre as $key => $ls)
+        {
+          for($i=1; $i<=$tam; $i++)
+          {
+            if($ls->dinamica_id == $i)
+            {
+              $lista[$i][0] = $ls->dinamica_id;
+              array_push($lista[$i], $ls->numPart);
+            }
+          }
+        }
+        $dinamicaData = [];
+        $dinamicaData[0] = $dinamicaDataPre[0]->dinamica_id;  //Se inserta el id de la dinamica
+        foreach ($dinamicaDataPre as $key => $dD)
+        {
+          array_push($dinamicaData, $dD->numPart);
+        }
+
+        //Comparación de similitud de coseno
+        $rKNN = [];  //Lista con las distancias añadidas y ordenadas
+        foreach ($lista as $key => $ls)
+        {
+          $aux = [];
+          $aux[0] = $ls[0];  //Inserta al arreglo auxiliar el id de la dinamica
+          $sumProd = 0;  //Sumatoria de productos (Divisor)
+          $sumACuad = 0;  //Sumatoria de cuadrados de A
+          $sumBCuad = 0;  //Sumatoria de cuadrados de B
+          for($i=1; $i<sizeof($dinamicaData); $i++)
+          {
+            $sumProd += ($dinamicaData[$i] * $ls[$i]);
+            $sumACuad += $dinamicaData[$i]**2;
+            $sumBCuad += $ls[$i]**2;
+          }
+          $dividendo = sqrt($sumACuad) * sqrt($sumBCuad);
+          $simCos = $sumProd/$dividendo;  //Similitud de coseno
+          array_push($aux, 1-$simCos);  //Inserta al arreglo auxiliar la distancia de coseno
+          array_push($rKNN, $aux);
+        }
+        usort($rKNN, $this->array_sorter(1));  //Ordena el arreglo por la clave 1 la cual es la posición donde se encuentran la distancias
+
+        return array_slice($rKNN, 0, 3);  //En la posición 0 del arreglo está el id de la materia
     }
 
     function array_sorter($clave,$orden=null)  //Función para ordenar los arreglos de arreglos por un indice numérico el cuál sera la clave
