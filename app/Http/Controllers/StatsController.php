@@ -320,18 +320,10 @@ class StatsController extends Controller
 
         foreach ($dinamicas as $key => $din)
         {
-          $query = "SELECT COUNT(`participacions`.`id`) AS `numPart`, `participacions`.`dinamica_id`, `participacions`.`alumno_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `dinamicas`.`id` = " . $din->id . " AND `alumno_id` = " . $alu->id . " AND `puntaje` > -1 GROUP BY `alumno_id`, `dinamica_id`";
+          $query = "SELECT COUNT(`participacions`.`id`) AS `numPart`, `participacions`.`dinamica_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `dinamicas`.`id` = " . $din->id . " AND `alumno_id` > 0 AND `puntaje` > -1 GROUP BY `alumno_id`, `dinamica_id`";
           $data = DB::select($query, [1]);
-          if(empty($data))
-          {
-            $query = "SELECT `participacions`.`id` AS `numPart`, `participacions`.`dinamica_id`, `participacions`.`alumno_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `participacions`.`id` = 1";
-            $data = DB::select($query, [1]);
-            $data[0]->numPart = 0;
-            $data[0]->dinamica_id = $din->id;
-            $data[0]->alumno_id = $alu->id;
-          }
-          if($din->id == $dinamica) array_push($dinamicaData, $data[0]);
-          else array_push($lista, $data[0]);
+          if($din->id == $dinamica) $dinamicaData = $data;
+          else array_push($lista, $data);
         }
 
         if($lista == [])
@@ -354,14 +346,15 @@ class StatsController extends Controller
             }
           }
         }
+        dd($dinRec);
         return $dinRec;
     }
 
-    public function rKNN($listaPre, $dinamicaDataPre)  //KNN designado a la recomendación de dinamicas en una participación
+    public function rKNN($lista, $dinamicaData)  //KNN designado a la recomendación de dinamicas en una participación
     {
         //dd($listaPre, $dinamicaDataPre);
         //Preparación de ambas listas
-        $tam = sizeof(Dinamica::all());
+        /*$tam = sizeof(Dinamica::all());
         $lista = [];
         foreach ($listaPre as $key => $ls)
         {
@@ -379,22 +372,22 @@ class StatsController extends Controller
         foreach ($dinamicaDataPre as $key => $dD)
         {
           array_push($dinamicaData, $dD->numPart);
-        }
+        }*/
 
         //Comparación de similitud de coseno
         $rKNN = [];  //Lista con las distancias añadidas y ordenadas
         foreach ($lista as $key => $ls)
         {
           $aux = [];
-          $aux[0] = $ls[0];  //Inserta al arreglo auxiliar el id de la dinamica
+          $aux[0] = $ls[0]->dinamica_id;  //Inserta al arreglo auxiliar el id de la dinamica
           $sumProd = 0;  //Sumatoria de productos (Divisor)
           $sumACuad = 0;  //Sumatoria de cuadrados de A
           $sumBCuad = 0;  //Sumatoria de cuadrados de B
-          for($i=1; $i<sizeof($dinamicaData); $i++)
+          for($i=0; $i<sizeof($dinamicaData); $i++)
           {
-            $sumProd += ($dinamicaData[$i] * $ls[$i]);
-            $sumACuad += $dinamicaData[$i]**2;
-            $sumBCuad += $ls[$i]**2;
+            $sumProd += ($dinamicaData[$i]->numPart * $ls[$i]->numPart);
+            $sumACuad += $dinamicaData[$i]->numPart**2;
+            $sumBCuad += $ls[$i]->numPart**2;
           }
           $dividendo = sqrt($sumACuad) * sqrt($sumBCuad);
           $simCos = $sumProd/$dividendo;  //Similitud de coseno
