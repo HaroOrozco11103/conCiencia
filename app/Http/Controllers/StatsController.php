@@ -346,7 +346,7 @@ class StatsController extends Controller
             }
           }
         }
-        dd($dinRec);
+        
         return $dinRec;
     }
 
