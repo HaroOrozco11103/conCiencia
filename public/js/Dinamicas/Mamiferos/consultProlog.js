@@ -10,6 +10,7 @@ $(document).ready(function(){
     nuevaParticipacion();
     score = 0;
     $('.box').prop('checked', false);
+    imprimirCaracteristicas();
 });
 
 
@@ -142,16 +143,21 @@ function leerJson(orden){
     });  
 }
 
+function imprimirCaracteristicas(){
+    $.ajax({
+        url: `${json}/Mamiferos/caracteristicas.json`,
+        dataType: 'json',
+        async: false,
+        success: function (json) {
+            listaCaracteristicas = json;
+            
+            $('#myModalTitle').html('INSTRUCCIONES');
+            $('#modal-body').html(json['instrucciones']);
+            $('#myModal').modal();
 
-
-$.ajax({
-    url: `${json}/Mamiferos/caracteristicas.json`,
-    dataType: 'json',
-    async: false,
-    success: function (json) {
-        listaCaracteristicas = json;
-    },
-    error: function(err){
-        console.log(err);
-    }
-});
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+}
