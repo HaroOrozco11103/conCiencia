@@ -352,28 +352,6 @@ class StatsController extends Controller
 
     public function rKNN($lista, $dinamicaData)  //KNN designado a la recomendación de dinamicas en una participación
     {
-        //dd($listaPre, $dinamicaDataPre);
-        //Preparación de ambas listas
-        /*$tam = sizeof(Dinamica::all());
-        $lista = [];
-        foreach ($listaPre as $key => $ls)
-        {
-          for($i=1; $i<=$tam; $i++)
-          {
-            if($ls->dinamica_id == $i)
-            {
-              $lista[$i][0] = $ls->dinamica_id;
-              array_push($lista[$i], $ls->numPart);
-            }
-          }
-        }
-        $dinamicaData = [];
-        $dinamicaData[0] = $dinamicaDataPre[0]->dinamica_id;  //Se inserta el id de la dinamica
-        foreach ($dinamicaDataPre as $key => $dD)
-        {
-          array_push($dinamicaData, $dD->numPart);
-        }*/
-
         //Comparación de similitud de coseno
         $rKNN = [];  //Lista con las distancias añadidas y ordenadas
         foreach ($lista as $key => $ls)
