@@ -12,6 +12,9 @@
         <link href="{{ asset('layout/dist/css/styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/juego.css') }}" rel="stylesheet"/>
         <link href="{{ asset('css/modal.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('css/style/style.css') }}" rel="stylesheet"/>    <!--CSS Vistas general -->
+        <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/> <!--Font Recursive-->
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script> <!--Font Awesome icons -->
 
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 
@@ -32,8 +35,9 @@
         <div class="row">
             <div class="col-md-12">
                 <!--Top Navbar-->
-                <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-                    <a class="navbar-brand">ConCiencia</a>
+                <nav class="sb-topnav nav-profesor">
+                    <a class="top-nav-links nav-stats" href="{{ route('stats.index') }}" class="estadisticas-glob-link">Estadisticas Globales</a>
+                    <a class="top-nav-links nav-title" href="{{ route('inicio')}}">ConCiencia</a>
                     <!--User Navbar-->
                     @include('layouts.user')
                 </nav>
