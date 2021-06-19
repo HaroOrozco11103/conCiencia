@@ -1,4 +1,3 @@
-
 .cuerpo{
     background-color:teal;  
     height: 100%;
@@ -20,8 +19,9 @@
 }
 
 .alfabeto{  
-    padding: 25%;
-    text-align: center;    
+    text-align: center;  
+    display: grid;
+    grid-template-columns: repeat(6, .15fr);   
 }
 
 .alfabeto .botones{
