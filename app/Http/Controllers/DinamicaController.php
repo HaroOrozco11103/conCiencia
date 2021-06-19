@@ -63,6 +63,7 @@ class DinamicaController extends Controller
         $vista = 'Dinamicas.' . $dinamica->nombre . '.index';
 
         $recomendaciones = $sC->selectDataToKNNr($dinamica->id);
+        //dd($recomendaciones);
         return view($vista, compact('asignatura', 'dinamicas', 'dinamica_id', 'recomendaciones'));
     }
 

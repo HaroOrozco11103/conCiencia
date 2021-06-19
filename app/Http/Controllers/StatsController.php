@@ -60,8 +60,13 @@ class StatsController extends Controller
             return;
         }
 
-        $regLin = $this->SLR($lista, $request->porcentaje);
-        return view('SLResults', compact('regLin'));
+        $resultado =  $this->SLR($lista, $request->porcentaje);
+        $regLin = $resultado[0];
+        $recta = $resultado[1];
+        $scatterPlot = $resultado[2];
+        $puntoPred[0] = $resultado[3];
+
+        return view('SLResults', compact('regLin', 'recta', 'scatterPlot', 'puntoPred'));
     }
 
     public function SLR($lista, $porcentaje)
@@ -99,34 +104,6 @@ class StatsController extends Controller
           array_push($promPart, $suma/$nP);
         }
 
-        if($porcentaje <= 1)
-        {
-          $slicedList = array_slice($lista, 0, $cantDatos);
-          $suma = 0;
-          foreach ($slicedList as $key => $sL)
-          {
-            $suma += $sL->puntaje;
-          }
-          $historico = $suma/$cantDatos;
-
-          $regLin = [
-            [
-              "nombre" => "Porcentaje",
-              "resultado" => $porcentaje*100 . "%",
-            ],
-            [
-              "nombre" => "Cantidad de datos",
-              "resultado" => $cantDatos,
-            ],
-            [
-              "nombre" => "Promedio historico",
-              "resultado" => $historico,
-            ],
-          ];
-
-          return $regLin;
-        }
-
         $sumaX = 0;
         $sumaY = 0;
         $sumaProductos = 0;
@@ -159,32 +136,79 @@ class StatsController extends Controller
         $valPred = round($b0 + $b1 * (count($lista) * $porcentaje)); // y^ = β0+β1Xi (Valor predecido por la regresión)
         if($valPred < 0) $valPred = 0;
 
-        $regLin = [
-          [
-            "nombre" => "Porcentaje",
-            "resultado" => $porcentaje*100 . "%",
-          ],
-          [
-            "nombre" => "Cantidad de datos",
-            "resultado" => $cantDatos,
-          ],
-          [
-            "nombre" => "Precisión de la predicción",
-            "resultado" => abs(round($correlacion*100)) . "%",
-          ],
-          [
-            "nombre" => "Porcentaje de mejora",
-            "resultado" => round($b1*100) . "%",
-          ],
-          [
-            "nombre" => "Indice de mejora",
-            "resultado" => "x" . round($b1*2, 1),
-          ],
-          [
-            "nombre" => "Puntaje predecido",
-            "resultado" => $valPred,
-          ],
-        ];
+        if($porcentaje <= 1)
+        {
+          $slicedList = array_slice($lista, 0, $cantDatos);
+          $suma = 0;
+          foreach ($slicedList as $key => $sL)
+          {
+            $suma += $sL->puntaje;
+          }
+          $historico = $suma/$cantDatos;
+
+          $regLin = [
+            [
+              [
+                "nombre" => "Porcentaje",
+                "resultado" => $porcentaje*100 . "%",
+              ],
+              [
+                "nombre" => "Cantidad de datos",
+                "resultado" => $cantDatos,
+              ],
+              [
+                "nombre" => "Promedio historico",
+                "resultado" => $historico,
+              ],
+            ],
+            [
+              [0, round($b0 + $b1 * 0)],
+              [count($lista), round($b0 + $b1 * (count($lista)))],
+            ],
+          ];
+        }
+        else
+        {
+          $regLin = [
+            [
+              [
+              "nombre" => "Porcentaje",
+              "resultado" => $porcentaje*100 . "%",
+              ],
+              [
+                "nombre" => "Cantidad de datos",
+                "resultado" => $cantDatos,
+              ],
+              [
+                "nombre" => "Precisión de la predicción",
+                "resultado" => abs(round($correlacion*100)) . "%",
+              ],
+              [
+                "nombre" => "Porcentaje de mejora",
+                "resultado" => round($b1*100) . "%",
+              ],
+              [
+                "nombre" => "Indice de mejora",
+                "resultado" => "x" . round($b1*2, 1),
+              ],
+              [
+                "nombre" => "Puntaje predecido",
+                "resultado" => $valPred,
+              ],
+            ],
+            [
+              [0, round($b0 + $b1 * 0)],
+              [count($lista) * $porcentaje, round($b0 + $b1 * (count($lista) * $porcentaje))],
+            ],
+          ];
+        }
+
+        //Puntos del ScatterPlot en [2]
+        for($i=0; $i<20; $i++)
+        {
+          $regLin[2][$i] = [$numPart[$i], $promPart[$i]];
+        }
+        array_push($regLin, [$cantDatos, $valPred]);  //Punto predecido en [3]
 
         return $regLin;
     }
@@ -346,7 +370,7 @@ class StatsController extends Controller
             }
           }
         }
-        
+
         return $dinRec;
     }
 
