@@ -149,7 +149,7 @@ class StatsController extends Controller
           $regLin = [
             [
               [
-                "nombre" => "Porcentaje",
+                "nombre" => "Porcentaje de datos",
                 "resultado" => $porcentaje*100 . "%",
               ],
               [
@@ -157,7 +157,7 @@ class StatsController extends Controller
                 "resultado" => $cantDatos,
               ],
               [
-                "nombre" => "Promedio historico",
+                "nombre" => "Promedio historico en este punto",
                 "resultado" => $historico,
               ],
             ],
@@ -172,7 +172,7 @@ class StatsController extends Controller
           $regLin = [
             [
               [
-              "nombre" => "Porcentaje",
+              "nombre" => "Porcentaje de datos",
               "resultado" => $porcentaje*100 . "%",
               ],
               [
