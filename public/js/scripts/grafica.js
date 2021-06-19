@@ -1,6 +1,6 @@
 Highcharts.chart('graficaCont', {
   title: {
-    text: 'Scatter plot with regression line'
+    text: 'Grafica de dispersión de datos con recta de regresión'
   },
   xAxis: {
     min: 0,
