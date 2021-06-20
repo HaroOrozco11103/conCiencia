@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-<div class="contenedor-nav nav-visible">      
+<!--<div class="contenedor-nav nav-visible">      
   <nav class="nav-dinamica">
       <div class="burger" onclick=navSlide()>
           <i class="fas fa-times" id="btn-nav"></i>
@@ -112,9 +112,9 @@
           </div>           
       </div>
   </div>
-</div>
+</div>-->
 <script src="{{ asset('js/scripts/side-nav.js') }}"></script> <!--JS usado para vistas-->
-<!--
+
 <div class="card shadow">
     <div class="card-header">{{ $grupo->codigo }}</div>
     <div class="card-header">
@@ -218,5 +218,5 @@
         </div>
     </form>
   </div>
-</div>-->
+</div>
 @endsection
