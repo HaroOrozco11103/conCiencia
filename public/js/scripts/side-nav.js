@@ -2,7 +2,7 @@
 //---------------------------------Side-nav-bar-----------------------------------------
 
 const navSlide = () => {
-    const burger = document.querySelector('#btn');
+    const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navTitle = document.querySelector('.titulo-nav');
     const container = document.querySelector('.contenedor-nav');
