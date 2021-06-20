@@ -15,6 +15,7 @@
         <link href="{{ asset('css/style/style.css') }}" rel="stylesheet"/>    <!--CSS Vistas general -->
         <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/> <!--Font Recursive-->
         <script src="https://kit.fontawesome.com/a81368914c.js"></script> <!--Font Awesome icons -->
+        <script src="{{ asset('js/scripts/app.js') }}"></script> <!--JS usado para vistas-->
 
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 

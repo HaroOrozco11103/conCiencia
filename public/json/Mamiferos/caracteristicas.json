@@ -1,5 +1,6 @@
+
 {
-    "instrucciones": "Selecciona las características de un animal que tengas en mente o explora con ellas para conocer y descubrir diferentes tipos de animales!!!.<br><br>Por cada caracteristica que selecicones se mostrarán los resultados econtrados de aquellos grupos de animales que cuenten con todo lo que has seleccionado.<br><br>Presiona sobre los nombres de los ordenes que te han resultado y conoce más información acerca de los animales que la integran y cómo estos se ven en la realidad. <br><br>Pasa el cursor sobre las características que no entiendas como se aplican para obtener más información.",
+    "instrucciones": "¡¡¡Selecciona las características de un animal que tengas en mente o explora con ellas para conocer y descubrir diferentes tipos de animales!!!<br><br>Por cada característica que selecciones se mostrarán los resultados encontrados de aquellos grupos de animales que cuenten con todo lo que has seleccionado. <br><br>Presiona los órdenes mostrados para conocer más sobre esos animales. <br><br>Si no entiendes una característica, pasa el curso sobre ella para obtener más información.",
 
     "theria": "Se refiere a los animales que se desarrollan dentro del útero de la madre y nacen de este.",
 
@@ -7,7 +8,7 @@
 
     "eutheria": "Se refiere a los animales que se desarrollan en una placenta dentro del útero de la madre.",
 
-    "metatheria": "Se refiere a los animales que se desarrollan poco tiempo dentro del útero de la madre<br>y terminan su desarrollo agarrados a las glándulas mamarias del interior de un marsupio.",
+    "metatheria": "Se refiere a los animales que se desarrollan poco tiempo dentro del útero de la madre<br>y terminan su desarrollo agarrado a las glándulas mamarias del interior de un marsupio.",
 
     "endemico_africa": "Se refiere a los animales cuya distribución o hábitat se limita al continente Africano.",
 
@@ -57,7 +58,7 @@
 
     "pico": "Se refiere a los animales cuyo hocico termina en un pico.",
 
-    "ojos_diminutos": "Se refiere a los animales cuyos ojos son muy pequeños en relación a su cabeza.",
+    "ojos_diminutos": "Se refiere a los animales cuyos ojos son muy pequeños en relación con su cabeza.",
 
     "ojos_vestigiales": "Se refiere a los animales cuyos ojos poseen ceguera total o parcial y no le son de mucha utilidad<br>puesto que usan otros sentidos para orientarse.",
 
@@ -81,7 +82,7 @@
 
     "puas_o_espinas": "Se refiere a los animales cuyo dorso está cubierto de púas.",
 
-    "escroto": "Se refiere a los animales cuyos testiculos están contenidos en un saco escrotal.",
+    "escroto": "Se refiere a los animales cuyos testículos están contenidos en un saco escrotal.",
 
     "espiraculo": "Se refiere al orificio externo que poseen algunos animales en la parte superior de la cabeza<br>por medio del cual respiran aire.",
 
@@ -105,7 +106,7 @@
 
     "sin_caninos": "Se refiere a los animales que no cuentan con dientes caninos.",
 
-    "carniceras_desarrollados": "Se refiere a los animales provistos de molares muy desarrollados adaptados para una dieta carnivora.",
+    "carniceras_desarrollados": "Se refiere a los animales provistos de molares muy desarrollados adaptados para una dieta carnívora.",
 
     "diastema_marcado": "Se refiere a la separación entre los incisivos y el resto de los dientes.",
 
@@ -119,7 +120,7 @@
 
     "incisivos_hipertrofiados": "Se refiere a los animales provistos de incisivos muy desarrollados adaptados para roer.",
 
-    "incisivos_clavija": "Se refiere a un segundo par de incisivos de menor tamaño con forma de clavija<br>colocados justo detras del primer par.",
+    "incisivos_clavija": "Se refiere a un segundo par de incisivos de menor tamaño con forma de clavija<br>colocados justo detrás del primer par.",
 
     "incisivos_superiores_dos": "Se refiere a los animales provistos solo de dos incisivos arriba y dos abajo.",
 

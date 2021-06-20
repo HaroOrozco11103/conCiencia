@@ -1,9 +1,8 @@
-@extends('layouts.index')
+@extends('Dinamicas.navDinamicas')
 
-@section('content')
+@section('dinamica')
                
     @include('Dinamicas.materias')
-
     @yield('titulo')
     @yield('materias')
     @yield('marcador')

@@ -87,7 +87,6 @@ body{
 }
 /*inicio--------------------------------------------------------------------------------------------*/
 .botones{
-    margin-top: 50px;
     width: 100%;
     height: 90vh;
     padding-left: 1rem;
@@ -180,7 +179,52 @@ body{
     visibility:visible;
     background-image: linear-gradient(to right, #38f39f,#FF7228,#1E90FF);
 }
-/*Form--------------------------------------------------------------------------------------------*/
+/*-------------------------------------MATERIAS-----------------------------------------*/
+.contenedor-materias{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 30vh;
+    grid-gap: 5px;
+    padding: 10px;
+    overflow: auto;
+}
+.materia{
+    width: 95%;
+    height: 96%;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 1rem 0;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #1E90FF,#38f39f);
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Recursive', sans-serif;
+    background-size: 200%;
+}
+.materia > a{
+    color: #ffffff;
+}
+
+/*-------------------------------------DINAMICA-----------------------------------------*/
+.contenedor-nav{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+.dinamica{
+    padding: 25px;
+}
+
+/*-----------------------------------------FORM---------------------------------------------------*/
 .container{
     width: 100vw;
     height: 100vh;
@@ -336,13 +380,7 @@ form h2{
 #hide1-check{
     display: none;
 }
-/*-----------------------------------------------Grupos-------------------------------------*/
-.contenedor{
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 20% 80%;
-}
+/*--------------------------------Nav-Grupos/dinamicas-----------------------------------------*/
 .nav-oculta{
     grid-template-columns: 5% 95%;
 }
@@ -350,16 +388,16 @@ form h2{
     width: 100%;
     position: relative;
     justify-content: space-around;
-    align-items: center;
     left: -5%;
     min-width: 200px;
 }
 .burger {
+    position: fixed;
     padding: 1rem;
     padding-right: 5rem;
     transform: translateX(10%) translateY(10%);
 }
-#btn{
+.burger > .boton{
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 30px;
@@ -405,6 +443,13 @@ form h2{
 }
 .nav-active{
     transform: translateX(-100%);
+}
+/*-----------------------------------------------Grupos-------------------------------------*/
+.contenedor{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
 .detalle-grupo{
     position: relative;
@@ -523,40 +568,6 @@ form h2{
 }
 .fa-chart-bar, .fa-edit{
     cursor: pointer;
-}
-/*-------------------------------------DINAMICA-----------------------------------------*/
-.dinamica{
-    padding: 25px;
-}
-/*-------------------------------------MATERIAS-----------------------------------------*/
-.contenedor-materias{
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: 30vh;
-    grid-gap: 5px;
-    padding: 10px;
-    overflow: auto;
-}
-.materia{
-    width: 95%;
-    height: 96%;
-    overflow: hidden;
-    border-radius: 20px;
-    margin: 1rem 0;
-    font-size: 2rem;
-    outline: none;
-    border: none;
-    background-image: linear-gradient(to right, #1E90FF,#38f39f);
-    cursor: pointer;
-    color: #fff;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Recursive', sans-serif;
-    background-size: 200%;
 }
 
 /*pop-up*/

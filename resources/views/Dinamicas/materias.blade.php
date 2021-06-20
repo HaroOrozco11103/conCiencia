@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <header class="cabecera"><h1 class="titulo">ConCienciaSoft <br> {{$dinamicas[0]->nombre}}</h1></header>
+            <header class="cabecera"><h1 class="titulo">{{$dinamicas[0]->nombre}}</h1></header>
         </div>
     </div>
 @endsection

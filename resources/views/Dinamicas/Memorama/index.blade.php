@@ -1,11 +1,10 @@
-@extends('layouts.index')
+@extends('Dinamicas.navDinamicas')
 
-@section('content')
+@section('dinamica')
     
     <div class="cuerpo">    
         @include('Dinamicas.materias')
         @yield('titulo')
-
         @yield('materias')
         @yield('marcador')
         <div class="row">

@@ -1,6 +1,6 @@
-@extends('layouts.index')
+@extends('Dinamicas.navDinamicas')
 
-@section('content')
+@section('dinamica')
 
 <link rel="stylesheet" href="{{asset('css/Dinamicas/ahorcado.css')}}">  
 

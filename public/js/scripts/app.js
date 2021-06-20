@@ -70,57 +70,9 @@ if(tabHeader != null){
 };
 }
 
-//---------------------------------Side-nav-bar-----------------------------------------
-
-const navSlide = () => {
-    const burger = document.querySelector('#btn');
-    const nav = document.querySelector('.nav-links');
-    const navTitle = document.querySelector('.titulo-nav');
-    const container = document.querySelector('.contenedor');
-    if(burger != null){
-        burger.addEventListener('click', () => {
-            var btnClass = burger.classList[1];
-            if( btnClass == "fa-times"){
-                burger.classList.remove("fa-times");
-                burger.classList.add("fa-bars");
-            }
-            if( btnClass == "fa-bars"){
-                burger.classList.remove("fa-bars");
-                burger.classList.add("fa-times");
-            }
-
-            nav.classList.toggle('nav-active');
-            navTitle.classList.toggle('nav-active');
-            container.classList.toggle('nav-oculta');
-            container.style.transition = 'all 5s';
-        });
-    }
-};
-
-navSlide();
-
 //------------------------------------------------Materias--------------------
-var listaMaterias = ["Arte","Fisica","Quimica","Historia","Biologia", "Matematicas","Español",];
-var container = document.querySelector(".contenedor-materias");
-function showMaterias(){
-    if(listaMaterias != null && container != null){
-        var html = "";
-        for(let i=0;i<listaMaterias.length;i++){
-            html = html + "<div class=\"materia "+ listaMaterias[i] +
-            "\" onclick=window.location.href='/dinamica.html'>"+ listaMaterias[i]+"</div>";
-        };
-        container.innerHTML = html;
-    }
-}
 
-showMaterias();
-
-var materia = document.querySelector(".materia");
-function dinamicaMateria(){
-        console.log("Hola");
-}
-
-/*Popups */
+/*Popups
 var btnAbrirPopup = document.querySelector('#abrir-editar');
 var	overlay = document.querySelector('.overlay');
 var	popupEditar = document.querySelector('.pop-up editar');
@@ -145,4 +97,4 @@ var	btnCerrarPopup = document.querySelector('.cerrar-popup');
 btnAbrirPopupStats.addEventListener('click', function(){
 	overlay.classList.add('active');
 	popupStats.classList.add('active');
-});
+});*/

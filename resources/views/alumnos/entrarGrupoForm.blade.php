@@ -4,7 +4,6 @@
 <br><br><br>
 <head>
     <meta charset="UTF-8">
-    <title>Entrar a un grupo</title>
     <link rel="stylesheet" href="{{ asset('css/style/style.css') }}"/>
     <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
