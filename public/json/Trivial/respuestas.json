@@ -1,13 +1,40 @@
 {
     "fisica":[
-        ["Newton", "Einstein", "Galileo","Arquimedes"],
-        ["Tesla", "Newton", "Edison","Hawking"],
-        ["Einstein", "Schrodinger", "Edison", "Hawking"]
+        ["Cuántica", "Relativista o clásica", "Astrología", "Astrofísica"],
+        ["Asteroide", "Estrella", "Planeta", "Agujero negro"],
+        ["La velocidad de la luz en el vacío", "El tamaño de un satelite natural", "La gravedad de los cuerpos con masa identica", "La energía de una estrella"],
+        ["Entropía", "Magnetismo", "Gravedad", "Atómica"],
+        ["Electrones", "Fotones", "Bosones", "Átomos"],
+        ["Energía nuclear", "Fisión nuclear", "Explosión nuclear", "Fusión nuclear"],
+        ["Ondas", "Energía", "Campo", "Partículas"],
+        ["Conducción", "Convección", "Radiación", "Transpiración"],
+        ["Un satélite natural", "Una bola de fuego", "Un planeta", "Una estrella"],
+        ["Polvo", "Agua, fuego, tierra y aire", "Átomos", "Celulas"]
     ],
 
     "artes":[
-        ["Miguel Angel",
-        "Leonardo Da Vinci",
-        "Rafael Sanzio","Donatello"]
+        ["Miguel Angel", "Leonardo Da Vinci", "Rafael Sanzio", "Donatello"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"]
+    ],
+
+    "biologia":[
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"],
+        ["xxx", "xxx", "xxx", "xxx"]
     ]
-}  
+}
