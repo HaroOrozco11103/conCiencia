@@ -1,16 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-<br><br><br>
-<head>
-    <meta charset="UTF-8">
-    <title>Entrar Profesor</title>
-    <link rel="stylesheet" href="{{ asset('css/style/style.css') }}"/>
-    <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/>
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-</head>
-<body>
+    <img src="{{ asset('images/img/wave-2.png') }}" alt="" class="wave">
     <div class="container">
         <div class="img">
             <img src="{{ asset('images/img/teacher.png') }}" alt="">
@@ -61,6 +52,4 @@
             </form>
         </div>
     </div>
-    <script src="{{ asset('js/scripts/app.js') }}"></script>
-</body>
 @endsection
