@@ -212,7 +212,6 @@ body{
 /*-------------------------------------DINAMICA-----------------------------------------*/
 .contenedor-nav{
     width: 20%;
-    position: fixed;
 }
 .dinamica{
     padding: 25px;
