@@ -21,13 +21,13 @@
         "pregunta": "La luz NO es...",
         "respuesta": "Campo"
     },{
-        "pregunta": "No es una mecanismo de transferencia de calor:",
+        "pregunta": "No es un mecanismo de transferencia de calor:",
         "respuesta": "Transpiración"
     },{
         "pregunta": "El sol es...",
         "respuesta": "Una estrella"
     },{
-        "pregunta": "De qué está compuesta toda la materia",
+        "pregunta": "¿De qué está compuesta toda la materia?",
         "respuesta": "Átomos"
     }],
 
@@ -64,7 +64,7 @@
     }],
 
     "biologia":[{
-        "pregunta": "Rama de la biologia que se encarga de ordenar y clasificar a los seres vivos",
+        "pregunta": "Rama de la biología que se encarga de ordenar y clasificar a los seres vivos",
         "respuesta": "Taxonomía"
     },{
         "pregunta": "¿Cuál es la molécula que se encuentra en el núcleo de las células y guarda todo el material genético de un ser vivo?",
@@ -88,7 +88,7 @@
         "pregunta": "¿Cuál es la característica de los animales vertebrados?",
         "respuesta": "Tienen esqueleto óseo"
     },{
-        "pregunta": "Cuál de los siguientes seres NO es un animal",
+        "pregunta": "¿Cuál de los siguientes seres NO es un animal?",
         "respuesta": "Todos son animales"
     },{
         "pregunta": "¿Cómo se le llama al proceso en el que las plantas transforman la luz en energía química como alimentación?",
