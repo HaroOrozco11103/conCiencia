@@ -14,15 +14,15 @@
 
     "artes":[
         ["Miguel Angel", "Leonardo Da Vinci", "Rafael Sanzio", "Donatello"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"]
+        ["Teatro", "Música", "Arquitectura", "Cine"],
+        ["Diego Velázquez", "Salvador Dalí", "Pablo Picasso", "Vincent van Gogh"],
+        ["Pintura y poesía", "Pintura y escultura", "Escultura y arquitectura", "Música y danza"],
+        ["Literatura y música", "Pintura y escultura", "Arquitectura y danza", "Teatro y deporte"],
+        ["Hamlet", "Homero", "William Shakespeare", "Gabriel García Marquez"],
+        ["Wolfgang Amadeus Mozart", "Ludwig van Beethoven", "Antoine de Saint-Exupéry", "Johann Sebastian Bach"],
+        ["El hombre de Vitruvio", "La Gioconda (La Mona Lisa)", "La última cena", "La creación de Adán"],
+        ["Do, Re, Mi, Fa, Sol, La, Si, Do", "Rock, Pop, Clásico, Hip-Hop, Blues, Jazz", "Soprano, Mezzosoprano, Contralto, Tenor, Barítono, Bajo", "Esdrújula, Aguda, Grave, Sobreesdrújula"],
+        ["Gótico", "Barroco", "Renacimiento", "Alterado"]
     ],
 
     "biologia":[
