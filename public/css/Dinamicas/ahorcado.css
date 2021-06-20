@@ -15,11 +15,9 @@
     display: inline;
     font-size: 40px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 5px;
 }
 
-.alfabeto{  
-    text-align: center;  
+.alfabeto{   
     display: grid;
     grid-template-columns: repeat(6, .15fr);   
 }
