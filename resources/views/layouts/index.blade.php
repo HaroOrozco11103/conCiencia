@@ -13,10 +13,14 @@
         <link href="{{ asset('css/juego.css') }}" rel="stylesheet"/>
         <link href="{{ asset('css/modal.css') }}" rel="stylesheet"/>
         <link href="{{ asset('css/style/style.css') }}" rel="stylesheet"/>    <!--CSS Vistas general -->
-       
+        <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/> <!--Font Recursive-->
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script> <!--Font Awesome icons -->
         <script src="{{ asset('js/scripts/app.js') }}"></script> <!--JS usado para vistas-->
 
-    
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+
         <script src="{{ asset('js/app.js') }}"></script>
 
         <script>
@@ -49,7 +53,6 @@
         <!-- Modal -->
         @include('layouts.modal')
 
-    
         <script src="{{ asset('layout/dist/js/scripts.js') }}"></script>
 
     </body>
