@@ -6,7 +6,7 @@
         "pregunta": "¿Cuál de los siguientes cuerpos celestes tiene mayor masa?",
         "respuesta": "Agujero negro"
     },{
-        "pregunta": "¿Cuál de las siguientes magnitudes no cambia su valor?",
+        "pregunta": "¿Cuál de las siguientes magnitudes NO cambia su valor?",
         "respuesta": "La velocidad de la luz en el vacío"
     },{
         "pregunta": "Es la fuerza de atracción que ejerce un cuerpo por su masa y densidad",
@@ -41,16 +41,16 @@
         "pregunta": "¿Quién fue el creador del movimiento artistico Cubismo?",
         "respuesta": "Pablo Picasso"
     },{
-        "pregunta": "¿Por cuáles expresiones artísticas era reconocida la artísitca mexicana Frida Kahlo?",
+        "pregunta": "¿Por cuáles expresiones artísticas era reconocida la artista mexicana Frida Kahlo?",
         "respuesta": "Pintura y poesía"
     },{
-        "pregunta": "¿Cuáles de las siguientes opciones no están consideradas en las Bellas Artes?",
+        "pregunta": "¿Cuáles de las siguientes opciones NO están consideradas en las Bellas Artes?",
         "respuesta": "Teatro y deporte"
     },{
         "pregunta": "¿Quién es el autor de Romeo y Julieta?",
         "respuesta": "William Shakespeare"
     },{
-        "pregunta": "¿Quién de los siguientes personajes no era un compositor clásico?",
+        "pregunta": "¿Quién de los siguientes personajes NO era un compositor clásico?",
         "respuesta": "Antoine de Saint-Exupéry"
     },{
         "pregunta": "¿Cuál de las siguientes pinturas NO pertenece a Leonardo Da Vinci?",
@@ -59,39 +59,39 @@
         "pregunta": "¿Cuáles son las notas musicales?",
         "respuesta": "Do, Re, Mi, Fa, Sol, La, Si, Do"
     },{
-        "pregunta": "¿Cuál de estos no es un movimiento artístico/cultural?",
+        "pregunta": "¿Cuál de estos NO es un movimiento artístico/cultural?",
         "respuesta": "Alterado"
     }],
 
     "biologia":[{
-        "pregunta": "Rama de la biologia que estudia",
-        "respuesta": "xxx"
+        "pregunta": "Rama de la biologia que se encarga de ordenar y clasificar a los seres vivos",
+        "respuesta": "Taxonomía"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuál es la molécula que se encuentra en el núcleo de las células y guarda todo el material genético de un ser vivo?",
+        "respuesta": "ADN"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuál de los siguientes organismos NO se considera un ser vivo?",
+        "respuesta": "Virus"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuál de las siguientes clases NO pertenece al reino animalia?",
+        "respuesta": "Fungi"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "Es la unidad de vida más básica",
+        "respuesta": "Célula"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuál es el llamado Ciclo de la vida de los seres vivos?",
+        "respuesta": "Nace, crece, se reproduce, muere"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "Transformación que experimentan algunos animales que afecta no solo a su forma sino también a sus funciones y su modo de vida",
+        "respuesta": "Metamorfosis"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuál es la característica de los animales vertebrados?",
+        "respuesta": "Tienen esqueleto óseo"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "Cuál de los siguientes seres NO es un animal",
+        "respuesta": "Todos son animales"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cómo se le llama al proceso en el que las plantas transforman la luz en energía química como alimentación?",
+        "respuesta": "Fotosíntesis"
     }]
 }

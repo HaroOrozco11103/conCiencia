@@ -26,15 +26,15 @@
     ],
 
     "biologia":[
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"],
-        ["xxx", "xxx", "xxx", "xxx"]
+        ["Antropología", "Genética", "Taxonomía", "Zoología"],
+        ["Membrana", "ADN", "Citoplasma", "Ribosoma"],
+        ["Bacteria", "Virus", "Hongo", "Planta"],
+        ["Fungi", "Reptiles", "Mamíferos", "Aves"],
+        ["Animal", "Planta", "Tejido", "Célula"],
+        ["Desarrollo, nudo, desenlace", "Introducción, crecimiento, madurez, declive", "Nace, crece, se reproduce, muere", "Reducir, reciclar, reutilizar"],
+        ["Metamorfosis", "Fotosíntesis", "Fusión", "Evolución"],
+        ["Tienen coraza exterior", "Tienen esqueleto óseo", "Se alimentan de huesos", "No tienen cerebro"],
+        ["Dinosaurio", "Humano", "Coral", "Todos son animales"],
+        ["Alimentación", "Energización", "Metamorfosis", "Fotosíntesis"]
     ]
 }
