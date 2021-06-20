@@ -1,4 +1,3 @@
-var consultOrden = true;
 var listQuery = new Set();
 var finalizado = false;
 var info = '';
@@ -49,8 +48,7 @@ function show(resolve){
             var data = answer.lookup("X");
             if(consultOrden && data != null){
                 $("#ordenTbody").append(`<tr class="ordenData"> <td> ${data} </td> </tr>`);
-            }else if(!consultOrden && data != null)
-                $("#familiaTbody").append(`<tr class="familiaData"> <td> ${data} </td> </tr>`);
+            }
         }else{
             resolve();
         }
@@ -74,7 +72,6 @@ $(".box").click(function(event){
     finalizado = false;
 
     $("#ordenTbody").empty();
-    $('#familiaTbody').empty();
 
     this.checked ? listQuery.add(`caracteristica(X,${value}),`) : listQuery.delete(`caracteristica(X,${value}),`);
 
@@ -119,11 +116,6 @@ $('#tablaOrdenes').on('click', '.ordenData > td', function(){
 
     score += 10;
     postear(score);
-    
-    $('#familiaTbody').empty();
-    query = `pertenece(X, ${orden}),`;
-
-    runProlog(query);
 });
    
 

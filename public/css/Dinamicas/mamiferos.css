@@ -27,6 +27,19 @@ h3{
 }
 
 /*Table styles*/
+
+.orden-table{
+    position: fixed;
+    text-align: center;
+    
+}
+
+#tablaOrdenes{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 table tbody tr:hover{
     background-color: teal;
     cursor: pointer;
