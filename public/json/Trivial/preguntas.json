@@ -1,6 +1,6 @@
 {
     "fisica":[{
-        "pregunta": "¿Cuál de estas opciones no es un campo de estudio de la física?",
+        "pregunta": "¿Cuál de estas opciones NO es un campo de estudio de la física?",
         "respuesta": "Astrología"
     },{
         "pregunta": "¿Cuál de los siguientes cuerpos celestes tiene mayor masa?",
@@ -21,7 +21,7 @@
         "pregunta": "La luz NO es...",
         "respuesta": "Campo"
     },{
-        "pregunta": "No es una mecanismo de transferencia o conducción de calor:",
+        "pregunta": "No es una mecanismo de transferencia de calor:",
         "respuesta": "Transpiración"
     },{
         "pregunta": "El sol es...",
