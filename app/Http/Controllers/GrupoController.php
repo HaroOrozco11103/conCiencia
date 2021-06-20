@@ -111,9 +111,11 @@ class GrupoController extends Controller
      */
     public function show(Grupo $grupo)
     {
+        $profeId = \Auth::user()->id;
+        $grupos = DB::table('grupos')->where('user_id', $profeId)->get();
         $alumnos = DB::table('alumnos')->where('grupo_id', $grupo->id)->get();
         $materias = DB::select('SELECT `id`, `nombre` FROM `conciencia`.`asignaturas`', [1]);
-        return view('profesores.grupoShow', compact('grupo', 'alumnos', 'materias'));
+        return view('profesores.grupoShow', compact('grupos', 'profeId','grupo', 'alumnos', 'materias'));
     }
 
     /**

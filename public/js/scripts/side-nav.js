@@ -16,9 +16,18 @@ function navSlide(){
         burger.classList.remove("fa-bars");
         burger.classList.add("fa-times");
     }
+    visibilidadNav = container.classList[1]
+    if( visibilidadNav == "nav-oculta")
+    {
+        container.classList.remove('nav-oculta');
+        container.classList.add("nav-visible");
+    }
+    if( visibilidadNav == "nav-visible"){
+        container.classList.remove("nav-visible");
+        container.classList.add('nav-oculta');
+    }
 
     nav.classList.toggle('nav-active');
     navTitle.classList.toggle('nav-active');
-    container.classList.toggle('nav-oculta');
-    container.style.transition = 'all 5s';
+    
 };

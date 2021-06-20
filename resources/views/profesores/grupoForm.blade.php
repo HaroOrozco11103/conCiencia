@@ -1,7 +1,6 @@
 @extends('layouts.index')
 
 @section('content')
-<br><br><br>
 <div class="card shadow">
     <div class="card-header">{{ __('Crear grupo') }}</div>
     <div class="card-body">

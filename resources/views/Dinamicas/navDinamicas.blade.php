@@ -1,8 +1,8 @@
 @extends('layouts.index')
 
 @section('content')
-<div class="contenedor-nav">
-    <nav class="nav">
+<div class="contenedor-nav nav-visible">
+    <nav class="nav-dinamica">
         <div class="burger" onclick=navSlide()>
             <i class="fas fa-times" id="btn-nav"></i>
         </div>

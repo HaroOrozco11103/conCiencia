@@ -1,6 +1,120 @@
 @extends('layouts.index')
 
 @section('content')
+<div class="contenedor-nav nav-visible">      
+  <nav class="nav-dinamica">
+      <div class="burger" onclick=navSlide()>
+          <i class="fas fa-times" id="btn-nav"></i>
+      </div>
+      <div class="titulo-nav titulo-nav-grupo">
+          <h2>Grupos</h2>
+          <i class="fas fa-plus fa-2x fa-fw" title="Agregar grupo"></i>
+      </div>
+      <ul class="nav-links">
+        @if(count($grupos) == 0)
+          <div class="alert alert-dismissible text-center alert-dismissible" style="background-color:#ff9d16;" role="alert">
+            No hay grupos registrados a su cargo.
+          </div>
+        @else
+          @foreach($grupos as $key => $gru)
+          <li><a href="{{ route('grupos.show', $gru->id) }}"> {{ $gru->nombre }} </a></li>
+          @endforeach
+        @endif
+      </ul>
+  </nav>
+  <div class="detalle-grupo">
+      <div class="info-grupo">
+          <div class="grupo-nombre">
+              <h2>Grupo name turno</h2>           
+          </div>
+          <div class="grupo-codigo">
+              <h2>Código</h2>
+          </div>
+          <div class="edicion-nombre">
+              <a class="editar-nombre">editar nombre</a>
+              <a class="guardar-nombre">guardar nombre</a>
+          </div>
+      </div>
+      <div class="tabs">
+          <div class="tab-header">
+            <div class="active">
+                <i class="fas fa-users"></i>Grupo
+            </div>
+            <div>
+                <i class="fas fa-chart-bar"></i>Estadisticas
+            </div>
+          </div>
+          <div class="tab-indicator"></div>
+          <div class="tab-body">
+              <div class="tab-content active">
+                  <div>
+                      <table class="alumnos-table">
+                          <thead>
+                              <th class="col">nombre</th>
+                              <th class="col">usuario</th>
+                              <th class="col">opciones</th>
+                          </thead>
+                          <tbody>
+                              <tr class="active-row">
+                                  <td>Lupita</td>
+                                  <td>iamlupita</td>
+                                  <td class="detalles">
+                                      <i class="fas fa-chart-bar" id="abrir-stats">estadisticas</i>
+                                      <br>
+                                      <i class="fas fa-edit" id="abrir-editar">editar</i>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Haro</td>
+                                  <td>haro1113</td>
+                                  <td class="detalles">
+                                      <i class="fas fa-chart-bar">estadisticas</i>
+                                      <br>
+                                      <i class="fas fa-edit">editar</i>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Adan</td>
+                                  <td>adanmetal</td>
+                                  <td class="detalles">
+                                      <i class="fas fa-chart-bar">estadisticas</i>
+                                      <br>
+                                      <i class="fas fa-edit">editar</i>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>Haro</td>
+                                  <td>haro1113</td>
+                                  <td class="detalles">
+                                      <i class="fas fa-chart-bar">estadisticas</i>
+                                      <br>
+                                      <i class="fas fa-edit">editar</i>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div> 
+              <div class="tab-content">
+                  <div>
+                      <h2>This is Estadisticas</h2>
+                      mucho texto mucho texto mucho texto mucho texto mucho 
+                      texto mucho texto mucho texto mucho texto mucho texto 
+                      mucho texto mucho texto mucho texto mucho texto mucho 
+                      mucho texto mucho texto mucho texto mucho texto mucho 
+                      texto mucho texto mucho texto mucho texto mucho texto 
+                      mucho texto mucho texto mucho texto mucho texto mucho 
+                      texto mucho texto mucho textomucho texto mucho texto 
+                      mucho texto mucho texto mucho texto mucho texto mucho 
+                      texto mucho texto mucho texto mucho texto mucho texto
+                  </div>
+              </div>
+          </div>           
+      </div>
+  </div>
+</div>
+<script src="{{ asset('js/scripts/side-nav.js') }}"></script> <!--JS usado para vistas-->
+<!--
 <div class="card shadow">
     <div class="card-header">{{ $grupo->codigo }}</div>
     <div class="card-header">
@@ -104,5 +218,5 @@
         </div>
     </form>
   </div>
-</div>
+</div>-->
 @endsection

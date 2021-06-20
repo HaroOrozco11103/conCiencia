@@ -384,7 +384,10 @@ form h2{
 .nav-oculta{
     grid-template-columns: 5% 95%;
 }
-.nav{
+.nav-visible{
+    grid-template-columns: 20% 80%;
+}
+.nav-dinamica{
     width: 100%;
     height: 80vh;
     position: relative;
@@ -441,14 +444,13 @@ form h2{
     font-weight: bold;
 }
 .nav-active{
-    transform: translateX(-100%);
+    display: none;
 }
 /*-----------------------------------------------Grupos-------------------------------------*/
 .contenedor-nav{
     width: 100vw;
     height: 100%;
     display: grid;
-    grid-template-columns: 20% 80%;
 }
 .detalle-grupo{
     position: relative;
