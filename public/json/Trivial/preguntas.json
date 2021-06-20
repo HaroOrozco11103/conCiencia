@@ -32,39 +32,39 @@
     }],
 
     "artes":[{
-        "pregunta": "Escultor del David",
+        "pregunta": "¿Quién fue el escultor de El David?",
         "respuesta": "Miguel Angel"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿A qué se le llama el séptimo arte?",
+        "respuesta": "Cine"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Quién fue el creador del movimiento artistico Cubismo?",
+        "respuesta": "Pablo Picasso"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Por cuáles expresiones artísticas era reconocida la artísitca mexicana Frida Kahlo?",
+        "respuesta": "Pintura y poesía"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuáles de las siguientes opciones no están consideradas en las Bellas Artes?",
+        "respuesta": "Teatro y deporte"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Quién es el autor de Romeo y Julieta?",
+        "respuesta": "William Shakespeare"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Quién de los siguientes personajes no era un compositor clásico?",
+        "respuesta": "Antoine de Saint-Exupéry"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuál de las siguientes pinturas NO pertenece a Leonardo Da Vinci?",
+        "respuesta": "La creación de Adán"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuáles son las notas musicales?",
+        "respuesta": "Do, Re, Mi, Fa, Sol, La, Si, Do"
     },{
-        "pregunta": "xxx",
-        "respuesta": "xxx"
+        "pregunta": "¿Cuál de estos no es un movimiento artístico/cultural?",
+        "respuesta": "Alterado"
     }],
 
     "biologia":[{
-        "pregunta": "xxx",
+        "pregunta": "Rama de la biologia que estudia",
         "respuesta": "xxx"
     },{
         "pregunta": "xxx",
