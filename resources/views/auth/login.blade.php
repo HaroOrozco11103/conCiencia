@@ -15,8 +15,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div class="div">
-                        <h5>Nombre de Usuario</h5>
-                        <input id="username" type="text" class="input form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                        <input id="username" placeholder="Nombre de Usuario" type="text" class="input {{ $errors->has('username') ? ' is-invalid' : '' }}"
                             name="username" value="{{ old('username') }}" required autofocus>
 
                         @if ($errors->has('username'))
@@ -31,9 +30,9 @@
                         <i class="fas fa-lock"></i>
                     </div>
                     <div class="div">
-                        <h5>Contraseña</h5>
-                        <input id="password" type="password"
-                            class="input password form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                        
+                        <input id="password" type="password" placeholder="Contraseña"
+                            class="input password {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
                             required>
 
                         @if ($errors->has('password'))

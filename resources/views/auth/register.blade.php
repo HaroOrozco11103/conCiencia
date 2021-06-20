@@ -26,8 +26,7 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <h5>Nombre</h5>
-                        <input type="text" class="input" name="nombre" value="{{ $user->nombre ?? '' }}" required autofocus>
+                        <input type="text" placeholder="Nombre" class="input" name="nombre" value="{{ $user->nombre ?? '' }}" required autofocus>
                     </div>
                 </div>
 
@@ -36,9 +35,8 @@
                         <i class="fas fa-at"></i>
                     </div>
                     <div class="div">
-                        <h5>Usuario</h5>
-                        <input id="username" type="text"
-                            class="input form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username"
+                        <input id="username" type="text" placeholder="Usuario"
+                            class="input {{ $errors->has('username') ? ' is-invalid' : '' }}" name="username"
                             value="{{ $user->username ?? '' }}" required autofocus>
 
                         @if ($errors->has('username'))
@@ -54,9 +52,8 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div class="div">
-                        <h5>Email</h5>
-                        <input id="email" type="email"
-                            class="input form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
+                        <input id="email" type="email" placeholder="Email"
+                            class="input {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
                             value="{{ $user->email ?? '' }}" required>
 
                         @if ($errors->has('email'))
@@ -73,9 +70,8 @@
                         <i class="fas fa-lock"></i>
                     </div>
                     <div class="div">
-                        <h5>Contraseña</h5>
-                        <input id="password" type="password"
-                            class="input form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                        <input id="password" type="password" placeholder="Contraseña"
+                            class="input {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
                             required>
 
                         @if ($errors->has('password'))
@@ -95,8 +91,7 @@
                         <i class="fas fa-lock"></i>
                     </div>
                     <div class="div">
-                        <h5>Confirmar contraseña</h5>
-                        <input id="password-confirm" type="password" class="input" name="password_confirmation"
+                        <input id="password-confirm" type="password" class="input" name="password_confirmation" placeholder="Confirmar contraseña"
                             required>
                     </div>
                     <span class="show-pass" onclick="showCheckPass()">

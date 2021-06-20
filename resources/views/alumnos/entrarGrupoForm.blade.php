@@ -15,8 +15,7 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <h5>Nombre</h5>
-                        <input type="text" class="input" name="nombre" required>
+                        <input type="text" class="input" placeholder='Nombre' name="nombre" required>
                     </div>
                 </div>
                 <div class="input-div two">
@@ -24,8 +23,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="div">
-                        <h5>Código de Grupo</h5>
-                        <input type="text" class="input" name="codigo" required>
+                        <input type="text" placeholder='Código de Grupo' class="input" name="codigo" required>
                     </div>
                 </div>
                 <a class="link-form" href="{{ route('login') }}">Soy un profesor</a>
