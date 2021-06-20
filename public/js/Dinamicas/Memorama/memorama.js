@@ -39,7 +39,7 @@ function inicializar_juego(){
 
     $('.carta').remove();
 
-    minutos = 1;
+    minutos = 3;
     segundos = 0;
     score = 0;
     finDelJuego = false;
@@ -161,7 +161,7 @@ function verificar(carta){
                     if(paresFaltantes == 0){
                         finDelJuego = true;
                         var tiemporRestante = 0;
-                        tiemporRestante += (minutos*60) + segundos; 
+                        tiemporRestante += (minutos*60) + segundos;
                         score += tiemporRestante;
                     }
 

@@ -400,11 +400,13 @@ form h2{
     z-index: 1;
 }
 .burger > #btn-nav{
-    cursor: pointer;
+    color: red;
     transition: all 0.3s ease;
     font-size: 30px;
 }
 .titulo-nav{
+    color: white;
+    text-shadow: 2px 2px 2px red;
     width: 100%;
     display: grid;
     align-items: center;
