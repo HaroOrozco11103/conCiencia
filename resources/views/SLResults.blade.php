@@ -1,6 +1,12 @@
 @extends('layouts.index')
 
 @section('content')
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
 <div class="card shadow">
     @foreach($regLin as $key => $SLR)
       <div class="card-header">{{ $SLR["nombre"] }}: {{ $SLR["resultado"] }}</div>
@@ -11,16 +17,15 @@
 <figure class="highcharts-figure">
   <div id="graficaCont"></div>
   <p class="highcharts-description">
-    Chart showing how a line series can be used to show a computed
-    regression line for a dataset. The source data for the regression line
-    is visualized as a scatter series.
+    La gráfica muestra la proyección de los puntajes respecto a las participaciones registradas y futuras, 
+    tomando en cuenta el progreso de los participantes.  
   </p>
+
+  <p><b>Recta de predicción:</b> Tendencia de los puntajes con respecto al número de veces jugadas.</p>
+  <p><b>Datos:</b> Proporción de los puntajes por el número de veces jugadas.</p>
+  <p><b>Predicción:</b> Pronóstico de un resultado sobre el porcentaje de participaciones elegido siguiendo la recta de predicción.</p> 
 </figure>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script>
   var recta = <?php echo json_encode($recta); ?>;
   var scatterPlot = <?php echo json_encode($scatterPlot); ?>;
