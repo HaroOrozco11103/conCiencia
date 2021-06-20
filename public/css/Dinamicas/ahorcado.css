@@ -12,14 +12,16 @@
 }
 
 .palabras .letra{
+    margin: 5px;
     display: inline;
     font-size: 40px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.alfabeto{   
+.alfabeto{
+    padding: 13%;   
     display: grid;
-    grid-template-columns: repeat(6, .15fr);   
+    grid-template-columns: repeat(4, .10fr);   
 }
 
 .alfabeto .botones{
