@@ -1,15 +1,6 @@
 @extends('layouts.index')
 
 @section('content')
-<br><br><br>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/style/style.css') }}"/>
-    <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/>
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-</head>
-<body>
     <img src="{{ asset('images/img/wave.png') }}" alt="" class="wave">
     <div class="container">
         <div class="img">
@@ -48,6 +39,4 @@
             </form>
         </div>
     </div>
-    <script src="app.js"></script>
-</body>
 @endsection

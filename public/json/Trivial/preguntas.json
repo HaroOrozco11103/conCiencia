@@ -1,17 +1,97 @@
 {
     "fisica":[{
-        "pregunta": "Padre de la fisica clasica",
-        "respuesta": "Newton"
+        "pregunta": "¿Cuál de estas opciones no es un campo de estudio de la física?",
+        "respuesta": "Astrología"
     },{
-        "pregunta": "creador de la primera bobina",
-        "respuesta": "Tesla"
+        "pregunta": "¿Cuál de los siguientes cuerpos celestes tiene mayor masa?",
+        "respuesta": "Agujero negro"
     },{
-        "pregunta": "La teorira de la relatividad fue publicado por?",
-        "respuesta": "Einstein"
+        "pregunta": "¿Cuál de las siguientes magnitudes no cambia su valor?",
+        "respuesta": "La velocidad de la luz en el vacío"
+    },{
+        "pregunta": "Es la fuerza de atracción que ejerce un cuerpo por su masa y densidad",
+        "respuesta": "Gravedad"
+    },{
+        "pregunta": "¿Cómo se llaman las partículas de la luz?",
+        "respuesta": "Fotones"
+    },{
+        "pregunta": "¿Cúal es proceso nuclear que ocurre en el sol juntando átomos de hidrógeno para crear helio?",
+        "respuesta": "Fusión nuclear"
+    },{
+        "pregunta": "La luz NO es...",
+        "respuesta": "Campo"
+    },{
+        "pregunta": "No es una mecanismo de transferencia o conducción de calor:",
+        "respuesta": "Transpiración"
+    },{
+        "pregunta": "El sol es...",
+        "respuesta": "Una estrella"
+    },{
+        "pregunta": "De qué está compuesta toda la materia",
+        "respuesta": "Átomos"
     }],
 
     "artes":[{
         "pregunta": "Escultor del David",
         "respuesta": "Miguel Angel"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    }],
+
+    "biologia":[{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
+    },{
+        "pregunta": "xxx",
+        "respuesta": "xxx"
     }]
-}   
+}

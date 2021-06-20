@@ -1,4 +1,5 @@
-{"fisica": ["newtons", "galaxia", "fuerza", "reaccion", "energia", "valance"],
-  "artes": ["contemporaneo", "abstracto", "neoclasico", "escultura", "david"],
-  "geografia": ["relieve", "clima", "arrecife", "brujula", "latitud", "longitud"]  
+{
+  "fisica": ["atomo", "cuantica", "fuerza", "interaccion", "onda", "masa", "electron", "entrelazamiento", "nucleo", "molecula"],
+  "artes": ["contemporaneo", "abstracto", "neoclasico", "escultura", "pintura", "escultura", "musica", "renacimiento", "barroco", "arquitectura"],
+  "geografia": ["relieve", "clima", "latitud", "longitud", "corteza", "nucleo", "tundra", "desierto", "oceano", "continente"]
 }

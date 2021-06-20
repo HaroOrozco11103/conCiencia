@@ -19,6 +19,11 @@ Route::get('/', function ()
     return view('inicio');
 })->name('inicio')->middleware('profe');
 
+Route::get('/home', function ()
+{
+    return view('inicio');
+})->name('inicio')->middleware('profe');
+
 Auth::routes();
 
 //------------------------------------------------------USERS---------------------------------------------------------------
