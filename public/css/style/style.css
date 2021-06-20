@@ -306,7 +306,7 @@ form h2{
     background: 0.5rem 0.7rem;
     font-size: 1.2rem;
     font-family: 'Recursive', sans-serif;
-    color: #F00;
+    color: rgb(20, 20, 20);
 }
 .link-form{
     display: block;
