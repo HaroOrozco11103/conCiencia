@@ -209,10 +209,6 @@ body{
     font-family: 'Recursive', sans-serif;
     background-size: 200%;
 }
-.materia > a{
-    color: #ffffff;
-}
-
 /*-------------------------------------DINAMICA-----------------------------------------*/
 .contenedor-nav{
     width: 100vw;
@@ -223,7 +219,6 @@ body{
 .dinamica{
     padding: 25px;
 }
-
 /*-----------------------------------------FORM---------------------------------------------------*/
 .container{
     width: 100vw;

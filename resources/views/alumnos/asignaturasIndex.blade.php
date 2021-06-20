@@ -8,8 +8,7 @@
     </div>
   @else
     @foreach($asignaturas as $key => $asi)
-      <div class="materia">
-        <a href="{{ route('asignaturas.show', $asi->id) }}">{{ $asi->nombre }}</a>
+      <div class="materia" onclick="window.location.href='{{ route('asignaturas.show', $asi->id) }}'">{{ $asi->nombre }}
       </div>
     @endforeach
   @endif
