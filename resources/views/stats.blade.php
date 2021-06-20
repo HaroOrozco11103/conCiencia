@@ -1,11 +1,22 @@
 @extends('layouts.index')
 
 @section('content')
-<br>
-<div class="card shadow">
-
-    <div class="form-group row mb-0">
-        <div class="card-header">Materia</div>
+<div class="contenedor-stats">
+  <div class="instrucciones">
+    <h2>Instrucciones</h2> 
+    <ol>
+      <li>para consultar las estadisticas del grupo seleccionado</li>
+      <li>Selecciona la materia, el tipo de dinámica o la dinámica específica que desees consultar.</li>
+      <li>Selecciona el porcentaje para acotar el número de registros a tomar en cuenta.</li>
+      <li>Al seleccionar un porcentaje igual o menor al 100%, se mostrarán resultados tomando el cuenta el total de los registros existentes.</li>
+      <li>En caso de seleccionar un porcentaje mayor a 100%, se mostrará la predicción del promedio de puntajes de acuerdo al porcentaje ingresado.</li>
+    </ol>
+  </div>
+  <div class="separador"></div>
+  <div class="estadisticas">
+    <div class="regresiones">
+      <div class="reg-btn">
+        <h3>Materia</h3>
         <form method="POST" action="{{ route('stats.SLR', 'globalMateria') }}">
           @csrf
             <select name="matSelect">
@@ -21,18 +32,15 @@
                   <option value="{{ $i }}">{{ $i * 100 }}%</option>
                 @endfor
             </select>
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-outline-primary">
-                  Entrar
+            <div>
+                <button type="submit" class="btn btn-outline-primary btn-consultar">
+                  Consultar
                 </button>
             </div>
         </form>
-    </div>
-
-    <br><br>
-
-    <div class="form-group row mb-0">
-        <div class="card-header">Tipo de dinámica</div>
+      </div>
+      <div class="reg-btn">
+        <h3>Tipo de dinámica</h3>
         <form method="POST" action="{{ route('stats.SLR', 'globalTipoDinamica') }}">
         <!--<form method="POST" action="{{ route('stats.SLR', ['globalTipoDinamica', 1, 0]) }}">-->
           @csrf
@@ -49,18 +57,15 @@
                   <option value="{{ $i }}">{{ $i * 100 }}%</option>
                 @endfor
             </select>
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-outline-primary">
-                  Entrar
+            <div>
+                <button type="submit" class="btn btn-outline-primary btn-consultar">
+                  Consultar
                 </button>
             </div>
         </form>
-    </div>
-
-    <br><br>
-
-    <div class="form-group row mb-0">
-        <div class="card-header">Dinámica específica</div>
+      </div>
+      <div class="reg-btn">
+        <h3>Dinámica específica</h3>
         <form method="POST" action="{{ route('stats.SLR', 'globalDinamicaEspecifica') }}">
           @csrf
             <select name="dinSelect">
@@ -76,13 +81,21 @@
                   <option value="{{ $i }}">{{ $i * 100 }}%</option>
                 @endfor
             </select>
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-outline-primary">
-                  Entrar
+            <div>
+                <button type="submit" class="btn btn-outline-primary btn-consultar">
+                  Consultar
                 </button>
             </div>
         </form>
+      </div>
     </div>
-
+    <div class="indice-abandono">
+      <h2>Indice abandono</h2>
+    </div>
+    <div class="usuarios-no-reg">
+      <h2>Porcentaje de usuarios no registrados</h2>
+    </div>
+  </div>
 </div>
+
 @endsection
