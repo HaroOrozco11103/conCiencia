@@ -23,7 +23,8 @@ class UserController extends Controller
      */
     public function index()
     {
-      return redirect()->route('grupos.index');
+      $grupo = Grupo::where('user_id',\Auth::user()->id)->get();
+      return redirect()->route('grupos.show', $grupo[0]->id);
     }
 
     /**

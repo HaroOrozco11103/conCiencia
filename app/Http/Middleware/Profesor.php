@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Grupo;
 
 class Profesor
 {
@@ -17,7 +18,8 @@ class Profesor
     {
         if(\Auth::user())
         {
-            return redirect()->route('grupos.index');
+            $grupo = Grupo::where('user_id',\Auth::user()->id)->get();
+            return redirect()->route('grupos.show', $grupo[0]->id);
         }
 
         return $next($request);

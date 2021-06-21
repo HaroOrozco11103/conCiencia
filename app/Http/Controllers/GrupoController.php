@@ -22,9 +22,7 @@ class GrupoController extends Controller
      */
     public function index()
     {
-      $profeId = \Auth::user()->id;
-      $grupos = DB::table('grupos')->where('user_id', $profeId)->get();
-      return view('profesores.gruposIndex', compact('grupos', 'profeId')); //Ver grupos para profesor loggeado
+
     }
 
     /**
@@ -95,8 +93,8 @@ class GrupoController extends Controller
         $gru->user_id = \Auth::user()->id;
 
         $gru->save();
-
-        return redirect()->route('grupos.index')
+        $grupo = Grupo::where('user_id',\Auth::user()->id)->get();
+        return redirect()->route('grupos.show', $grupo[0]->id)
           ->with([
               'mensaje' => 'El grupo ha sido creado exitosamente',
               'alert-class' => 'alert-warning'

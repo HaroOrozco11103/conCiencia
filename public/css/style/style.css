@@ -404,6 +404,10 @@ form h2{
     transition: all 0.3s ease;
     font-size: 30px;
 }
+.burger-grupo{
+    color: #000 !important ;
+    font-size: 30px !important;
+}
 .titulo-nav{
     color: white;
     text-shadow: 2px 2px 2px red;
@@ -414,6 +418,8 @@ form h2{
     transform: translateX(0%);
 }
 .titulo-nav-grupo{
+    color: #000;
+    text-shadow: none;
     grid-template-columns: 80% 20% ;
 }
 .titulo-nav > h2 {

@@ -9,17 +9,17 @@
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
         <title>ConCiencia</title>
+        <script src="{{ asset('js/app.js') }}"></script>
         <link href="{{ asset('layout/dist/css/styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/juego.css') }}" rel="stylesheet"/>
         <link href="{{ asset('css/modal.css') }}" rel="stylesheet"/>
         <link href="{{ asset('css/style/style.css') }}" rel="stylesheet"/>    <!--CSS Vistas general -->
-        <script src="{{ asset('js/scripts/app.js') }}"></script> <!--JS usado para vistas-->
+        
 
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
-        <script src="{{ asset('js/app.js') }}"></script>
 
         <script>
             var css = "{{ asset('css') }}"
@@ -52,6 +52,6 @@
         @include('layouts.modal')
 
         <script src="{{ asset('layout/dist/js/scripts.js') }}"></script>
-
+        <script src="{{ asset('js/scripts/app.js') }}"></script> <!--JS usado para vistas-->
     </body>
 </html>

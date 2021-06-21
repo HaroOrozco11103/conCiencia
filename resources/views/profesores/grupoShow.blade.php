@@ -1,10 +1,10 @@
 @extends('layouts.index')
 
 @section('content')
-<!--<div class="contenedor-nav nav-visible">      
+<div class="contenedor-nav nav-visible">      
   <nav class="nav-dinamica">
       <div class="burger" onclick=navSlide()>
-          <i class="fas fa-times" id="btn-nav"></i>
+          <i class="fas fa-times burger-grupo" id="btn-nav"></i>
       </div>
       <div class="titulo-nav titulo-nav-grupo">
           <h2>Grupos</h2>
@@ -38,10 +38,10 @@
       <div class="tabs">
           <div class="tab-header">
             <div class="active">
-                <i class="fas fa-users"></i>Grupo
+                <i class="fas fa-users"></i><br> Grupo
             </div>
             <div>
-                <i class="fas fa-chart-bar"></i>Estadisticas
+                <i class="fas fa-chart-bar"></i><br> Estadisticas
             </div>
           </div>
           <div class="tab-indicator"></div>
@@ -55,42 +55,18 @@
                               <th class="col">opciones</th>
                           </thead>
                           <tbody>
-                              <tr class="active-row">
-                                  <td>Lupita</td>
-                                  <td>iamlupita</td>
-                                  <td class="detalles">
-                                      <i class="fas fa-chart-bar" id="abrir-stats">Stats</i>
-                                      <br>
-                                      <i class="fas fa-edit" id="abrir-editar">editar</i>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Haro</td>
-                                  <td>haro1113</td>
-                                  <td class="detalles">
-                                      <i class="fas fa-chart-bar">Stats</i>
-                                      <br>
-                                      <i class="fas fa-edit">editar</i>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Adan</td>
-                                  <td>adanmetal</td>
-                                  <td class="detalles">
-                                      <i class="fas fa-chart-bar">Stats</i>
-                                      <br>
-                                      <i class="fas fa-edit">editar</i>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>Haro</td>
-                                  <td>haro1113</td>
-                                  <td class="detalles">
-                                      <i class="fas fa-chart-bar">Stats</i>
-                                      <br>
-                                      <i class="fas fa-edit">editar</i>
-                                  </td>
-                              </tr>
+                          @foreach($alumnos as $key => $alu)
+                            <tr class="active-row">
+                                <td>{{ $alu->nombre }}</td>
+                                <td>{{ $alu->username }}</td>
+                                <td>{{ $alu->created_at }}</td>
+                                <td class="detalles">
+                                    <i class="fas fa-chart-bar" id="abrir-stats"></i>Stats
+                                    <br>
+                                    <i class="fas fa-user-edit" id="abrir-editar"></i>Editar
+                                </td>
+                            </tr>
+                            @endforeach
                           </tbody>
                       </table>
                   </div>
@@ -112,10 +88,10 @@
           </div>           
       </div>
   </div>
-</div>-->
+</div>
 <script src="{{ asset('js/scripts/side-nav.js') }}"></script> <!--JS usado para vistas-->
 
-<div class="card shadow">
+<!--<div class="card shadow">
     <div class="card-header">{{ $grupo->codigo }}</div>
     <div class="card-header">
         <a class="btn btn-link" href="{{ route('alumnos.create', $grupo->id) }}"> Inscribir alumno </a>
@@ -218,5 +194,5 @@
         </div>
     </form>
   </div>
-</div>
+</div>-->
 @endsection

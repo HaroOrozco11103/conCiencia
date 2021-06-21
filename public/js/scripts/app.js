@@ -56,23 +56,25 @@ function showCheckPass(){
 let tabHeader = document.getElementsByClassName("tab-header")[0];
 let tabIndicator = document.getElementsByClassName("tab-indicator")[0];
 let tabBody = document.getElementsByClassName("tab-body")[0];
+console.log(tabHeader);
+console.log(tabIndicator);
 if(tabHeader != null){
     let tabsPane = tabHeader.getElementsByTagName("div");
     for(let i=0;i<tabsPane.length;i++){
         tabsPane[i].addEventListener("click",function(){
-        tabHeader.getElementsByClassName("active")[0].classList.remove("active");
-        tabsPane[i].classList.add("active");
-        tabBody.getElementsByClassName("active")[0].classList.remove("active");
-        tabBody.getElementsByClassName("tab-content")[i].classList.add("active");
-
-        tabIndicator.style.left = `calc(calc(100% / 2) * ${i})`;
-    });
-};
+            tabHeader.getElementsByClassName("active")[0].classList.remove("active");
+            tabsPane[i].classList.add("active");
+            tabBody.getElementsByClassName("active")[0].classList.remove("active");
+            tabBody.getElementsByClassName("tab-content")[i].classList.add("active");
+            
+            tabIndicator.style.left = `calc(calc(100% / 2) * ${i})`;
+        });
+    };
 }
 
 //------------------------------------------------Materias--------------------
 
-/*Popups
+/*Popups*/
 var btnAbrirPopup = document.querySelector('#abrir-editar');
 var	overlay = document.querySelector('.overlay');
 var	popupEditar = document.querySelector('.pop-up editar');
@@ -97,4 +99,4 @@ var	btnCerrarPopup = document.querySelector('.cerrar-popup');
 btnAbrirPopupStats.addEventListener('click', function(){
 	overlay.classList.add('active');
 	popupStats.classList.add('active');
-});*/
+});
