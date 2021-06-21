@@ -468,7 +468,6 @@ form h2{
     position: relative;
     display: grid;
     grid-template-rows: 15% 85%;    padding: 20px;
-    border-bottom: 2px solid #d9d9d9;
     min-width: 700px;
 }
 .info-grupo{
@@ -488,7 +487,6 @@ form h2{
 }
 .edicion-nombre > a {
     text-align: center;
-    cursor: pointer;
 }
 .grupo-nombre > h2, .titulo-nav-grupo > h2{
     font-weight: bold !important;
@@ -497,23 +495,12 @@ form h2{
     font-weight: bold !important;
     letter-spacing: 5px;
 }
-.editar-nombre, .guardar-nombre{
-    top:0px;
-    opacity:0;
-    transform:scale(0);
-}
-.link-active{
-    top:0px;
-    opacity:1;
-    transform:scale(1);
-}
-/*-------------------------------PESTAÑAS*/
+/*PESTAÑAS*/
 .tabs {
     position: relative;
     width: 97%;
     height: 97%;
     padding:20px 10px;
-    overflow:hidden;
 }
 .tabs .tab-header {
     height:60px;
@@ -569,6 +556,9 @@ form h2{
     transform:scale(1);
 }
 /*TABLA*/
+.alumnos-table{
+    text-align: center;
+}
 .alumnos-table tbody td{
     width: 500px;
     font-size: 14px;
@@ -592,6 +582,9 @@ form h2{
 }
 .alumnos-table td.detalles{
     color: #009879;
+}
+.alumnos-table td.detalles span{
+    margin-left: 35px;
 }
 .fa-chart-bar, .fa-edit{
     cursor: pointer;
