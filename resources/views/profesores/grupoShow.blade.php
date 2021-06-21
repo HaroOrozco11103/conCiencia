@@ -25,10 +25,10 @@
   <div class="detalle-grupo">
       <div class="info-grupo">
           <div class="grupo-nombre">
-              <h2>Grupo name turno</h2>           
+              <h2>{{ $grupo->nombre ?? '' }}</h2>           
           </div>
           <div class="grupo-codigo">
-              <h2>Código</h2>
+              <h2>{{ $grupo->codigo }}</h2>
           </div>
           <div class="edicion-nombre">
               <a class="editar-nombre">editar nombre</a>
