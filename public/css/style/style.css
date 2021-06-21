@@ -485,6 +485,9 @@ form h2{
 .edicion-nombre > a {
     text-align: center;
 }
+.info-grupo > h2{er
+    font-weight: bolder !important;
+}
 .grupo-codigo{
     letter-spacing: 5px;
 }
