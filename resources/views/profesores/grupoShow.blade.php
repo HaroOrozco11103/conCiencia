@@ -1,97 +1,96 @@
 @extends('layouts.index')
 
 @section('content')
-<div class="contenedor-nav nav-visible">
-    <nav class="nav-dinamica">
-        <div class="burger" onclick=navSlide()>
-            <i class="fas fa-times burger-grupo" id="btn-nav"></i>
-        </div>
-        <div class="titulo-nav titulo-nav-grupo">
-            <h2>Grupos</h2>
-            <i class="fas fa-plus fa-2x fa-fw" title="Agregar grupo"></i>
-        </div>
-        <ul class="nav-links">
-            @if(count($grupos) == 0)
-            <div class="alert alert-dismissible text-center alert-dismissible" style="background-color:#ff9d16;" role="alert">
-                No hay grupos registrados a su cargo.
+<div class="contenedor-nav nav-visible">      
+  <nav class="nav-dinamica">
+      <div class="burger" onclick=navSlide()>
+          <i class="fas fa-times burger-grupo" id="btn-nav"></i>
+      </div>
+      <div class="titulo-nav titulo-nav-grupo">
+          <h2>Grupos</h2>
+          <i class="fas fa-plus fa-2x fa-fw" title="Agregar grupo"></i>
+      </div>
+      <ul class="nav-links">
+        @if(count($grupos) == 0)
+          <div class="alert alert-dismissible text-center alert-dismissible" style="background-color:#ff9d16;" role="alert">
+            No hay grupos registrados a su cargo.
+          </div>
+        @else
+          @foreach($grupos as $key => $gru)
+          <li onclick="window.location.href='{{ route('grupos.show', $gru->id) }}'"><a> {{ $gru->nombre }} </a></li>
+          @endforeach
+        @endif
+      </ul>
+  </nav>
+  <div class="detalle-grupo">
+      <div class="info-grupo">
+          <input class="grupo-nombre" value="{{ $grupo->nombre ?? '' }}"></input>
+          <div class="grupo-codigo">
+              <h2>{{ $grupo->codigo }}</h2>
+          </div>
+          <div class="edicion-nombre">
+              <a class="editar-nombre link-active" onclick="editarNombre()">editar nombre</a>
+              <a class="guardar-nombre" onclick="guardarNombre()">guardar nombre</a>
+          </div>
+      </div>
+      <div class="tabs">
+          <div class="tab-header">
+            <div class="active">
+                <i class="fas fa-users"></i><br> Grupo
             </div>
-            @else
-            @foreach($grupos as $key => $gru)
-            <li><a href="{{ route('grupos.show', $gru->id) }}"> {{ $gru->nombre }} </a></li>
-            @endforeach
-            @endif
-        </ul>
-    </nav>
-    <div class="detalle-grupo">
-        <div class="info-grupo">
-            <div class="grupo-nombre">
-                <h2>{{ $grupo->nombre ?? '' }}</h2>
+            <div>
+                <i class="fas fa-chart-bar"></i><br> Estadisticas
             </div>
-            <div class="grupo-codigo">
-                <h2>{{ $grupo->codigo }}</h2>
-            </div>
-            <div class="edicion-nombre">
-                <a class="editar-nombre link-active" onclick="editarNombre()">editar nombre</a>
-                <a class="guardar-nombre" onclick="guardarNombre()">guardar nombre</a>
-            </div>
-        </div>
-        <div class="tabs">
-            <div class="tab-header">
-                <div class="active">
-                    <i class="fas fa-users"></i><br> Grupo
-                </div>
-                <div>
-                    <i class="fas fa-chart-bar"></i><br> Estadisticas
-                </div>
-            </div>
-            <div class="tab-indicator"></div>
-            <div class="tab-body">
-                <div class="tab-content active">
-                    <div>
-                        <table class="alumnos-table">
-                            <thead>
-                                <th class="col">nombre</th>
-                                <th class="col">usuario</th>
-                                <th class="col">opciones</th>
-                            </thead>
-                            <tbody>
-                                @foreach($alumnos as $key => $alu)
+          </div>
+          <div class="tab-indicator"></div>
+          <div class="tab-body">
+              <div class="tab-content active">
+                  <div>
+                      <table class="alumnos-table">
+                          <thead>
+                              <th class="col">nombre</th>
+                              <th class="col">usuario</th>
+                              <th class="col">opciones</th>
+                          </thead>
+                          <tbody>
+                          @foreach($alumnos as $key => $alu)
                                 <tr class="active-row">
-                                    <td>{{ $alu->nombre }}</td>
-                                    <td>{{ $alu->username }}</td>
-                                    <td>{{ $alu->created_at }}</td>
-                                    <td class="detalles">
-                                        <i class="fas fa-chart-bar" id="abrir-stats"></i>Stats
-                                        <br>
-                                        <i class="fas fa-user-edit" id="abrir-editar"></i>Editar
-                                    </td>
+                                  <td>{{ $alu->nombre }}</td>
+                                  <td>{{ $alu->username }}</td>
+                                  <td class="detalles">
+                                      <span id="abrir-stats"><i class="fas fa-chart-bar"></i>Stats</span>
+                                      <span id="abrir-editar"><i class="fas fa-user-edit"></i>Editar</span>
+                                  </td>
+  
                                 </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-content">
-                    <div>
-                        <h2>This is Estadisticas</h2>
-                        <p>
+                            @endforeach
+                          </tbody>
+                      </table>
+                  </div>
+              </div> 
+              <div class="tab-content">
+                  <div>
+                      <h2>This is Estadisticas</h2>
+                      <p>
                         <form id="SLR-form" action="{{ route('stats.SLR', 'profeGrupo') }}" method="POST">
                             @csrf
                             <input type="hidden" name="grupo" value="{{ $grupo->id }}">
                             <select name="porcentaje">
-                                @for($i=0.05; $i<=1.01; $i+=0.05) <option value="{{ $i }}">{{ $i * 100 }}%</option>
-                                    @endfor
-                                    @for($i=1.5; $i<=10.00; $i+=0.50) <option value="{{ $i }}">{{ $i * 100 }}%</option>
-                                        @endfor
+                                @for($i=0.05; $i<=1.01; $i+=0.05)
+                                    <option value="{{ $i }}">{{ $i * 100 }}%</option>
+                                @endfor
+                                @for($i=1.5; $i<=10.00; $i+=0.50)
+                                    <option value="{{ $i }}">{{ $i * 100 }}%</option>
+                                @endfor
                             </select>
                         </form>
                         <a class="btn btn-link" href="{{ route('stats.SLR', 'profeGrupo') }}" onclick="event.preventDefault(); document.getElementById('SLR-form').submit();">
                             Ver progreso
                         </a>
                         </p>
-                        <div class="card-header">Materia</div>
+                      <div class="card-header">Materia</div>
                         <form method="POST" action="{{ route('stats.SLR', 'profeGrupoMateria') }}">
-                            @csrf
+                        @csrf
                             <input type="hidden" name="grupo" value="{{ $grupo->id }}">
                             <select name="matSelect">
                                 @foreach($materias as $key => $mat)
@@ -99,25 +98,46 @@
                                 @endforeach
                             </select>
                             <select name="porcentaje">
-                                @for($i=0.05; $i<=1.01; $i+=0.05) <option value="{{ $i }}">{{ $i * 100 }}%</option>
-                                    @endfor
-                                    @for($i=1.5; $i<=10.00; $i+=0.50) <option value="{{ $i }}">{{ $i * 100 }}%</option>
-                                        @endfor
+                                @for($i=0.05; $i<=1.01; $i+=0.05)
+                                <option value="{{ $i }}">{{ $i * 100 }}%</option>
+                                @endfor
+                                @for($i=1.5; $i<=10.00; $i+=0.50)
+                                <option value="{{ $i }}">{{ $i * 100 }}%</option>
+                                @endfor
                             </select>
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-outline-primary">
-                                    Ver progreso
+                                Ver progreso
                                 </button>
                             </div>
                         </form>
-                    </div>
+                  </div>
+              </div>
+          </div>           
+      </div>
+  </div>
+  <div class="overlay">
+        <div class="pop-up editar">
+            <a href="#" class="cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Editar alumno</h3>
+            <h4>Al dar click en "guardar" se modificará el registro del alumno</h4>
+            <form action="" class="form-editar">
+                <div class="form-editar">
+                    <input type="text" placeholder="Nombre">
+                    <input type="text" placeholder="Usuario">
                 </div>
-            </div>
+                <input type="submit" class="submit" value="Guardar">
+            </form>
+        </div>
+        <div class="pop-up stats">
+            <a href="#" class="cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Estadisticas alumno</h3>
+            <h4>A continuación se muestran las estadisticas del alumno</h4>
+            
         </div>
     </div>
 </div>
-<script src="{{ asset('js/scripts/side-nav.js') }}"></script>
-<!--JS usado para vistas-->
+<script src="{{ asset('js/scripts/side-nav.js') }}"></script> <!--JS usado para vistas-->
 
 <!--<div class="card shadow">
     <div class="card-header">{{ $grupo->codigo }}</div>
