@@ -30,10 +30,11 @@
       @if($regLin[2]["resultado"] < 70 && $regLin[2]["resultado"] >=50)
         Lo que significa que el valor del resultado predecido puede variar un poco al puntaje real obtenido para ese volumen de datos en un futuro.
       @endif
-      @if($regLin[2]["resultado"] < 50)
-      Lo que significa que el resultado predecido puede variar mucho al puntaje real obtenido para ese volumen de datos.
-      <br>
-      La fiabilidad del resultado predecido es baja.
+      @if($regLin[2]["resultado"] < 50 && $regLin[2]["resultado"] >=25)
+        Lo que significa que el resultado predecido puede variar mucho al puntaje real obtenido para ese volumen de datos.
+      @endif
+      @if($regLin[2]["resultado"] < 25)
+        La fiabilidad del resultado predecido es baja.
       @endif
       <br><br>
       El {{ $regLin[3]["nombre"] }} de el(los) alumno(s) es de {{ $regLin[3]["resultado"] }}%.
@@ -45,7 +46,7 @@
         El progreso de los alumnos es lento o nulo.
       @endif
       @if($regLin[3]["resultado"] < 0)
-        Los alumnos están empeorando sus resultados.
+        El puntaje de los alumnos está decreciendo.
       @endif
       <br><br>
       El {{ $regLin[4]["nombre"] }} es de {{ $regLin[4]["resultado"] }}.
@@ -53,12 +54,16 @@
   </div>
 @endif
 
-<div class="indice-abandono">
-  <h2>Indice abandono</h2>
-</div>
-<div class="usuarios-no-reg">
-  <h2>Porcentaje de usuarios no registrados</h2>
-</div>
+@if($abandono[0] > 0)
+  <div class="indice-abandono">
+    <p>Se han abandonado {{ $abandono[0] }} participaciones (Juegos sin terminar), lo cuál equivale al {{ $abandono[1] }}% de las participaciones para este conjunto de datos</p>
+  </div>
+@endif
+@if($unregistered[0] > 0)
+  <div class="usuarios-no-reg">
+    <p>Existen {{ $unregistered[0] }} participaciones de usuarios no registrados como alumnos en un grupo, lo cuál equivale al {{ $unregistered[1] }}% de las participaciones para este conjunto de datos</p>
+  </div>
+@endif
 
 <figure class="highcharts-figure">
   <div id="graficaCont"></div>

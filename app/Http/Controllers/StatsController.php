@@ -25,30 +25,44 @@ class StatsController extends Controller
         {
           case "profeAlumno":
               $query = "SELECT * FROM `conciencia`.`participacions` WHERE `alumno_id` = " . $request->alumno . " AND `puntaje` > -1";
+              $queryUnrgst = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` WHERE `alumno_id` < 0";
+              $queryAbnd = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` WHERE `alumno_id` = " . $request->alumno . " AND `puntaje` = -1";
           break;
 
           case "profeAlumnoMateria":
               $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `dinamicas`.`asignatura_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `alumno_id` = " . $request->alumno . " AND `asignatura_id` = " . $request->matSelect . " AND `puntaje` > -1";
+              $queryUnrgst = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` WHERE `alumno_id` < 0";
+              $queryAbnd = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `alumno_id` = " . $request->alumno . " AND `asignatura_id` = " . $request->matSelect . " AND `puntaje` = -1";
           break;
 
           case "profeGrupo":
               $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `alumnos`.`grupo_id` FROM `conciencia`.`participacions` LEFT JOIN `alumnos` ON `participacions`.`alumno_id` = `alumnos`.`id` WHERE `grupo_id` = " . $request->grupo . " AND `puntaje` > -1";
+              $queryUnrgst = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` WHERE `alumno_id` < 0";
+              $queryAbnd = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` LEFT JOIN `alumnos` ON `participacions`.`alumno_id` = `alumnos`.`id` WHERE `grupo_id` = " . $request->grupo . " AND `puntaje` = -1";
           break;
 
           case "profeGrupoMateria":
               $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `alumnos`.`grupo_id`, `dinamicas`.`asignatura_id` FROM `conciencia`.`participacions` LEFT JOIN `alumnos` ON `participacions`.`alumno_id` = `alumnos`.`id` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `grupo_id` = " . $request->grupo . " AND `asignatura_id` = " . $request->matSelect . " AND `puntaje` > -1";
+              $queryUnrgst = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` WHERE `alumno_id` < 0";
+              $queryAbnd = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` LEFT JOIN `alumnos` ON `participacions`.`alumno_id` = `alumnos`.`id` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `grupo_id` = " . $request->grupo . " AND `asignatura_id` = " . $request->matSelect . " AND `puntaje` = -1";
           break;
 
           case "globalMateria":
               $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `dinamicas`.`asignatura_id` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `asignatura_id` = " . $request->matSelect . " AND `puntaje` > -1";
+              $queryUnrgst = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `asignatura_id` = " . $request->matSelect . " AND `alumno_id` IS NULL";
+              $queryAbnd = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `asignatura_id` = " . $request->matSelect . " AND `puntaje` = -1";
           break;
 
           case "globalTipoDinamica":
               $query = "SELECT `participacions`.`id`, `participacions`.`dinamica_id`, `participacions`.`puntaje`, `participacions`.`alumno_id`, `dinamicas`.`asignatura_id`, `dinamicas`.`nombre` FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `nombre` = '" . $request->tipoDinSelect . "' AND `puntaje` > -1";
+              $queryUnrgst = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `nombre` = '" . $request->tipoDinSelect . "' AND `alumno_id` IS NULL";
+              $queryAbnd = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` LEFT JOIN `dinamicas` ON `participacions`.`dinamica_id` = `dinamicas`.`id` WHERE `nombre` = '" . $request->tipoDinSelect . "' AND `puntaje` = -1";
           break;
 
           case "globalDinamicaEspecifica":
               $query = "SELECT * FROM `conciencia`.`participacions` WHERE `dinamica_id` = " . $request->dinSelect . " AND `puntaje` > -1";
+              $queryUnrgst = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` WHERE `dinamica_id` = " . $request->dinSelect . " AND `alumno_id` IS NULL";
+              $queryAbnd = "SELECT COUNT(`participacions`.`id`) AS 'conteo' FROM `conciencia`.`participacions` WHERE `dinamica_id` = " . $request->dinSelect . " AND `puntaje` = -1";
           break;
         }
 
@@ -59,6 +73,13 @@ class StatsController extends Controller
             dd("No existen datos suficientes para mostrar los resultados");
             return;
         }
+        $tam = sizeof($lista);
+        $unregistered = [];
+        $unregistered[0] = DB::select($queryUnrgst, [1])[0]->conteo;
+        $unregistered[1] = round(($unregistered[0]*100)/$tam, 1);
+        $abandono = [];
+        $abandono[0] = DB::select($queryAbnd, [1])[0]->conteo;
+        $abandono[1] = round(($abandono[0]*100)/$tam, 1);
 
         $resultado =  $this->SLR($lista, $request->porcentaje);
         $regLin = $resultado[0];
@@ -66,7 +87,7 @@ class StatsController extends Controller
         $scatterPlot = $resultado[2];
         $puntoPred[0] = $resultado[3];
 
-        return view('SLResults', compact('regLin', 'recta', 'scatterPlot', 'puntoPred'));
+        return view('SLResults', compact('regLin', 'recta', 'scatterPlot', 'puntoPred', 'unregistered', 'abandono'));
     }
 
     public function SLR($lista, $porcentaje)
