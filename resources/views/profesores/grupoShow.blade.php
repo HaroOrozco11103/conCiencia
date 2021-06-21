@@ -170,9 +170,9 @@
             <div class="">
               <div class="instrucciones">
                 <h2>Stats</h2>
-                En esta página podrás consultar información del usuario seleccionado, como el promedio de puntajes y una proyección que muestra el progreso de los alumnos.
+                En esta página podrás consultar información del alumno seleccionado, como el promedio de puntajes y una proyección que muestra su progreso.
                 <ol>
-                  <li>Selecciona la materia que desees consultar o aplica la consulta para el grupo entero sin distinguir entre materias.</li>
+                  <li>Selecciona la materia que desees consultar o aplica la consulta para el alumno sin distinguir entre materias.</li>
                   <li>Selecciona el porcentaje para acotar el número de registros a tomar en cuenta.</li>
                   <li>Si el porcentaje es igual o menor al 100%, se mostrarán resultados tomando en cuenta los registros existentes.</li>
                   <li>Si el porcentaje es mayor a 100%, se mostrará la predicción del promedio de puntajes de acuerdo al porcentaje ingresado.</li>
