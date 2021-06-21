@@ -138,9 +138,9 @@
             </div>
         </div>
     </div>
-    <div class="overlay">
+    <div class="overlay-editar overlay">
         <div class="pop-up-editar pop-up">
-            <a href="#" class="cerrar-popup"><i class="fas fa-times"></i></a>
+        <a href="#" class="cerrar-popup-editar cerrar-popup"><i class="fas fa-times"></i></a>
             <h3>Editar alumno</h3>
             <form class="form-editar" method="POST" action="{{ route('alumnos.update', $grupo->id) }}">
               <input type="hidden" name="_method" value="PATCH">
@@ -162,9 +162,11 @@
               <input type="submit" class="submit" value="Modificar alumno">
             </form>
         </div>
+        </div>
+    <div class="overlay-stats overlay">
         <div class="pop-up-stats pop-up">
-            <a href="#" class="cerrar-popup-stats"><i class="fas fa-times"></i></a>
-            <div class="contenedor-stats">
+        <a href="#" class="cerrar-popup-stats cerrar-popup"><i class="fas fa-times"></i></a>
+            <div class="">
               <div class="instrucciones">
                 <h2>Stats</h2>
                 En esta página podrás consultar información del usuario seleccionado, como el promedio de puntajes y una proyección que muestra el progreso de los alumnos.

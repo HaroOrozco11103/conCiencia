@@ -109,9 +109,9 @@ function guardarNombre(idGrupo){
 
 /*Popups*/
 //var btnAbrirPopup = document.querySelector('#abrir-editar');
-var	overlay = document.querySelector('.overlay');
+var	overlayEditar = document.querySelector('.overlay-editar');
 var	popupEditar = document.querySelector('.pop-up-editar');
-var	btnCerrarPopup = document.querySelector('.cerrar-popup');
+var	btnCerrarPopupEditar = document.querySelector('.cerrar-popup-editar');
 
 /*
 btnAbrirPopup.addEventListener('click', function(){
@@ -127,17 +127,18 @@ function btnAbrirPopup(alu, nombre, username){
   inputNom.value = nombre;
   var inputUserN = document.querySelector(".unAlu-popup");
   inputUserN.value = username;
-  overlay.classList.add('active');
-	popupEditar.classList.add('active');
+  overlayEditar.classList.add('active');
+  popupEditar.classList.add('active');
 }
 
-btnCerrarPopup.addEventListener('click', function(e){
+btnCerrarPopupEditar.addEventListener('click', function(e){
 	e.preventDefault();
-	overlay.classList.remove('active');
+	overlayEditar.classList.remove('active');
 	popupEditar.classList.remove('active');
 });
 
 //var btnAbrirPopupStats = document.querySelector('#abrir-stats');
+var	overlayStats = document.querySelector('.overlay-stats');
 var	popupStats = document.querySelector('.pop-up-stats');
 var	btnCerrarPopupStats = document.querySelector('.cerrar-popup-stats');
 
@@ -149,12 +150,12 @@ btnAbrirPopupStats.addEventListener('click', function(){
 */
 
 function btnAbrirPopupStats(alu){
-  overlay.classList.add('active');
+  overlayStats.classList.add('active');
   popupStats.classList.add('active');
 }
 
 btnCerrarPopupStats.addEventListener('click', function(e){
 	e.preventDefault();
-	overlay.classList.remove('active');
+	overlayStats.classList.remove('active');
 	popupStats.classList.remove('active');
 });
