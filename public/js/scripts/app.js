@@ -76,21 +76,33 @@ function editarNombre(){
     var linkEditar = edicion.getElementsByTagName("a");
     linkEditar[0].classList.remove("link-active");
     linkEditar[1].classList.add("link-active");
+    $(".grupo-nombre").removeAttr("readonly");
     var input = document.getElementsByClassName("grupo-nombre");
-    input.disabled = false;
-    input.readOnly = false;
     input[0].classList.add("editando-nombre");
 }
 
-function guardarNombre(){
+function guardarNombre(idGrupo){
     var edicion = document.getElementsByClassName("edicion-nombre")[0];
     var linkEditar = edicion.getElementsByTagName("a");
     linkEditar[1].classList.remove("link-active");
     linkEditar[0].classList.add("link-active");
     var input = document.getElementsByClassName("grupo-nombre");
-    input.disabled = true;
-    input.readOnly = true;
     input[0].classList.remove("editando-nombre");
+    $(".grupo-nombre").attr("readonly","readonly");
+    var nombreGrupo = $(".grupo-nombre").val();
+    $.ajax({
+        url:"/grupos/updateNombre",
+        type:"POST",
+        data: {
+            nombreGrupo:nombreGrupo,
+            idGrupo:idGrupo,
+            "_token": $("meta[name='csrf-token']").attr("content")
+        },
+        success: function(a){
+            console.log(a);
+            $("#"+idGrupo).html(nombreGrupo);
+        }
+    });
 }
 
 //------------------------------------------------Materias--------------------

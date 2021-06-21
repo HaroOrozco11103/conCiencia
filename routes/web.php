@@ -45,6 +45,7 @@ Route::resource('dinamicas', 'DinamicaController')->middleware('profe');
 //------------------------------------------------------GRUPOS--------------------------------------------------------------
 Route::resource('grupos', 'GrupoController');
 Route::get('entrar', 'GrupoController@entrar')->name('grupos.entrar');
+Route::POST('grupos/updateNombre', 'GrupoController@updateNombre')->name('grupos.updateNombre');
 Route::POST('entrar/autenticando', 'GrupoController@autenticar')->name('grupos.autenticar');
 
 //------------------------------------------------------PARTICIPACIONES-----------------------------------------------------

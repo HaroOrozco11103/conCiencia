@@ -136,6 +136,7 @@ class GrupoController extends Controller
      */
     public function update(Request $request, Grupo $grupo)
     {
+      dd($request,$grupo);
         $request->validate([
           'nombre' => 'required|string|min:5|max:50',
         ]);
@@ -144,6 +145,17 @@ class GrupoController extends Controller
         $grupo->save();
 
         return redirect()->route('grupos.show', $grupo->id);
+    }
+
+    public function updateNombre(Request $request)
+    {
+      $request->validate([
+        'nombreGrupo' => 'required|string|min:5|max:50',
+      ]);
+      $data = ['nombre' => $request->nombreGrupo];
+      $grupo = DB::table('grupos')->where('id', $request->idGrupo)->update($data);
+      //exit;
+      //return redirect()->route('grupos.show');
     }
 
     /**
