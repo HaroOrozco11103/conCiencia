@@ -13,6 +13,7 @@
         <link href="{{ asset('layout/dist/css/styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/juego.css') }}" rel="stylesheet"/>
         <link href="{{ asset('css/modal.css') }}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Recursive" rel="stylesheet"/> <!--Font usada-->
         <link href="{{ asset('css/style/style.css') }}" rel="stylesheet"/>    <!--CSS Vistas general -->
         
 

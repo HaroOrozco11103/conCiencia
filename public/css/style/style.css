@@ -444,11 +444,16 @@ form h2{
     justify-content: center;
     align-items: center;
     padding: 1em;
+    color: #000;
 }
 .nav-links > li > a {
-    color: #000000;
+    color: inherit;
     text-decoration: none;
     font-weight: bold;
+}
+.nav-links > li:hover{ 
+    background-color: #1C7DDB;
+    color:white;
 }
 .nav-active{
     display: none;
@@ -470,7 +475,6 @@ form h2{
     width: 100%;
     height: 100%;
     display: flex;
-    padding: 2rem;
     align-items: center;
     font-size: 1.5rem;
     outline: none;
@@ -484,14 +488,26 @@ form h2{
 }
 .edicion-nombre > a {
     text-align: center;
+    cursor: pointer;
 }
-.info-grupo > h2{er
-    font-weight: bolder !important;
+.grupo-nombre > h2, .titulo-nav-grupo > h2{
+    font-weight: bold !important;
 }
-.grupo-codigo{
+.grupo-codigo > h2{
+    font-weight: bold !important;
     letter-spacing: 5px;
 }
-/*PESTAÑAS*/
+.editar-nombre, .guardar-nombre{
+    top:0px;
+    opacity:0;
+    transform:scale(0);
+}
+.link-active{
+    top:0px;
+    opacity:1;
+    transform:scale(1);
+}
+/*-------------------------------PESTAÑAS*/
 .tabs {
     position: relative;
     width: 97%;
