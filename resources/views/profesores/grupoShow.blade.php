@@ -162,14 +162,24 @@
               <input type="submit" class="submit" value="Modificar alumno">
             </form>
         </div>
-        </div>
+    </div>
     <div class="overlay-stats overlay">
         <div class="pop-up-stats pop-up">
         <a href="#" class="cerrar-popup-stats cerrar-popup"><i class="fas fa-times"></i></a>
-        <!-- <a href="{{ route('stats.cKNN', $alu->id) }}" class="btn-outline-info bg-white"> Clasificación </a> -->
+        <!-- <a href="" class="btn-outline-info bg-white"> Clasificación </a> -->
             <div class="">
               <div class="instrucciones">
                 <h2>Stats</h2>
+                <form method="POST" action="{{ route('stats.cKNN') }}">
+                  @csrf
+                    <input class="idAluStatsClasif-popup" type="hidden" name="alumno">
+                    <div>
+                      <button type="submit" class="btn btn-outline-primary btn-consultar">
+                        Clasificar alumno
+                      </button>
+                    </div>
+                </form>
+                <br><br>
                 En esta página podrás consultar información del alumno seleccionado, como el promedio de puntajes y una proyección que muestra su progreso.
                 <ol>
                   <li>Selecciona la materia que desees consultar o aplica la consulta para el alumno sin distinguir entre materias.</li>
@@ -200,9 +210,9 @@
                             @endfor
                         </select>
                         <div>
-                            <button type="submit" class="btn btn-outline-primary btn-consultar">
-                              Consultar
-                            </button>
+                          <button type="submit" class="btn btn-outline-primary btn-consultar">
+                            Consultar
+                          </button>
                         </div>
                     </form>
                   </div>
@@ -222,9 +232,9 @@
                             @endfor
                         </select>
                         <div>
-                            <button type="submit" class="btn btn-outline-primary btn-consultar">
-                              Consultar
-                            </button>
+                          <button type="submit" class="btn btn-outline-primary btn-consultar">
+                            Consultar
+                          </button>
                         </div>
                     </form>
                   </div>

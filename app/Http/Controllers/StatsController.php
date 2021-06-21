@@ -238,8 +238,9 @@ class StatsController extends Controller
         return $regLin;
     }
 
-    public function selectDataToKNNc($alumno)
+    public function selectDataToKNNc(Request $request)
     {
+        //$this->massiveClasif(); //CLASIFICACIÓN MASIVA DE LA MAYORÍA DE ALUMNOS
         $asignaturas = Asignatura::all();
         $alumnos = Alumno::all();
         $listaPre = [];  //Lista preeliminar de la cuál se sacará la lista definitiva
@@ -266,7 +267,7 @@ class StatsController extends Controller
 
         foreach ($alumnos as $key => $alu)  //Crear la lista de alumnos clasificados
         {
-          if($alu->id == $alumno || $alu->asigClas == null) continue;
+          if($alu->id == $request->alumno || $alu->asigClas == null) continue;
           $userKNN = [];
           $userKNN[0] = $alu->asigClas;
           foreach ($listaPre as $key => $lP)
@@ -285,7 +286,7 @@ class StatsController extends Controller
         $alumnoData[0] = 0;
         foreach ($listaPre as $key => $lP)
         {
-          if($lP->alumno_id == $alumno)
+          if($lP->alumno_id == $request->alumno)
           {
             if($lP->numPart > 0) $ratio = $lP->sumPunt/$lP->numPart;
             else $ratio = 0;
@@ -310,7 +311,7 @@ class StatsController extends Controller
           }
         }
         $data = ['asigClas' => $cKNN];
-        DB::table('alumnos')->where('id', $alumno)->update($data);
+        DB::table('alumnos')->where('id', $request->alumno)->update($data);
         dd($matClas);
         //return view('xxx', compact('matClas'));  //Vista o pop que va amostrar la asginatura en la que se clasificó al alumno
     }
@@ -426,7 +427,7 @@ class StatsController extends Controller
         return array_slice($rKNN, 0, 3);  //En la posición 0 del arreglo está el id de la materia
     }
 
-    function array_sorter($clave,$orden=null)  //Función para ordenar los arreglos de arreglos por un indice numérico el cuál sera la clave
+    public function array_sorter($clave,$orden=null)  //Función para ordenar los arreglos de arreglos por un indice numérico el cuál sera la clave
     {
         return function ($a, $b) use ($clave,$orden)
         {

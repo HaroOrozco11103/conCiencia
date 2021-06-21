@@ -149,6 +149,7 @@ btnAbrirPopupStats.addEventListener('click', function(){
 function btnAbrirPopupStats(alu, nombre){
   document.querySelector(".idAluStats-popup").value = alu;
   document.querySelector(".idAluStatsMat-popup").value = alu;
+  document.querySelector(".idAluStatsClasif-popup").value = alu;
   document.querySelector(".nomAluStats-popup").value = nombre;
   overlayStats.classList.add('active');
   popupStats.classList.add('active');
