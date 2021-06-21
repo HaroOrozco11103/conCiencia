@@ -41,6 +41,10 @@
             <div>
                 <i class="fas fa-chart-bar"></i><br> Estadisticas
             </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0c28373611984f9b317be0d84dffe1ef34531318
           </div>
           <div class="tab-indicator"></div>
           <div class="tab-body">
@@ -54,6 +58,8 @@
                           </thead>
                           <tbody>
                           @foreach($alumnos as $key => $alu)
+<<<<<<< HEAD
+=======
                                 <tr class="active-row">
                                   <td>{{ $alu->nombre }}</td>
                                   <td>{{ $alu->username }}</td>
@@ -72,6 +78,70 @@
                   <div>
                       <h2>This is Estadisticas</h2>
                       <p>
+=======
+            <div class="edicion-nombre">
+                <a class="editar-nombre link-active" onclick="editarNombre()">editar nombre</a>
+                <a class="guardar-nombre" onclick="guardarNombre()">guardar nombre</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tab-header">
+                <div class="active">
+                    <i class="fas fa-users"></i><br> Grupo
+                </div>
+                <div>
+                    <i class="fas fa-chart-bar"></i><br> Estadisticas
+                </div>
+            </div>
+            <div class="tab-indicator"></div>
+            <div class="tab-body">
+                <div class="tab-content active">
+                    <div>
+                        <table class="alumnos-table">
+                            <thead>
+                                <th class="col">nombre</th>
+                                <th class="col">usuario</th>
+                                <th class="col">opciones</th>
+                            </thead>
+                            <tbody>
+                                @foreach($alumnos as $key => $alu)
+>>>>>>> 0c28373611984f9b317be0d84dffe1ef34531318
+                                <tr class="active-row">
+                                  <td>{{ $alu->nombre }}</td>
+                                  <td>{{ $alu->username }}</td>
+                                  <td class="detalles">
+<<<<<<< HEAD
+                                      <span id="abrir-stats"><i class="fas fa-chart-bar"></i>Stats</span>
+                                      <span id="abrir-editar"><i class="fas fa-user-edit"></i>Editar</span>
+                                  </td>
+  
+                                </tr>
+                            @endforeach
+                          </tbody>
+                      </table>
+                  </div>
+              </div> 
+              <div class="tab-content">
+                  <div>
+                      <h2>This is Estadisticas</h2>
+                      <p>
+=======
+                                      <span><i class="fas fa-chart-bar" id="abrir-stats"></i>Stats</span>
+                                      <span><i class="fas fa-user-edit" id="abrir-editar"></i>Editar</span>
+                                  </td>
+  
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div>
+                        <h2>This is Estadisticas</h2>
+                        <p>
+>>>>>>> 7bddffdd3bc51ccf32c701e2d710c51c756680cb
+>>>>>>> 0c28373611984f9b317be0d84dffe1ef34531318
                         <form id="SLR-form" action="{{ route('stats.SLR', 'profeGrupo') }}" method="POST">
                             @csrf
                             <input type="hidden" name="grupo" value="{{ $grupo->id }}">

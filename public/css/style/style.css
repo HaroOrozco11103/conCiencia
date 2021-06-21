@@ -486,8 +486,18 @@ form h2{
     grid-template-columns: 60% 40%;
     grid-template-rows: 80% 60%;
 }
+<<<<<<< HEAD
 .titulo-nav-grupo > h2{
     font-weight: bold !important;
+=======
+<<<<<<< HEAD
+.titulo-nav-grupo > h2{
+    font-weight: bold !important;
+=======
+.edicion-nombre > a {
+    text-align: center;
+>>>>>>> 7bddffdd3bc51ccf32c701e2d710c51c756680cb
+>>>>>>> 0c28373611984f9b317be0d84dffe1ef34531318
 }
 .grupo-nombre{
     font-weight: bold !important;
@@ -504,6 +514,10 @@ form h2{
     font-weight: bold !important;
     letter-spacing: 5px;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0c28373611984f9b317be0d84dffe1ef34531318
 .editando-nombre{
     border: 3px solid #1E90FF;
     border-radius: 20px;
@@ -527,11 +541,23 @@ form h2{
     color: #1C7DDB;
 }
 /*-------------------------------PESTAÑAS*/
+=======
+/*PESTAÑAS*/
+>>>>>>> 7bddffdd3bc51ccf32c701e2d710c51c756680cb
 .tabs {
     position: relative;
     width: 97%;
     height: 97%;
+<<<<<<< HEAD
     margin:20px 10px;
+=======
+<<<<<<< HEAD
+    margin:20px 10px;
+    overflow:hidden;
+=======
+    padding:20px 10px;
+>>>>>>> 7bddffdd3bc51ccf32c701e2d710c51c756680cb
+>>>>>>> 0c28373611984f9b317be0d84dffe1ef34531318
 }
 .tabs .tab-header {
     height:60px;
