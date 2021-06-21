@@ -121,12 +121,9 @@ btnAbrirPopup.addEventListener('click', function(){
 */
 
 function btnAbrirPopup(alu, nombre, username){
-  var inputId = document.querySelector(".idAlu-popup");
-  inputId.value = alu;
-  var inputNom = document.querySelector(".nomAlu-popup");
-  inputNom.value = nombre;
-  var inputUserN = document.querySelector(".unAlu-popup");
-  inputUserN.value = username;
+  document.querySelector(".idAlu-popup").value = alu;
+  document.querySelector(".nomAlu-popup").value = nombre;
+  document.querySelector(".unAlu-popup").value = username;
   overlay.classList.add('active');
 	popupEditar.classList.add('active');
 }
@@ -148,7 +145,10 @@ btnAbrirPopupStats.addEventListener('click', function(){
 });
 */
 
-function btnAbrirPopupStats(alu){
+function btnAbrirPopupStats(alu, nombre){
+  document.querySelector(".idAluStats-popup").value = alu;
+  document.querySelector(".idAluStatsMat-popup").value = alu;
+  document.querySelector(".nomAluStats-popup").value = nombre;
   overlay.classList.add('active');
   popupStats.classList.add('active');
 }

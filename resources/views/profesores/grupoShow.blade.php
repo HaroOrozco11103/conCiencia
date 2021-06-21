@@ -58,7 +58,7 @@
                                     <td>{{ $alu->nombre }}</td>
                                     <td>{{ $alu->username }}</td>
                                     <td class="detalles">
-                                        <span id="abrir-stats" onclick="btnAbrirPopupStats({{$alu->id}})"><i class="fas fa-chart-bar"></i>Stats</span>
+                                        <span id="abrir-stats" onclick="btnAbrirPopupStats({{$alu->id}}, '{{$alu->nombre}}')"><i class="fas fa-chart-bar"></i>Stats</span>
                                         <span id="abrir-editar" onclick="btnAbrirPopup({{$alu->id}}, '{{$alu->nombre}}', '{{$alu->username}}')"><i class="fas fa-user-edit"></i>Editar</span>
                                     </td>
                                 </tr>
@@ -164,6 +164,7 @@
         </div>
         <div class="pop-up-stats pop-up">
             <a href="#" class="cerrar-popup-stats"><i class="fas fa-times"></i></a>
+            <!-- <a href="{{ route('stats.cKNN', $alu->id) }}" class="btn-outline-info bg-white"> Clasificación </a> -->
             <div class="contenedor-stats">
               <div class="instrucciones">
                 <h2>Stats</h2>
@@ -180,9 +181,9 @@
                 <div class="regresiones">
                   <div class="reg-btn">
                     <h3>Materia</h3>
-                    <form method="POST" action="{{ route('stats.SLR', 'profeGrupoMateria') }}">
+                    <form method="POST" action="{{ route('stats.SLR', 'profeAlumnoMateria') }}">
                       @csrf
-                        <input type="hidden" name="grupo" value="{{ $grupo->id }}">
+                        <input class="idAluStatsMat-popup" type="hidden" name="alumno">
                         <select name="matSelect">
                             @foreach($materias as $key => $mat)
                             <option value="{{ $mat->id }}">{{ $mat->nombre }}</option>
@@ -205,11 +206,11 @@
                   </div>
 
                   <div class="reg-btn">
-                    <h3>Grupo</h3>
-                    <form id="SLR-form" action="{{ route('stats.SLR', 'profeGrupo') }}" method="POST">
+                    <h3>Alumno</h3>
+                    <form id="SLR-form" action="{{ route('stats.SLR', 'profeAlumno') }}" method="POST">
                       @csrf
-                        <input type="hidden" name="grupo" value="{{ $grupo->id }}">
-                        {{ $grupo->nombre }}
+                        <input class="idAluStats-popup" type="hidden" name="alumno">
+                        <input class="nomAluStats-popup" type="text" readonly="readonly">
                         <select name="porcentaje">
                             @for($i=0.05; $i<=1.01; $i+=0.05)
                               <option value="{{ $i }}">{{ $i * 100 }}%</option>
