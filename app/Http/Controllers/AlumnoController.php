@@ -67,10 +67,7 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
-        $profeId = \Auth::user()->id;
-        $grupos = DB::table('grupos')->where('user_id', $profeId)->get();
-        $materias = DB::select('SELECT `id`, `nombre` FROM `conciencia`.`asignaturas`', [1]);
-        return view('profesores.alumnoStats', compact('alumno', 'grupos', 'materias'));
+      //
     }
 
     /**
