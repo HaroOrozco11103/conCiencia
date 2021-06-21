@@ -488,6 +488,7 @@ form h2{
 }
 .edicion-nombre > a {
     text-align: center;
+    cursor: pointer;
 }
 .grupo-nombre > h2, .titulo-nav-grupo > h2{
     font-weight: bold !important;
@@ -496,7 +497,17 @@ form h2{
     font-weight: bold !important;
     letter-spacing: 5px;
 }
-/*PESTAÑAS*/
+.editar-nombre, .guardar-nombre{
+    top:0px;
+    opacity:0;
+    transform:scale(0);
+}
+.link-active{
+    top:0px;
+    opacity:1;
+    transform:scale(1);
+}
+/*-------------------------------PESTAÑAS*/
 .tabs {
     position: relative;
     width: 97%;

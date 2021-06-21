@@ -56,8 +56,6 @@ function showCheckPass(){
 let tabHeader = document.getElementsByClassName("tab-header")[0];
 let tabIndicator = document.getElementsByClassName("tab-indicator")[0];
 let tabBody = document.getElementsByClassName("tab-body")[0];
-console.log(tabHeader);
-console.log(tabIndicator);
 if(tabHeader != null){
     let tabsPane = tabHeader.getElementsByTagName("div");
     for(let i=0;i<tabsPane.length;i++){
@@ -70,6 +68,21 @@ if(tabHeader != null){
             tabIndicator.style.left = `calc(calc(100% / 2) * ${i})`;
         });
     };
+}
+
+//----------------------------------Editar nombre grupo---------------------
+function editarNombre(){
+    var edicion = document.getElementsByClassName("edicion-nombre")[0];
+    var linkEditar = edicion.getElementsByTagName("a");
+    linkEditar[0].classList.remove("link-active");
+    linkEditar[1].classList.add("link-active");
+}
+
+function guardarNombre(){
+    var edicion = document.getElementsByClassName("edicion-nombre")[0];
+    var linkEditar = edicion.getElementsByTagName("a");
+    linkEditar[1].classList.remove("link-active");
+    linkEditar[0].classList.add("link-active");
 }
 
 //------------------------------------------------Materias--------------------
@@ -100,3 +113,5 @@ btnAbrirPopupStats.addEventListener('click', function(){
 	overlay.classList.add('active');
 	popupStats.classList.add('active');
 });
+
+
