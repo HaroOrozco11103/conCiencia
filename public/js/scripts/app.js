@@ -76,6 +76,10 @@ function editarNombre(){
     var linkEditar = edicion.getElementsByTagName("a");
     linkEditar[0].classList.remove("link-active");
     linkEditar[1].classList.add("link-active");
+    var input = document.getElementsByClassName("grupo-nombre");
+    input.disabled = false;
+    input.readOnly = false;
+    input[0].classList.add("editando-nombre");
 }
 
 function guardarNombre(){
@@ -83,6 +87,10 @@ function guardarNombre(){
     var linkEditar = edicion.getElementsByTagName("a");
     linkEditar[1].classList.remove("link-active");
     linkEditar[0].classList.add("link-active");
+    var input = document.getElementsByClassName("grupo-nombre");
+    input.disabled = true;
+    input.readOnly = true;
+    input[0].classList.remove("editando-nombre");
 }
 
 //------------------------------------------------Materias--------------------

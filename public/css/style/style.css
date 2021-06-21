@@ -454,6 +454,7 @@ form h2{
 .nav-links > li:hover{ 
     background-color: #1C7DDB;
     color:white;
+    cursor: pointer;
 }
 .nav-active{
     display: none;
@@ -484,35 +485,54 @@ form h2{
     font-family: 'Recursive', sans-serif;
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 80% 20%;
+    grid-template-rows: 80% 60%;
 }
-.edicion-nombre > a {
-    text-align: center;
-    cursor: pointer;
-}
-.grupo-nombre > h2, .titulo-nav-grupo > h2{
+.titulo-nav-grupo > h2{
     font-weight: bold !important;
+}
+.grupo-nombre{
+    font-weight: bold !important;
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    outline: none;
+    border: none;
+    color: #000000;
+    text-transform: uppercase;
+    font-family: 'Recursive', sans-serif;
 }
 .grupo-codigo > h2{
     font-weight: bold !important;
     letter-spacing: 5px;
 }
+.editando-nombre{
+    border: 3px solid #1E90FF;
+    border-radius: 20px;
+}
 .editar-nombre, .guardar-nombre{
     top:0px;
     opacity:0;
     transform:scale(0);
+    color: #000;
 }
 .link-active{
     top:0px;
     opacity:1;
     transform:scale(1);
 }
+.edicion-nombre > a {
+    text-align: center;
+    cursor: pointer;
+}
+.edicion-nombre > a:hover{
+    color: #1C7DDB;
+}
 /*-------------------------------PESTAÑAS*/
 .tabs {
     position: relative;
     width: 97%;
     height: 97%;
-    padding:20px 10px;
+    margin:20px 10px;
     overflow:hidden;
 }
 .tabs .tab-header {
