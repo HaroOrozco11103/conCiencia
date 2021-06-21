@@ -665,9 +665,16 @@ form h2{
     align-items: center;
     text-align: justify;
 }
+.instrucciones > h2{
+    text-align: center !important;
+}
 .regresiones{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 30vh;
+    grid-gap: 5px;
+    padding: 10px;
+    overflow: auto;
 }
 select {
     display: grid;
@@ -689,11 +696,4 @@ select {
     width: 50% !important;
 }
 /*
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: 30vh;
-    grid-gap: 5px;
-    padding: 10px;
-    overflow: auto;*/
+    */

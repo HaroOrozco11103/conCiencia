@@ -59,7 +59,7 @@
                                   <td>Lupita</td>
                                   <td>iamlupita</td>
                                   <td class="detalles">
-                                      <i class="fas fa-chart-bar" id="abrir-stats">estadisticas</i>
+                                      <i class="fas fa-chart-bar" id="abrir-stats">Stats</i>
                                       <br>
                                       <i class="fas fa-edit" id="abrir-editar">editar</i>
                                   </td>
@@ -68,7 +68,7 @@
                                   <td>Haro</td>
                                   <td>haro1113</td>
                                   <td class="detalles">
-                                      <i class="fas fa-chart-bar">estadisticas</i>
+                                      <i class="fas fa-chart-bar">Stats</i>
                                       <br>
                                       <i class="fas fa-edit">editar</i>
                                   </td>
@@ -77,7 +77,7 @@
                                   <td>Adan</td>
                                   <td>adanmetal</td>
                                   <td class="detalles">
-                                      <i class="fas fa-chart-bar">estadisticas</i>
+                                      <i class="fas fa-chart-bar">Stats</i>
                                       <br>
                                       <i class="fas fa-edit">editar</i>
                                   </td>
@@ -86,7 +86,7 @@
                                   <td>Haro</td>
                                   <td>haro1113</td>
                                   <td class="detalles">
-                                      <i class="fas fa-chart-bar">estadisticas</i>
+                                      <i class="fas fa-chart-bar">Stats</i>
                                       <br>
                                       <i class="fas fa-edit">editar</i>
                                   </td>

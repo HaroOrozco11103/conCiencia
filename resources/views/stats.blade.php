@@ -3,13 +3,13 @@
 @section('content')
 <div class="contenedor-stats">
   <div class="instrucciones">
-    <h2>Instrucciones</h2> 
+    <h2>Stats</h2> 
+    En esta página podrás consultar información del grupo de datos que selecciones, como el promedio de puntajes, el progreso y una proyección que muestra el comportamiento de los datos.
     <ol>
-      <li>para consultar las estadisticas del grupo seleccionado</li>
       <li>Selecciona la materia, el tipo de dinámica o la dinámica específica que desees consultar.</li>
       <li>Selecciona el porcentaje para acotar el número de registros a tomar en cuenta.</li>
-      <li>Al seleccionar un porcentaje igual o menor al 100%, se mostrarán resultados tomando el cuenta el total de los registros existentes.</li>
-      <li>En caso de seleccionar un porcentaje mayor a 100%, se mostrará la predicción del promedio de puntajes de acuerdo al porcentaje ingresado.</li>
+      <li>Si el porcentaje es igual o menor al 100%, se mostrarán resultados tomando en cuenta los registros existentes.</li>
+      <li>Si el porcentaje es mayor a 100%, se mostrará la predicción del promedio de puntajes de acuerdo al porcentaje ingresado.</li>
     </ol>
   </div>
   <div class="separador"></div>
@@ -88,12 +88,6 @@
             </div>
         </form>
       </div>
-    </div>
-    <div class="indice-abandono">
-      <h2>Indice abandono</h2>
-    </div>
-    <div class="usuarios-no-reg">
-      <h2>Porcentaje de usuarios no registrados</h2>
     </div>
   </div>
 </div>

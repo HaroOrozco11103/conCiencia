@@ -35,7 +35,7 @@
             <div class="col-md-12">
                 <!--Top Navbar-->
                 <nav class="sb-topnav nav-profesor">
-                    <a class="top-nav-links nav-stats" href="{{ route('stats.index') }}" class="estadisticas-glob-link">Estadisticas Globales</a>
+                    <a class="top-nav-links nav-stats" href="{{ route('stats.index') }}" class="estadisticas-glob-link">Stats Globales</a>
                     <a class="top-nav-links nav-title" href="{{ route('inicio')}}">ConCiencia</a>
                     <!--User Navbar-->
                     @include('layouts.user')
