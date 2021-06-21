@@ -7,10 +7,16 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+<div class="card shadow">
+  <h2>
+    {{ $cat }}
+  </h2>
+</div>
+
 @if(sizeof($regLin) == 3)
   <div class="card shadow">
     <p>
-      En el {{ $regLin[0]["resultado"] }} de las participaciones jugadas para el conjunto de datos que seleccionaste
+      En el {{ $regLin[0]["resultado"] }} de las participaciones registradas para el conjunto de datos que seleccionaste
       el {{ $regLin[1]["nombre"] }} registradas es de {{ $regLin[1]["resultado"] }}.
       <br>
       El {{ $regLin[2]["nombre"] }} es de {{ $regLin[2]["resultado"] }}.

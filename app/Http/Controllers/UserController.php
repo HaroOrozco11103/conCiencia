@@ -56,8 +56,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = \Auth::user();
-        return view('profesores.showProfile', compact('user'));
+      //
     }
 
     /**
@@ -105,7 +104,7 @@ class UserController extends Controller
       $user->email = $request->input('email');
       $user->save();
 
-      return redirect()->route('users.show', 'id')
+      return redirect()->route('users.edit', 'id')
         ->with([
             'mensaje' => 'Tu información ha sido actualizada exitosamente',
             'alert-class' => 'alert-warning'
@@ -131,7 +130,7 @@ class UserController extends Controller
         {
           $user->password = Hash::make($request->password);
           $user->save();
-          return redirect()->route('users.show', $user->id)
+          return redirect()->route('users.edit', $user->id)
             ->with([
                 'mensaje' => 'Tu contraseña ha sido actualizada exitosamente',
                 'alert-class' => 'alert-warning'
