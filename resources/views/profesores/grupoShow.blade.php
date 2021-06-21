@@ -164,7 +164,6 @@
         </div>
         <div class="pop-up-stats pop-up">
             <a href="#" class="cerrar-popup-stats"><i class="fas fa-times"></i></a>
-            <!-- <a href="{{ route('stats.cKNN', $alu->id) }}" class="btn-outline-info bg-white"> Clasificación </a> -->
             <div class="contenedor-stats">
               <div class="instrucciones">
                 <h2>Stats</h2>

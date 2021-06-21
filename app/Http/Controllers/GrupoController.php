@@ -141,11 +141,11 @@ class GrupoController extends Controller
 
     public function updateNombre(Request $request)
     {
-      $request->validate([
-        'nombreGrupo' => 'required|string|min:5|max:50',
-      ]);
-      $data = ['nombre' => $request->nombreGrupo];
-      $grupo = DB::table('grupos')->where('id', $request->idGrupo)->update($data);
+        $request->validate([
+          'nombreGrupo' => 'required|string|min:5|max:50',
+        ]);
+        $data = ['nombre' => $request->nombreGrupo];
+        $grupo = DB::table('grupos')->where('id', $request->idGrupo)->update($data);
     }
 
     /**
