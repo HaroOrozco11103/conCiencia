@@ -149,16 +149,16 @@ class StatsController extends Controller
           $regLin = [
             [
               [
-                "nombre" => "Porcentaje de datos",
+                "nombre" => "porcentaje de datos",
                 "resultado" => $porcentaje*100 . "%",
               ],
               [
-                "nombre" => "Cantidad de datos",
+                "nombre" => "número de participaciones",
                 "resultado" => $cantDatos,
               ],
               [
-                "nombre" => "Promedio historico en este punto",
-                "resultado" => $historico,
+                "nombre" => "promedio de puntajes en este punto",
+                "resultado" => round($historico, 2),
               ],
             ],
             [
@@ -172,27 +172,23 @@ class StatsController extends Controller
           $regLin = [
             [
               [
-              "nombre" => "Porcentaje de datos",
+              "nombre" => "porcentaje de datos",
               "resultado" => $porcentaje*100 . "%",
               ],
               [
-                "nombre" => "Cantidad de datos",
+                "nombre" => "número de participaciones",
                 "resultado" => $cantDatos,
               ],
               [
-                "nombre" => "Precisión de la predicción",
-                "resultado" => abs(round($correlacion*100)) . "%",
+                "nombre" => "precisión de la predicción",
+                "resultado" => abs(round($correlacion*100)),
               ],
               [
-                "nombre" => "Porcentaje de mejora",
-                "resultado" => round($b1*100) . "%",
+                "nombre" => "porcentaje de progreso",
+                "resultado" => round($b1*100, 2),
               ],
               [
-                "nombre" => "Indice de mejora",
-                "resultado" => "x" . round($b1*2, 1),
-              ],
-              [
-                "nombre" => "Puntaje predecido",
+                "nombre" => "promedio de puntajes predecido",
                 "resultado" => $valPred,
               ],
             ],
