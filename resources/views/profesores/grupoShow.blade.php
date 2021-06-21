@@ -24,7 +24,7 @@
     </nav>
     <div class="detalle-grupo">
         <div class="info-grupo">
-            <input class="grupo-nombre" value="{{ $grupo->nombre ?? '' }}" readonly="readonly"></input> 
+            <input class="grupo-nombre" value="{{ $grupo->nombre ?? '' }}" readonly="readonly"></input>
             <div class="grupo-codigo">
                 <h2>{{ $grupo->codigo }}</h2>
             </div>
@@ -70,43 +70,70 @@
                 </div>
                 <div class="tab-content">
                     <div>
-                        <h2>This is Estadisticas</h2>
-                        <p>
-                        <form id="SLR-form" action="{{ route('stats.SLR', 'profeGrupo') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="grupo" value="{{ $grupo->id }}">
-                            <select name="porcentaje">
-                                @for($i=0.05; $i<=1.01; $i+=0.05) <option value="{{ $i }}">{{ $i * 100 }}%</option>
-                                    @endfor
-                                    @for($i=1.5; $i<=10.00; $i+=0.50) <option value="{{ $i }}">{{ $i * 100 }}%</option>
-                                        @endfor
-                            </select>
-                        </form>
-                        <a class="btn btn-link" href="{{ route('stats.SLR', 'profeGrupo') }}" onclick="event.preventDefault(); document.getElementById('SLR-form').submit();">
-                            Ver progreso
-                        </a>
-                        </p>
-                        <div class="card-header">Materia</div>
-                        <form method="POST" action="{{ route('stats.SLR', 'profeGrupoMateria') }}">
-                            @csrf
-                            <input type="hidden" name="grupo" value="{{ $grupo->id }}">
-                            <select name="matSelect">
-                                @foreach($materias as $key => $mat)
-                                <option value="{{ $mat->id }}">{{ $mat->nombre }}</option>
-                                @endforeach
-                            </select>
-                            <select name="porcentaje">
-                                @for($i=0.05; $i<=1.01; $i+=0.05) <option value="{{ $i }}">{{ $i * 100 }}%</option>
-                                    @endfor
-                                    @for($i=1.5; $i<=10.00; $i+=0.50) <option value="{{ $i }}">{{ $i * 100 }}%</option>
-                                        @endfor
-                            </select>
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-outline-primary">
-                                    Ver progreso
-                                </button>
+                      <div class="contenedor-stats">
+                        <div class="instrucciones">
+                          <h2>Stats</h2>
+                          En esta página podrás consultar información del grupo, como el promedio de puntajes y una proyección que muestra el progreso de los alumnos.
+                          <ol>
+                            <li>Selecciona la materia que desees consultar o aplica la consulta para el grupo entero sin distinguir entre materias.</li>
+                            <li>Selecciona el porcentaje para acotar el número de registros a tomar en cuenta.</li>
+                            <li>Si el porcentaje es igual o menor al 100%, se mostrarán resultados tomando en cuenta los registros existentes.</li>
+                            <li>Si el porcentaje es mayor a 100%, se mostrará la predicción del promedio de puntajes de acuerdo al porcentaje ingresado.</li>
+                          </ol>
+                        </div>
+                        <div class="separador"></div>
+                        <div class="estadisticas">
+                          <div class="regresiones">
+                            <div class="reg-btn">
+                              <h3>Materia</h3>
+                              <form method="POST" action="{{ route('stats.SLR', 'profeGrupoMateria') }}">
+                                @csrf
+                                  <input type="hidden" name="grupo" value="{{ $grupo->id }}">
+                                  <select name="matSelect">
+                                      @foreach($materias as $key => $mat)
+                                      <option value="{{ $mat->id }}">{{ $mat->nombre }}</option>
+                                      @endforeach
+                                  </select>
+                                  <select name="porcentaje">
+                                      @for($i=0.05; $i<=1.01; $i+=0.05)
+                                        <option value="{{ $i }}">{{ $i * 100 }}%</option>
+                                      @endfor
+                                      @for($i=1.5; $i<=10.00; $i+=0.50)
+                                        <option value="{{ $i }}">{{ $i * 100 }}%</option>
+                                      @endfor
+                                  </select>
+                                  <div>
+                                      <button type="submit" class="btn btn-outline-primary btn-consultar">
+                                        Consultar
+                                      </button>
+                                  </div>
+                              </form>
                             </div>
-                        </form>
+
+                            <div class="reg-btn">
+                              <h3>Grupo</h3>
+                              <form id="SLR-form" action="{{ route('stats.SLR', 'profeGrupo') }}" method="POST">
+                                @csrf
+                                  <input type="hidden" name="grupo" value="{{ $grupo->id }}">
+                                  {{ $grupo->nombre }}
+                                  <select name="porcentaje">
+                                      @for($i=0.05; $i<=1.01; $i+=0.05)
+                                        <option value="{{ $i }}">{{ $i * 100 }}%</option>
+                                      @endfor
+                                      @for($i=1.5; $i<=10.00; $i+=0.50)
+                                        <option value="{{ $i }}">{{ $i * 100 }}%</option>
+                                      @endfor
+                                  </select>
+                                  <div>
+                                      <button type="submit" class="btn btn-outline-primary btn-consultar">
+                                        Consultar
+                                      </button>
+                                  </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
