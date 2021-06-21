@@ -59,7 +59,7 @@
                                     <td>{{ $alu->username }}</td>
                                     <td class="detalles">
                                         <span id="abrir-stats" onclick="btnAbrirPopupStats({{$alu->id}})"><i class="fas fa-chart-bar"></i>Stats</span>
-                                        <span id="abrir-editar" onclick="btnAbrirPopup({{$alu->id}}, {{$alu->id}}, {{$alu->id}})"><i class="fas fa-user-edit"></i>Editar</span>
+                                        <span id="abrir-editar" onclick="btnAbrirPopup({{$alu->id}}, '{{$alu->nombre}}', '{{$alu->username}}')"><i class="fas fa-user-edit"></i>Editar</span>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -142,11 +142,11 @@
         <div class="pop-up-editar pop-up">
             <a href="#" class="cerrar-popup"><i class="fas fa-times"></i></a>
             <h3>Editar alumno</h3>
-            <form class="form-editar" method="POST" action="{{ route('alumnos.update', 1) }}">
+            <form class="form-editar" method="POST" action="{{ route('alumnos.update', $grupo->id) }}">
               <input type="hidden" name="_method" value="PATCH">
               @csrf
-              <input class="idAlu-popup" type="hidden" name="idAlu">
               <div class="form-editar">
+                <input class="idAlu-popup" type="hidden" name="idAlu">
                 <select name="grupo_id">
                     @foreach($grupos as $gru)
                     <option value="{{ $gru->id }}" {{ $gru->id == $grupo->id ? 'selected' : '' }}>

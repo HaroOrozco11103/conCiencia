@@ -90,18 +90,18 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
+        dd($request);
         $request->validate([
           'nombre' => 'required|string|min:5|max:50',
           'username' => 'required|string|min:5|max:25|unique:alumnos,username,'.$alumno->id,
           'grupo_id' => 'integer',
         ]);
 
+        $alumno = Alumno::where('id', $request->idAlu)->get()[0];
         $alumno->nombre = $request->nombre;
         $alumno->username = $request->username;
         $alumno->grupo_id = $request->grupo_id;
         $alumno->save();
-
-        return redirect()->route('grupos.show', $request->grupo_id);
     }
 
     /**

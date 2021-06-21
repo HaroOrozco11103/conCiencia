@@ -121,8 +121,8 @@ btnAbrirPopup.addEventListener('click', function(){
 */
 
 function btnAbrirPopup(alu, nombre, username){
-  var input = document.getElementsByClassName("idAlu-popup");
-  input.value = alu;
+  var inputId = document.getElementsByClassName("idAlu-popup");
+  inputId.value = alu;
   var inputNom = document.getElementsByClassName("nomAlu-popup");
   inputNom.value = nombre;
   var inputUserN = document.getElementsByClassName("unAlu-popup");
@@ -130,7 +130,7 @@ function btnAbrirPopup(alu, nombre, username){
   console.log(alu);
   console.log(nombre);
   console.log(username);
-  console.log(input.value);
+  console.log(inputId.value);
   console.log(inputNom.value);
   console.log(inputUserN.value);
   overlay.classList.add('active');
