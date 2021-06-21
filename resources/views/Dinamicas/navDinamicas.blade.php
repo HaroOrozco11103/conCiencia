@@ -16,7 +16,7 @@
               </div>
             @else
               @foreach($recomendaciones as $key => $din)
-                <li><a href="{{ route('dinamicas.show', $din[0]) }}" class="materia recomendada"> {{ $din[1] }} </a></li>
+                <li onclick="window.location.href='{{ route('dinamicas.show', $din[0]) }}'"><a class="materia recomendada"> {{ $din[1] }} </a></li>
               @endforeach
             @endif
         </ul>
