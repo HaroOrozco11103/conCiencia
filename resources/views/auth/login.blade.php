@@ -30,7 +30,7 @@
                         <i class="fas fa-lock"></i>
                     </div>
                     <div class="div">
-                        
+
                         <input id="password" type="password" placeholder="Contraseña"
                             class="input password {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
                             required>
