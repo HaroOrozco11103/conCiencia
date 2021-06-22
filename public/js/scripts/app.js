@@ -19,7 +19,7 @@ inputs.forEach((input) => {
 });
 
 function showPass() {
-    var x = document.querySelector(".password");
+    var x = document.querySelector("#password");
     var y = document.getElementById("hide1");
     var z = document.getElementById("hide2");
 

@@ -18,7 +18,7 @@
     @if(sizeof($regLin) == 3)
     <div class="resultados-stats">
       <p>
-        En el {{ $regLin[0]["resultado"] }} de las participaciones registradas para el conjunto de datos que seleccionaste
+        En el {{ $regLin[0]["resultado"] }} de las participaciones registradas para el conjunto de datos que seleccionaste,
         el {{ $regLin[1]["nombre"] }} registradas es de {{ $regLin[1]["resultado"] }}.
         <br>
         El {{ $regLin[2]["nombre"] }} es de {{ $regLin[2]["resultado"] }}.
@@ -27,7 +27,7 @@
     @else
     <div class="resultados-stats">
       <p>
-        En el {{ $regLin[0]["resultado"] }} de las participaciones jugadas para el conjunto de datos que seleccionaste
+        En el {{ $regLin[0]["resultado"] }} de las participaciones jugadas para el conjunto de datos que seleccionaste,
         el {{ $regLin[1]["nombre"] }} registradas es de {{ $regLin[1]["resultado"] }}.
         <br>
         Para este conjunto de datos la {{ $regLin[2]["nombre"] }} se acercará un {{ $regLin[2]["resultado"] }}%.
