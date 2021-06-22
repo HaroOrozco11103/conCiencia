@@ -525,13 +525,14 @@ form h2{
     opacity:1;
     transform:scale(1);
 }
-.edicion-nombre > a {
+.edicion-nombre > a,.inscribir-alu >a {
     text-align: center;
     cursor: pointer;
 }
-.edicion-nombre > a:hover{
+.edicion-nombre > a:hover, .inscribir-alu >a:hover{
     color: #1C7DDB;
 }
+
 /*-------------------------------PESTAÑAS*/
 .tabs {
     position: relative;

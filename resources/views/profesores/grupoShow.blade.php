@@ -32,6 +32,9 @@
                 <a class="editar-nombre link-active" onclick="editarNombre()">editar nombre</a>
                 <a class="guardar-nombre" href="#" onclick="guardarNombre({{$gru->id}})">guardar nombre</a>
             </div>
+            <div class="inscribir-alu">
+                <a class="" onclick="btnAbrirPopupInscribir()">Inscribir alumno</a>
+            </div>
         </div>
         <div class="tabs">
             <div class="tab-header">
@@ -49,7 +52,7 @@
                         <table class="alumnos-table">
                             <thead>
                                 <th class="col">nombre</th>
-                                <th class="col">usuario</th>
+                                <th class="col">nombre único<br>de ingreso</th>
                                 <th class="col">opciones</th>
                             </thead>
                             <tbody>
@@ -138,8 +141,8 @@
             </div>
         </div>
     </div>
-    <div class="overlay-crear overlay"> 
-        <div class="pop-up-crear pop-up"> 
+    <div class="overlay-crear overlay">
+        <div class="pop-up-crear pop-up">
         <a href="#" class="cerrar-popup-crear cerrar-popup"><i class="fas fa-times"></i></a>
             <h3>Crear grupo</h3>
             <form class="form-editar" method="POST" action="{{ route('grupos.store') }}">
@@ -152,6 +155,29 @@
                 <input class="cod-grupo-popup" type="text" name="codigo" required>
               </div>
               <input type="submit" class="submit" value="Crear grupo">
+            </form>
+        </div>
+    </div>
+    <div class="overlay-inscribir overlay">
+        <div class="pop-up-inscribir pop-up">
+        <a href="#" class="cerrar-popup-inscribir cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Inscribir alumno</h3>
+            <form class="form-editar" method="POST" action="{{ route('alumnos.store') }}">
+              @csrf
+              <div class="form-editar">
+                <select name="grupo_id">
+                    @foreach($grupos as $gru)
+                    <option value="{{ $gru->id }}" {{ $gru->id == $grupo->id ? 'selected' : '' }}>
+                        {{ $gru->nombre }}</option>
+                    @endforeach
+                </select>
+                <label>Nombre del alumno</label>
+                <input class="nom-grupo-popup" type="text" name="nombre" required>
+                <br>
+                <label>Nombre único de ingreso</label>
+                <input class="cod-grupo-popup" type="text" name="username" required>
+              </div>
+              <input type="submit" class="submit" value="Inscribir grupo">
             </form>
         </div>
     </div>

@@ -26,9 +26,7 @@ class AlumnoController extends Controller
      */
     public function create(Grupo $grupo)
     {
-        $profeId = \Auth::user()->id;
-        $grupos = DB::table('grupos')->where('user_id', $profeId)->get();
-        return view('profesores.alumnoForm', compact('grupo', 'grupos'));
+      //
     }
 
     /**
