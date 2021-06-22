@@ -8,7 +8,7 @@
         </div>
         <div class="titulo-nav titulo-nav-grupo">
             <h2>Grupos</h2>
-            <i class="fas fa-plus fa-2x fa-fw" title="Agregar grupo"></i>
+            <div><i class="fas fa-plus fa-2x fa-fw" title="Agregar grupo" onclick="btnAbrirPopupCrear()"></i></div>
         </div>
         <ul class="nav-links">
             @if(count($grupos) == 0)
@@ -59,7 +59,7 @@
                                     <td>{{ $alu->username }}</td>
                                     <td class="detalles">
                                         <span id="abrir-stats" onclick="btnAbrirPopupStats({{$alu->id}}, '{{$alu->nombre}}')"><i class="fas fa-chart-bar"></i>Stats</span>
-                                        <span id="abrir-editar" onclick="btnAbrirPopup({{$alu->id}}, '{{$alu->nombre}}', '{{$alu->username}}')"><i class="fas fa-user-edit"></i>Editar</span>
+                                        <span id="abrir-editar" onclick="btnAbrirPopupEditar({{$alu->id}}, '{{$alu->nombre}}', '{{$alu->username}}')"><i class="fas fa-user-edit"></i>Editar</span>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -138,6 +138,23 @@
             </div>
         </div>
     </div>
+    <div class="overlay-crear overlay"> 
+        <div class="pop-up-crear pop-up"> 
+        <a href="#" class="cerrar-popup-crear cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Crear grupo</h3>
+            <form class="form-editar" method="POST" action="{{ route('grupos.store') }}">
+              @csrf
+              <div class="form-editar">
+                <label>Nombre del grupo</label>
+                <input class="nom-grupo-popup" type="text" name="nombre" required>
+                <br>
+                <label>Código del grupo</label>
+                <input class="cod-grupo-popup" type="text" name="codigo" required>
+              </div>
+              <input type="submit" class="submit" value="Crear grupo">
+            </form>
+        </div>
+    </div>
     <div class="overlay-editar overlay">
         <div class="pop-up-editar pop-up">
         <a href="#" class="cerrar-popup-editar cerrar-popup"><i class="fas fa-times"></i></a>
@@ -170,15 +187,12 @@
             <div class="">
               <div class="instrucciones">
                 <h2>Stats</h2>
-                <form method="POST" action="{{ route('stats.cKNN') }}">
-                  @csrf
-                    <input class="idAluStatsClasif-popup" type="hidden" name="alumno">
-                    <div>
-                      <button type="submit" class="btn btn-outline-primary btn-consultar">
-                        Clasificar alumno
-                      </button>
-                    </div>
-                </form>
+                <div>
+                  <button type="submit" class="btn btn-outline-primary" onclick="clasificarAlumno()">
+                    Clasificar alumno
+                  </button>
+                  <div class="nom-alu-clasf"></div>
+                </div>
                 <br><br>
                 En esta página podrás consultar información del alumno seleccionado, como el promedio de puntajes y una proyección que muestra su progreso.
                 <ol>

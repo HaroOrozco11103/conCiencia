@@ -84,17 +84,15 @@ class GrupoController extends Controller
         $request->validate([
           'nombre' => 'required|string|min:5|max:50',
           'codigo' => 'required|string|min:5|max:10|unique:grupos,codigo',
-          'user_id' => 'integer',
         ]);
 
         $gru = new Grupo();
         $gru->nombre = $request->input('nombre');
         $gru->codigo = $request->input('codigo');
         $gru->user_id = \Auth::user()->id;
-
+        
         $gru->save();
-        $grupo = Grupo::where('user_id',\Auth::user()->id)->get();
-        return redirect()->route('grupos.show', $grupo[0]->id)
+        return redirect()->route('grupos.show', $gru->id)
           ->with([
               'mensaje' => 'El grupo ha sido creado exitosamente',
               'alert-class' => 'alert-warning'

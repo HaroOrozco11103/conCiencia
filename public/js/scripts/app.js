@@ -14,38 +14,36 @@ function blurFunc() {
 }
 
 inputs.forEach((input) => {
-    input.addEventListener("focus",focusFunc);
-    input.addEventListener("blur",blurFunc);
+    input.addEventListener("focus", focusFunc);
+    input.addEventListener("blur", blurFunc);
 });
 
-function showPass(){
+function showPass() {
     var x = document.querySelector(".password");
     var y = document.getElementById("hide1");
     var z = document.getElementById("hide2");
 
-    if(x.type === 'password'){
+    if (x.type === 'password') {
         x.type = "text";
         y.style.display = "block";
         z.style.display = "none";
-    }
-    else{
+    } else {
         x.type = "password";
         y.style.display = "none";
         z.style.display = "block";
     }
 }
 
-function showCheckPass(){
+function showCheckPass() {
     var x = document.getElementById("password-confirm");
     var y = document.getElementById("hide1-check");
     var z = document.getElementById("hide2-check");
 
-    if(x.type === 'password'){
+    if (x.type === 'password') {
         x.type = "text";
         y.style.display = "block";
         z.style.display = "none";
-    }
-    else{
+    } else {
         x.type = "password";
         y.style.display = "none";
         z.style.display = "block";
@@ -56,10 +54,10 @@ function showCheckPass(){
 let tabHeader = document.getElementsByClassName("tab-header")[0];
 let tabIndicator = document.getElementsByClassName("tab-indicator")[0];
 let tabBody = document.getElementsByClassName("tab-body")[0];
-if(tabHeader != null){
+if (tabHeader != null) {
     let tabsPane = tabHeader.getElementsByTagName("div");
-    for(let i=0;i<tabsPane.length;i++){
-        tabsPane[i].addEventListener("click",function(){
+    for (let i = 0; i < tabsPane.length; i++) {
+        tabsPane[i].addEventListener("click", function () {
             tabHeader.getElementsByClassName("active")[0].classList.remove("active");
             tabsPane[i].classList.add("active");
             tabBody.getElementsByClassName("active")[0].classList.remove("active");
@@ -71,7 +69,7 @@ if(tabHeader != null){
 }
 
 //----------------------------------Editar nombre grupo---------------------
-function editarNombre(){
+function editarNombre() {
     var edicion = document.getElementsByClassName("edicion-nombre")[0];
     var linkEditar = edicion.getElementsByTagName("a");
     linkEditar[0].classList.remove("link-active");
@@ -81,37 +79,51 @@ function editarNombre(){
     input[0].classList.add("editando-nombre");
 }
 
-function guardarNombre(idGrupo){
+function guardarNombre(idGrupo) {
     var edicion = document.getElementsByClassName("edicion-nombre")[0];
     var linkEditar = edicion.getElementsByTagName("a");
     linkEditar[1].classList.remove("link-active");
     linkEditar[0].classList.add("link-active");
     var input = document.getElementsByClassName("grupo-nombre");
     input[0].classList.remove("editando-nombre");
-    $(".grupo-nombre").attr("readonly","readonly");
+    $(".grupo-nombre").attr("readonly", "readonly");
     var nombreGrupo = $(".grupo-nombre").val();
     $.ajax({
-        url:"/grupos/updateNombre",
-        type:"POST",
+        url: "/grupos/updateNombre",
+        type: "POST",
         data: {
-            nombreGrupo:nombreGrupo,
-            idGrupo:idGrupo,
+            nombreGrupo: nombreGrupo,
+            idGrupo: idGrupo,
             "_token": $("meta[name='csrf-token']").attr("content")
         },
-        success: function(a){
+        success: function (a) {
             console.log(a);
-            $("#"+idGrupo).html(nombreGrupo);
+            $("#" + idGrupo).html(nombreGrupo);
         }
     });
 }
 
-//------------------------------------------------Materias--------------------
+//----------------------------------------Popups
+var overlayCrear = document.querySelector('.overlay-crear');
+var popupCrear = document.querySelector('.pop-up-crear');
+var btnCerrarPopupCrear = document.querySelector('.cerrar-popup-crear');
 
-/*Popups*/
+function btnAbrirPopupCrear() {
+    overlayCrear.classList.add('active');
+    popupCrear.classList.add('active');
+}
+
+btnCerrarPopupCrear.addEventListener('click', function (e) {
+    e.preventDefault();
+    overlayCrear.classList.remove('active');
+    popupCrear.classList.remove('active');
+});
+
+
 //var btnAbrirPopup = document.querySelector('#abrir-editar');
-var	overlayEditar = document.querySelector('.overlay-editar');
-var	popupEditar = document.querySelector('.pop-up-editar');
-var	btnCerrarPopupEditar = document.querySelector('.cerrar-popup-editar');
+var overlayEditar = document.querySelector('.overlay-editar');
+var popupEditar = document.querySelector('.pop-up-editar');
+var btnCerrarPopupEditar = document.querySelector('.cerrar-popup-editar');
 
 /*
 btnAbrirPopup.addEventListener('click', function(){
@@ -120,24 +132,24 @@ btnAbrirPopup.addEventListener('click', function(){
 });
 */
 
-function btnAbrirPopup(alu, nombre, username){
-  document.querySelector(".idAlu-popup").value = alu;
-  document.querySelector(".nomAlu-popup").value = nombre;
-  document.querySelector(".unAlu-popup").value = username;
-  overlayEditar.classList.add('active');
-	popupEditar.classList.add('active');
+function btnAbrirPopupEditar(alu, nombre, username) {
+    document.querySelector(".idAlu-popup").value = alu;
+    document.querySelector(".nomAlu-popup").value = nombre;
+    document.querySelector(".unAlu-popup").value = username;
+    overlayEditar.classList.add('active');
+    popupEditar.classList.add('active');
 }
 
-btnCerrarPopupEditar.addEventListener('click', function(e){
-	e.preventDefault();
-	overlayEditar.classList.remove('active');
-	popupEditar.classList.remove('active');
+btnCerrarPopupEditar.addEventListener('click', function (e) {
+    e.preventDefault();
+    overlayEditar.classList.remove('active');
+    popupEditar.classList.remove('active');
 });
 
 //var btnAbrirPopupStats = document.querySelector('#abrir-stats');
-var	overlayStats = document.querySelector('.overlay-stats');
-var	popupStats = document.querySelector('.pop-up-stats');
-var	btnCerrarPopupStats = document.querySelector('.cerrar-popup-stats');
+var overlayStats = document.querySelector('.overlay-stats');
+var popupStats = document.querySelector('.pop-up-stats');
+var btnCerrarPopupStats = document.querySelector('.cerrar-popup-stats');
 
 /*
 btnAbrirPopupStats.addEventListener('click', function(){
@@ -146,17 +158,33 @@ btnAbrirPopupStats.addEventListener('click', function(){
 });
 */
 
-function btnAbrirPopupStats(alu, nombre){
-  document.querySelector(".idAluStats-popup").value = alu;
-  document.querySelector(".idAluStatsMat-popup").value = alu;
-  document.querySelector(".idAluStatsClasif-popup").value = alu;
-  document.querySelector(".nomAluStats-popup").value = nombre;
-  overlayStats.classList.add('active');
-  popupStats.classList.add('active');
+function btnAbrirPopupStats(alu, nombre) {
+    document.querySelector(".idAluStats-popup").value = alu;
+    document.querySelector(".idAluStatsMat-popup").value = alu;
+    document.querySelector(".nomAluStats-popup").value = nombre;
+    overlayStats.classList.add('active');
+    popupStats.classList.add('active');
 }
 
-btnCerrarPopupStats.addEventListener('click', function(e){
-	e.preventDefault();
-	overlayStats.classList.remove('active');
-	popupStats.classList.remove('active');
+btnCerrarPopupStats.addEventListener('click', function (e) {
+    e.preventDefault();
+    overlayStats.classList.remove('active');
+    popupStats.classList.remove('active');
 });
+
+//Clasificar alumno popup
+function clasificarAlumno() {
+    var nombre = document.querySelector(".nomAluStats-popup").value;
+    $.ajax({
+        url: "/alumnos/clasificacion",
+        type: "POST",
+        data: {
+            alumno: nombre,
+            "_token": $("meta[name='csrf-token']").attr("content")
+        },
+        success: function (a) {
+            console.log(a);
+            $(".nom-alu-clasf").html(nombre);
+        }
+    });
+}

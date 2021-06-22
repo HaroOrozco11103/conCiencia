@@ -245,7 +245,6 @@ class StatsController extends Controller
         $alumnos = Alumno::all();
         $listaPre = [];  //Lista preeliminar de la cuál se sacará la lista definitiva
         $lista = [];
-
         foreach ($alumnos as $key => $alu)
         {
           foreach ($asignaturas as $key => $asi)
@@ -264,7 +263,6 @@ class StatsController extends Controller
             array_push($listaPre, $data[0]);
           }
         }
-
         foreach ($alumnos as $key => $alu)  //Crear la lista de alumnos clasificados
         {
           if($alu->id == $request->alumno || $alu->asigClas == null) continue;
@@ -293,7 +291,6 @@ class StatsController extends Controller
             array_push($alumnoData, $ratio);
           }
         }
-
         if($lista == [])
         {
             //mensaje
@@ -312,7 +309,8 @@ class StatsController extends Controller
         }
         $data = ['asigClas' => $cKNN];
         DB::table('alumnos')->where('id', $request->alumno)->update($data);
-        dd($matClas);
+        echo $matClas;
+        exit;
         //return view('xxx', compact('matClas'));  //Vista o pop que va amostrar la asginatura en la que se clasificó al alumno
     }
 
@@ -327,7 +325,7 @@ class StatsController extends Controller
         {
           array_push($clasMatCount, [$asi->id, 0]);
         }
-
+        
         //Subfuncion de insertar las distancias ordenadas
         foreach ($lista as $key => $ls)
         {
