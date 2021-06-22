@@ -240,7 +240,8 @@ class StatsController extends Controller
 
     public function selectDataToKNNc(Request $request)
     {
-        //$this->massiveClasif(); //CLASIFICACIÓN MASIVA DE LA MAYORÍA DE ALUMNOS
+        //$this->massiveClasif(); exit; //CLASIFICACIÓN MASIVA DE LA MAYORÍA DE ALUMNOS
+        
         $asignaturas = Asignatura::all();
         $alumnos = Alumno::all();
         $listaPre = [];  //Lista preeliminar de la cuál se sacará la lista definitiva
@@ -294,8 +295,8 @@ class StatsController extends Controller
         if($lista == [])
         {
             //mensaje
-            dd("No existen datos suficientes para mostrar los resultados");
-            return;
+            print_r("No existen datos suficientes para mostrar los resultados");
+            exit;
         }
 
         $cKNN = $this->cKNN($lista, $alumnoData);
@@ -310,7 +311,6 @@ class StatsController extends Controller
         $data = ['asigClas' => $cKNN];
         DB::table('alumnos')->where('id', $request->alumno)->update($data);
         echo $matClas;
-        exit;
         //return view('xxx', compact('matClas'));  //Vista o pop que va amostrar la asginatura en la que se clasificó al alumno
     }
 
@@ -482,6 +482,6 @@ class StatsController extends Controller
           $data = ['asigClas' => $userKNN[0]];
           DB::table('alumnos')->where('id', $alu->id)->update($data);
         }
-        dd("listo :)");
+        print_r("listo :)");
     }
 }

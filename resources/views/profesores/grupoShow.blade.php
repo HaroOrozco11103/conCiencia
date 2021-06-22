@@ -188,7 +188,7 @@
               <div class="instrucciones">
                 <h2>Stats</h2>
                 <div>
-                  <button type="submit" class="btn btn-outline-primary" onclick="clasificarAlumno()">
+                  <button type="submit" class="btn btn-outline-primary btn-clasificar" onclick="clasificarAlumno()">
                     Clasificar alumno
                   </button>
                   <div class="nom-alu-clasf"></div>

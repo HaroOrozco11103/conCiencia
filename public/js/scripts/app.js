@@ -159,6 +159,8 @@ btnAbrirPopupStats.addEventListener('click', function(){
 */
 
 function btnAbrirPopupStats(alu, nombre) {
+    $('.btn-clasificar').show();
+    $(".nom-alu-clasf").empty();
     document.querySelector(".idAluStats-popup").value = alu;
     document.querySelector(".idAluStatsMat-popup").value = alu;
     document.querySelector(".nomAluStats-popup").value = nombre;
@@ -174,7 +176,7 @@ btnCerrarPopupStats.addEventListener('click', function (e) {
 
 //Clasificar alumno popup
 function clasificarAlumno() {
-    var nombre = document.querySelector(".nomAluStats-popup").value;
+    var nombre = $(".idAluStats-popup").val();
     $.ajax({
         url: "/alumnos/clasificacion",
         type: "POST",
@@ -183,8 +185,14 @@ function clasificarAlumno() {
             "_token": $("meta[name='csrf-token']").attr("content")
         },
         success: function (a) {
-            console.log(a);
-            $(".nom-alu-clasf").html(nombre);
+            $('.btn-clasificar').hide();
+            $(".nom-alu-clasf").html(`<div style="text-align: center">
+                    <b>Este alumno es bueno para ${a}</b> 
+                <div>
+            `);
+        },
+        error: function(a){
+            console.log("error: "+a);
         }
     });
 }
