@@ -52,7 +52,7 @@
                         <table class="alumnos-table">
                             <thead>
                                 <th class="col">nombre</th>
-                                <th class="col">nombre único<br>de ingreso</th>
+                                <th class="col">usuario</th>
                                 <th class="col">opciones</th>
                             </thead>
                             <tbody>
