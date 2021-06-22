@@ -222,7 +222,6 @@
                   </button>
                   <div class="nom-alu-clasf"></div>
                 </div>
-                <br><br>
                 En esta página podrás consultar información del alumno seleccionado, como el promedio de puntajes y una proyección que muestra su progreso.
                 <ol>
                   <li>Selecciona la materia que desees consultar o aplica la consulta para el alumno sin distinguir entre materias.</li>
@@ -233,7 +232,7 @@
               </div>
               <div class="separador"></div>
               <div class="estadisticas">
-                <div class="regresiones">
+                <div class="regresiones-alumno">
                   <div class="reg-btn">
                     <h3>Materia</h3>
                     <form method="POST" action="{{ route('stats.SLR', 'profeAlumnoMateria') }}">

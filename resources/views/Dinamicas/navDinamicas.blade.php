@@ -7,7 +7,7 @@
             <i class="fas fa-times" id="btn-nav"></i>
         </div>
         <div class="titulo-nav">
-            <h2>Dinamicas</h2>
+            <h2>Dinamicas Recomendadas</h2>
         </div>
         <ul class="nav-links recomendaciones">
             @if(count($recomendaciones)==0)

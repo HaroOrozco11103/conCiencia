@@ -113,11 +113,13 @@ function btnAbrirPopupCrear() {
     popupCrear.classList.add('active');
 }
 
+if (btnCerrarPopupCrear != null) {
 btnCerrarPopupCrear.addEventListener('click', function (e) {
     e.preventDefault();
     overlayCrear.classList.remove('active');
     popupCrear.classList.remove('active');
 });
+}
 
 //----------------------------------------Popups Inscribir
 var overlayInscribir = document.querySelector('.overlay-inscribir');
@@ -128,12 +130,13 @@ function btnAbrirPopupInscribir() {
     overlayInscribir.classList.add('active');
     popupInscribir.classList.add('active');
 }
-
-btnCerrarPopupInscribir.addEventListener('click', function (e) {
-    e.preventDefault();
-    overlayInscribir.classList.remove('active');
-    popupInscribir.classList.remove('active');
-});
+if (btnCerrarPopupInscribir != null) {
+    btnCerrarPopupInscribir.addEventListener('click', function (e) {
+        e.preventDefault();
+        overlayInscribir.classList.remove('active');
+        popupInscribir.classList.remove('active');
+    });
+}
 
 
 //var btnAbrirPopup = document.querySelector('#abrir-editar');
@@ -156,11 +159,13 @@ function btnAbrirPopupEditar(alu, nombre, username) {
     popupEditar.classList.add('active');
 }
 
-btnCerrarPopupEditar.addEventListener('click', function (e) {
-    e.preventDefault();
-    overlayEditar.classList.remove('active');
-    popupEditar.classList.remove('active');
-});
+if (btnCerrarPopupEditar != null) {
+    btnCerrarPopupEditar.addEventListener('click', function (e) {
+        e.preventDefault();
+        overlayEditar.classList.remove('active');
+        popupEditar.classList.remove('active');
+    });
+}
 
 //var btnAbrirPopupStats = document.querySelector('#abrir-stats');
 var overlayStats = document.querySelector('.overlay-stats');
@@ -184,11 +189,13 @@ function btnAbrirPopupStats(alu, nombre) {
     popupStats.classList.add('active');
 }
 
-btnCerrarPopupStats.addEventListener('click', function (e) {
-    e.preventDefault();
-    overlayStats.classList.remove('active');
-    popupStats.classList.remove('active');
-});
+if (btnCerrarPopupStats != null) {
+    btnCerrarPopupStats.addEventListener('click', function (e) {
+        e.preventDefault();
+        overlayStats.classList.remove('active');
+        popupStats.classList.remove('active');
+    });
+}
 
 //Clasificar alumno popup
 function clasificarAlumno() {
@@ -203,20 +210,19 @@ function clasificarAlumno() {
         success: function (a) {
             $('.btn-clasificar').hide();
             $(".nom-alu-clasf").html(`<div style="text-align: center">
-                    <b>Este alumno es bueno para ${a}</b> 
+                    <b>Este alumno destaca en ${a}</b> 
                 <div>
             `);
         },
-        error: function(a){
-            console.log("error: "+a);
+        error: function (a) {
+            console.log("error: " + a);
         }
     });
 }
 
 //Set porcentaje default
 
-function setAllSelects()
-{
+function setAllSelects() {
     var selects = document.getElementsByName("porcentaje");
 
     for(var i = (selects.length - 1); i >= 0; i--)
