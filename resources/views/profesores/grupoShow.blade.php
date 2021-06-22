@@ -32,6 +32,9 @@
                 <a class="editar-nombre link-active" onclick="editarNombre()">editar nombre</a>
                 <a class="guardar-nombre" href="#" onclick="guardarNombre({{$gru->id}})">guardar nombre</a>
             </div>
+            <div class="">
+                <a class="" onclick="">Inscribir alumno</a>
+            </div>
         </div>
         <div class="tabs">
             <div class="tab-header">
