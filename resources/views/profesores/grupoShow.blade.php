@@ -85,7 +85,7 @@
                         </div>
                         <div class="separador"></div>
                         <div class="estadisticas">
-                          <div class="regresiones">
+                          <div class="regresiones-alumno">
                             <div class="reg-btn">
                               <h3>Materia</h3>
                               <form method="POST" action="{{ route('stats.SLR', 'profeGrupoMateria') }}">
@@ -167,19 +167,21 @@
             <form class="form-editar" method="POST" action="{{ route('alumnos.store') }}">
               @csrf
               <div class="form-editar">
+                <label>Nombre del grupo al que pertence</label>
                 <select name="grupo_id">
                     @foreach($grupos as $gru)
                     <option value="{{ $gru->id }}" {{ $gru->id == $grupo->id ? 'selected' : '' }}>
                         {{ $gru->nombre }}</option>
                     @endforeach
                 </select>
+                <br>
                 <label>Nombre del alumno</label>
                 <input class="nom-grupo-popup" type="text" name="nombre" required>
                 <br>
                 <label>Nombre único de ingreso</label>
                 <input class="cod-grupo-popup" type="text" name="username" required>
               </div>
-              <input type="submit" class="submit" value="Inscribir grupo">
+              <input type="submit" class="submit" value="Inscribir alumno">
             </form>
         </div>
     </div>
@@ -193,12 +195,14 @@
               @csrf
               <div class="form-editar">
                 <input class="idAlu-popup" type="hidden" name="idAlu">
+                <label>Nombre del grupo al que pertence</label>
                 <select name="grupo_id">
                     @foreach($grupos as $gru)
                     <option value="{{ $gru->id }}" {{ $gru->id == $grupo->id ? 'selected' : '' }}>
                         {{ $gru->nombre }}</option>
                     @endforeach
                 </select>
+                <br><br>
                 <label>Nombre del alumno</label>
                 <input class="nomAlu-popup" type="text" name="nombre" required>
                 <br>

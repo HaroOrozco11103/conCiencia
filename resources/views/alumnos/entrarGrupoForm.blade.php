@@ -7,7 +7,7 @@
             <img src="{{ asset('images/img/classroom.png') }}" alt="">
         </div>
         <div class="contenedor-form">
-            <form method="POST" action="{{ route('grupos.autenticar') }}">
+            <form class="form-log" method="POST" action="{{ route('grupos.autenticar') }}">
                 @csrf
                 <h2 class=title-entrar-grupo>Entrar a un grupo</h2>
                 <div class="input-div one">

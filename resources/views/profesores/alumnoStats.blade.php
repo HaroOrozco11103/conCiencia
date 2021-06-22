@@ -4,7 +4,7 @@
 <div class="card shadow">
     <div class="card-header">{{ __('Editar alumno') }}</div>
     <div class="card-body">
-        <form method="POST" action="{{ route('alumnos.update', $alumno->id) }}">
+        <form class="form-log" method="POST" action="{{ route('alumnos.update', $alumno->id) }}">
             <input type="hidden" name="_method" value="PATCH">
             @csrf
 

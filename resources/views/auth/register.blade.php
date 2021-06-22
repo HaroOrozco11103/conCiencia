@@ -8,10 +8,10 @@
         </div>
         <div class="contenedor-form">
             @if(isset($user))
-            <form method="POST" action="{{ route('users.update', $user->id) }}">
+            <form class="form-log" method="POST" action="{{ route('users.update', $user->id) }}">
                 <input type="hidden" name="_method" value="PATCH">
             @else
-            <form method="POST" action="{{ route('register') }}">
+            <form class="form-log" method="POST" action="{{ route('register') }}">
             @endif
                 @csrf
 

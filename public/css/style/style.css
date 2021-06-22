@@ -248,7 +248,7 @@ body{
     text-align: center;
     padding: 0 2rem;
 }
-form{
+.form-log{
     width: 360px;
 }
 form h2{
@@ -381,6 +381,9 @@ form h2{
 #hide1-check{
     display: none;
 }
+#hide1-old{
+    display: none;
+}
 /*--------------------------------Nav-Grupos/dinamicas-----------------------------------------*/
 .nav-oculta{
     grid-template-columns: 5% 95%;
@@ -507,6 +510,14 @@ form h2{
     color: #000000;
     text-transform: uppercase;
     font-family: 'Recursive', sans-serif;
+}
+.nomAluStats-popup{
+    align-items: center;
+    outline: none;
+    border: none;
+    font-size: 1.25rem;
+    color: #000000;
+    background-color: #F8F8F8;
 }
 .grupo-codigo > h2{
     font-weight: bold !important;
@@ -677,7 +688,6 @@ form h2{
 }
 .form-editar{
 	opacity: 100;
-    width: 100%;
 }
 .form-editar > input {
 	width: 100%;
@@ -709,15 +719,17 @@ form h2{
     margin-left: auto;
     margin-right: auto;
     top: 4rem;
-    width: 70%;
+    width: 73%;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background-color: white;
 }
 .instrucciones{
     justify-content: space-around;
     align-items: center;
     text-align: justify;
+    padding: 2rem;
 }
 .instrucciones > h2{
     text-align: center !important;
@@ -727,7 +739,7 @@ form h2{
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: 30vh;
     grid-gap: 5px;
-    padding: 10px;
+    padding: 2rem;
     overflow: auto;
 }
 .regresiones-alumno{
@@ -753,6 +765,9 @@ select {
 }
 .btn-consultar{
     width: 50% !important;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 /*---------------------------REGRESION-----------------------------*/
 .contenedor-regresion{
@@ -778,10 +793,14 @@ select {
 .instrucciones > h2{
     text-align: center !important;
 }
+.SLR-form > div{
+    justify-content: center;
+    align-items: center;
+}
 .background{
     background-image: url("../../images/img/fondo.jpg");
     background-repeat:repeat;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -1;
 }

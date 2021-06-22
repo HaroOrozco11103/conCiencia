@@ -34,6 +34,22 @@ function showPass() {
     }
 }
 
+function showOldPass() {
+    var x = document.querySelector("#oldPassword");
+    var y = document.getElementById("hide1-old");
+    var z = document.getElementById("hide2-old");
+
+    if (x.type === 'password') {
+        x.type = "text";
+        y.style.display = "block";
+        z.style.display = "none";
+    } else {
+        x.type = "password";
+        y.style.display = "none";
+        z.style.display = "block";
+    }
+}
+
 function showCheckPass() {
     var x = document.getElementById("password-confirm");
     var y = document.getElementById("hide1-check");

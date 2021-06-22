@@ -7,7 +7,7 @@
         <img src="{{ asset('images/img/teacher.png') }}" alt="">
     </div>
     <div class="contenedor-form">
-        <form method="POST" action="{{ route('users.updatePsw', $user->id) }}">
+        <form class="form-log" method="POST" action="{{ route('users.updatePsw', $user->id) }}">
             <input type="hidden" name="_method" value="PATCH">
             @csrf
 
@@ -21,9 +21,9 @@
                     <h5>Contraseña anterior</h5>
                     <input id="oldPassword" type="password" class="input" name="oldPassword">
                 </div>
-                <span class="show-pass" onclick="showPass()">
-                    <i id="hide1" class="fas fa-eye"></i>
-                    <i id="hide2" class="fas fa-eye-slash"></i>
+                <span class="show-pass" onclick="showOldPass()">
+                    <i id="hide1-old" class="fas fa-eye"></i>
+                    <i id="hide2-old" class="fas fa-eye-slash"></i>
                 </span>
             </div>
 

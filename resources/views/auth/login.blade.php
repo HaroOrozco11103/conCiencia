@@ -7,7 +7,7 @@
             <img src="{{ asset('images/img/teacher.png') }}" alt="">
         </div>
         <div class="contenedor-form">
-            <form method="POST" action="{{ route('login') }}">
+            <form class="form-log" method="POST" action="{{ route('login') }}">
                 @csrf
                 <h2 class=title-entrar-profesor>INICIAR SESIÓN PROFESOR</h2>
                 <div class="input-div one">
