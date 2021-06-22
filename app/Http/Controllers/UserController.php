@@ -105,11 +105,8 @@ class UserController extends Controller
       $user->email = $request->input('email');
       $user->save();
 
-      return redirect()->route('users.edit', 'id')
-        ->with([
-            'mensaje' => 'Tu información ha sido actualizada exitosamente',
-            'alert-class' => 'alert-warning'
-        ]);
+      $grupo = Grupo::where('user_id',\Auth::user()->id)->get();
+      return redirect()->route('grupos.show', $grupo[0]->id);
     }
 
     /**
@@ -131,11 +128,9 @@ class UserController extends Controller
         {
           $user->password = Hash::make($request->password);
           $user->save();
-          return redirect()->route('users.edit', $user->id)
-            ->with([
-                'mensaje' => 'Tu contraseña ha sido actualizada exitosamente',
-                'alert-class' => 'alert-warning'
-            ]);
+
+          $grupo = Grupo::where('user_id',\Auth::user()->id)->get();
+          return redirect()->route('grupos.show', $grupo[0]->id);
         }
         else
         {
