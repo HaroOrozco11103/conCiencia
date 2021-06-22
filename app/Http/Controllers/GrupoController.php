@@ -90,7 +90,7 @@ class GrupoController extends Controller
         $gru->nombre = $request->input('nombre');
         $gru->codigo = $request->input('codigo');
         $gru->user_id = \Auth::user()->id;
-        
+
         $gru->save();
         return redirect()->route('grupos.show', $gru->id)
           ->with([
@@ -109,6 +109,15 @@ class GrupoController extends Controller
     {
         $profeId = \Auth::user()->id;
         $grupos = DB::table('grupos')->where('user_id', $profeId)->get();
+        if($grupos->all() == [])
+        {
+          $gru = new Grupo();
+          $gru->nombre = "Grupo genérico";
+          $gru->codigo = \Auth::user()->username;
+          $gru->user_id = \Auth::user()->id;
+          $gru->save();
+          $grupos = $gru;
+        }
         $alumnos = DB::table('alumnos')->where('grupo_id', $grupo->id)->get();
         $materias = DB::select('SELECT `id`, `nombre` FROM `conciencia`.`asignaturas`', [1]);
         return view('profesores.grupoShow', compact('grupos', 'profeId','grupo', 'alumnos', 'materias'));
