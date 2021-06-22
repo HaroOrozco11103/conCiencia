@@ -116,11 +116,11 @@ class GrupoController extends Controller
           $gru->codigo = \Auth::user()->username;
           $gru->user_id = \Auth::user()->id;
           $gru->save();
-          $grupos = $gru;
+          return redirect()->route('grupos.show', $gru->id);
         }
         $alumnos = DB::table('alumnos')->where('grupo_id', $grupo->id)->get();
         $materias = DB::select('SELECT `id`, `nombre` FROM `conciencia`.`asignaturas`', [1]);
-        return view('profesores.grupoShow', compact('grupos', 'profeId','grupo', 'alumnos', 'materias'));
+        return view('profesores.grupoShow', compact('grupos', 'profeId', 'grupo', 'alumnos', 'materias'));
     }
 
     /**
