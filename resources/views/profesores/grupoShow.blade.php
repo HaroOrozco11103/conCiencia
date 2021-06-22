@@ -42,7 +42,7 @@
                     <i class="fas fa-users"></i><br> Grupo
                 </div>
                 <div>
-                    <i class="fas fa-chart-bar"></i><br> Estadisticas
+                    <i class="fas fa-chart-bar"></i><br> Stats
                 </div>
             </div>
             <div class="tab-indicator"></div>
