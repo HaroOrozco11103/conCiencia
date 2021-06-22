@@ -119,6 +119,22 @@ btnCerrarPopupCrear.addEventListener('click', function (e) {
     popupCrear.classList.remove('active');
 });
 
+//----------------------------------------Popups Inscribir
+var overlayInscribir = document.querySelector('.overlay-inscribir');
+var popupInscribir = document.querySelector('.pop-up-inscribir');
+var btnCerrarPopupInscribir = document.querySelector('.cerrar-popup-inscribir');
+
+function btnAbrirPopupInscribir() {
+    overlayInscribir.classList.add('active');
+    popupInscribir.classList.add('active');
+}
+
+btnCerrarPopupInscribir.addEventListener('click', function (e) {
+    e.preventDefault();
+    overlayInscribir.classList.remove('active');
+    popupInscribir.classList.remove('active');
+});
+
 
 //var btnAbrirPopup = document.querySelector('#abrir-editar');
 var overlayEditar = document.querySelector('.overlay-editar');
