@@ -204,3 +204,16 @@ function clasificarAlumno() {
         }
     });
 }
+
+//Set porcentaje default
+
+function setAllSelects()
+{
+    var selects = document.getElementsByName("porcentaje");
+
+    for(var i = (selects.length - 1); i >= 0; i--)
+    {
+        selects[i].value = 1;
+    }
+}
+setAllSelects();
