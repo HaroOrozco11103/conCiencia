@@ -145,6 +145,7 @@
         <div class="pop-up-crear pop-up">
         <a href="#" class="cerrar-popup-crear cerrar-popup"><i class="fas fa-times"></i></a>
             <h3>Crear grupo</h3>
+            <br>
             <form class="form-editar" method="POST" action="{{ route('grupos.store') }}">
               @csrf
               <div class="form-editar">
@@ -162,6 +163,7 @@
         <div class="pop-up-inscribir pop-up">
         <a href="#" class="cerrar-popup-inscribir cerrar-popup"><i class="fas fa-times"></i></a>
             <h3>Inscribir alumno</h3>
+            <br>
             <form class="form-editar" method="POST" action="{{ route('alumnos.store') }}">
               @csrf
               <div class="form-editar">
@@ -185,6 +187,7 @@
         <div class="pop-up-editar pop-up">
         <a href="#" class="cerrar-popup-editar cerrar-popup"><i class="fas fa-times"></i></a>
             <h3>Editar alumno</h3>
+            <br>
             <form class="form-editar" method="POST" action="{{ route('alumnos.update', $grupo->id) }}">
               <input type="hidden" name="_method" value="PATCH">
               @csrf
