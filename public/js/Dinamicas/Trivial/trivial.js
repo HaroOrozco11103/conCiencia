@@ -44,7 +44,7 @@ function inicializar_juego(){
 
     limpiar();
     segundos = 30;
-    minutos = 3;
+    minutos = 2;
     finDelJuego = false;
     reiniciar = false;
 
